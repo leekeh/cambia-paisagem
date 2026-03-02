@@ -37,7 +37,6 @@ export const de: Translations = {
   },
   reviews: {
     pageTitle: "Kundenbewertungen",
-    verified: "Verifizierter Besuch",
     backHome: "Zurück zur Startseite",
   },
   booking: {
@@ -67,6 +66,7 @@ export const de: Translations = {
   },
   meta: {
     siteName: "CambiaPaisagem",
-    description: "Private Touren in Lissabon und Portugal. Entdecken Sie Portugal nach Ihrem Maß.",
+    description:
+      "Private Touren in Lissabon und Portugal. Entdecken Sie Portugal nach Ihrem Maß.",
   },
 };

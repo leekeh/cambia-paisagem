@@ -35,7 +35,6 @@ export const pt = {
   },
   reviews: {
     pageTitle: "Comentários dos Clientes",
-    verified: "Visita Verificada",
     backHome: "Voltar ao início",
   },
   booking: {

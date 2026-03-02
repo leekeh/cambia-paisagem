@@ -19,7 +19,11 @@ const formattedDate = data.date
 ---
 
 <article class="review-card">
-  <div class="review-card__stars" aria-label={`${data.rating} out of 5 stars`}>
+  <div
+    class="review-card__stars"
+    role="img"
+    aria-label={`${data.rating} out of 5 stars`}
+  >
     {
       Array.from({ length: 5 }).map((_, i) => (
         <span

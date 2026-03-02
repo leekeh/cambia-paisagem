@@ -37,7 +37,6 @@ export const en: Translations = {
   },
   reviews: {
     pageTitle: "Client Reviews",
-    verified: "Verified Visit",
     backHome: "Back to home",
   },
   booking: {
@@ -67,6 +66,7 @@ export const en: Translations = {
   },
   meta: {
     siteName: "CambiaPaisagem",
-    description: "Private tours in Lisbon and Portugal. Discover Portugal tailored for you.",
+    description:
+      "Private tours in Lisbon and Portugal. Discover Portugal tailored for you.",
   },
 };

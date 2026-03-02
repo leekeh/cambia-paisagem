@@ -104,17 +104,6 @@ const avgRating = (
                       <span class="review-full-card__author">
                         {review.data.author}
                       </span>
-                      <span class="review-full-card__verified">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                        >
-                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {tr.reviews.verified}
-                      </span>
                     </div>
                   </div>
                   <div class="review-full-card__meta">
@@ -206,13 +195,13 @@ const avgRating = (
     justify-content: space-between;
     align-items: flex-start;
     gap: var(--space-4);
-    flex-wrap: wrap;
   }
 
   .review-full-card__stars {
     font-size: var(--text-xl);
     letter-spacing: 1px;
     margin-bottom: var(--space-1);
+    text-wrap: nowrap;
   }
 
   .review-full-card__author-row {
@@ -225,18 +214,6 @@ const avgRating = (
   .review-full-card__author {
     font-size: var(--text-base);
     font-weight: 600;
-  }
-
-  .review-full-card__verified {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: var(--text-xs);
-    color: #2d8a4e;
-    background: #e8f5ee;
-    padding: 2px 8px;
-    border-radius: var(--radius-pill);
-    font-weight: 500;
   }
 
   .review-full-card__meta {
@@ -260,6 +237,8 @@ const avgRating = (
     text-decoration: none;
     font-weight: 500;
     transition: background var(--transition-base);
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
   }
 
   .review-full-card__tour:hover {
