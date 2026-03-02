@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TourCard from "../../components/TourCard.astro";
+import ReviewCard from "../../components/ReviewCard.astro";
+import { getCollection } from "astro:content";
+import { useTranslations, languages } from "../../i18n/index";
+import type { Lang } from "../../i18n/index";
+import { Image } from "astro:assets";
+import heroImg from "../../assets/images/hero-lisbon.jpg";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+
+const allTours = await getCollection("tours");
+const allReviews = await getCollection("reviews");
+// Show up to 3 featured reviews
+const featuredReviews = allReviews.slice(0, 3);
+// Show up to 3 featured tours
+const featuredTours = allTours.slice(0, 3);
+---
+
+<BaseLayout lang={lang}>
+  <!-- Hero -->
+  <section class="hero">
+    <Image
+      src={heroImg}
+      alt="Lisboa"
+      class="hero__img"
+      width={1200}
+      height={720}
+      loading="eager"
+    />
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">CambiaPaisagem</h1>
+      <p class="hero__tagline">{t.hero.tagline}</p>
+      <a href={`/${lang}/tours`} class="btn hero__cta">{t.hero.cta}</a>
+    </div>
+  </section>
+
+  <!-- Featured Tours -->
+  <section class="section" id="tours">
+    <div class="container">
+      <h2 class="section-title">{t.home.featuredTitle}</h2>
+      <div class="tours-grid">
+        {featuredTours.map((tour) => <TourCard tour={tour} lang={lang} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section
+    class="section"
+    id="reviews"
+    style="background: var(--color-surface);"
+  >
+    <div class="container">
+      <h2 class="section-title">{t.home.reviewsTitle}</h2>
+      <div class="reviews-grid">
+        {
+          featuredReviews.map((review) => (
+            <ReviewCard review={review} lang={lang} />
+          ))
+        }
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={`/${lang}/reviews`} class="btn btn-outline"
+          >{t.home.allReviews}</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">{t.home.contactTitle}</h2>
+      <div class="contact-info">
+        <div class="contact-info__item">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72..."
+            ></path>
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.4 2.12 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"
+            ></path>
+          </svg>
+          <span>{t.contact.phone_number}</span>
+        </div>
+        <div class="contact-info__item">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>{t.contact.email_address}</span>
+        </div>
+        <a href={`/${lang}/contact`} class="btn btn-primary"
+          >{t.home.sendMessage}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import BookingModal from "../../../components/BookingModal.tsx";
+import { getCollection } from "astro:content";
+import { useTranslations, languages, t, tArr } from "../../../i18n/index";
+import type { Lang } from "../../../i18n/index";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const allTours = await getCollection("tours");
+  const langs = Object.keys(languages) as Lang[];
+  return langs.flatMap((lang) =>
+    allTours.map((tour) => ({
+      params: { lang, slug: tour.data.slug },
+      props: { tour },
+    })),
+  );
+}
+
+const { lang, slug } = Astro.params as { lang: Lang; slug: string };
+const { tour } = Astro.props;
+const tr = useTranslations(lang);
+
+const title = t(tour.data.title, lang);
+const description = t(tour.data.description, lang);
+const highlights = tArr(tour.data.highlights, lang);
+---
+
+<BaseLayout lang={lang} title={title}>
+  <section class="section">
+    <div class="container" style="max-width: 860px;">
+      <Image
+        src={tour.data.image}
+        alt={title}
+        class="tour-detail__hero"
+        width={860}
+        height={480}
+      />
+
+      <h1
+        style="font-family: var(--font-serif); font-size: var(--text-4xl); font-weight: 400; margin-bottom: var(--space-6);"
+      >
+        {title}
+      </h1>
+
+      <div class="tour-detail__meta">
+        <div class="tour-detail__meta-item">
+          <span class="tour-detail__meta-label">{tr.tours.duration}</span>
+          <span class="tour-detail__meta-value"
+            >{tour.data.duration} {tr.tours.hours}</span
+          >
+        </div>
+        <div class="tour-detail__meta-item">
+          <span class="tour-detail__meta-label">{tr.tours.price}</span>
+          <span class="tour-detail__meta-value"
+            >{tr.tours.from} £{tour.data.price}</span
+          >
+        </div>
+      </div>
+
+      <p
+        style="font-size: var(--text-lg); line-height: 1.8; color: var(--color-text-muted); margin-bottom: var(--space-8);"
+      >
+        {description}
+      </p>
+
+      <div class="tour-detail__highlights">
+        <h2
+          style="font-family: var(--font-serif); font-size: var(--text-2xl); font-weight: 400; margin-bottom: var(--space-4);"
+        >
+          {tr.tours.highlights}
+        </h2>
+        <ul>
+          {highlights.map((h) => <li>{h}</li>)}
+        </ul>
+      </div>
+
+      <div
+        style="margin-top: var(--space-12); display: flex; justify-content: center;"
+      >
+        <BookingModal
+          client:load
+          tourTitle={title}
+          tourSlug={slug}
+          lang={lang}
+          translations={{
+            booking: tr.booking,
+            tours: { book: tr.tours.book },
+          }}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

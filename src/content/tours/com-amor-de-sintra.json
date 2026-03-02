@@ -1,0 +1,37 @@
+{
+  "slug": "com-amor-de-sintra",
+  "image": "../../assets/images/tour-sintra.jpg",
+  "price": 50,
+  "duration": 4,
+  "category": "half-day",
+  "title": {
+    "pt": "Com Amor de Sintra",
+    "en": "With Love from Sintra",
+    "de": "Mit Liebe aus Sintra"
+  },
+  "description": {
+    "pt": "Uma tarde mágica em Sintra, a vila dos contos de fadas. Visite o encantador Palácio Nacional e passeie pelas ruelas floridas com um guia apaixonado pela história local.",
+    "en": "A magical afternoon in Sintra, the village of fairy tales. Visit the charming National Palace and stroll through flower-lined lanes with a guide passionate about local history.",
+    "de": "Ein zauberhafter Nachmittag in Sintra, dem Märchendorf. Besuchen Sie den charmanten Nationalpalast und schlendern Sie durch blumengesäumte Gassen mit einem leidenschaftlichen Ortskundigen."
+  },
+  "highlights": {
+    "pt": [
+      "Palácio Nacional de Sintra",
+      "Centro histórico",
+      "Ginjinha local",
+      "Guia privado"
+    ],
+    "en": [
+      "Sintra National Palace",
+      "Historic centre",
+      "Local ginjinha",
+      "Private guide"
+    ],
+    "de": [
+      "Nationalpalast Sintra",
+      "Historisches Zentrum",
+      "Lokale Ginjinha",
+      "Privatführer"
+    ]
+  }
+}

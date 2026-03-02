@@ -1,0 +1,16 @@
+{
+  "rating": 5,
+  "author": "Thomas",
+  "date": "2025-11-03",
+  "tourSlug": "mil-anos-de-historia",
+  "summary": {
+    "pt": "Uma experiência incrível. Hei-de recomendar.",
+    "en": "An incredible experience. I will recommend it.",
+    "de": "Ein unglaubliches Erlebnis. Ich werde es weiterempfehlen."
+  },
+  "content": {
+    "pt": "Passámos um dia fantástico a explorar Lisboa. O guia foi extremamente atencioso e o itinerário foi perfeitamente organizado. Vale cada cêntimo!",
+    "en": "We spent a fantastic day exploring Lisbon. The guide was extremely attentive and the itinerary was perfectly organised. Worth every cent!",
+    "de": "Wir haben einen fantastischen Tag damit verbracht, Lissabon zu erkunden. Der Führer war äußerst aufmerksam und das Programm war perfekt organisiert. Jeden Cent wert!"
+  }
+}

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ToursFilter from "../../../components/ToursFilter.tsx";
+import AppMantineProvider from "../../../components/MantineProvider.tsx";
+import { getCollection } from "astro:content";
+import { useTranslations, languages, t } from "../../../i18n/index";
+import type { Lang } from "../../../i18n/index";
+import { getImage } from "astro:assets";
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const tr = useTranslations(lang);
+
+const allTours = await getCollection("tours");
+
+// Pre-optimise images so we can pass URLs to the client-side component
+const toursData = await Promise.all(
+  allTours.map(async (tour) => {
+    const img = await getImage({
+      src: tour.data.image,
+      width: 480,
+      height: 360,
+    });
+    return {
+      slug: tour.data.slug,
+      title: t(tour.data.title, lang),
+      price: tour.data.price,
+      duration: tour.data.duration,
+      imageUrl: img.src,
+      href: `/${lang}/tours/${tour.data.slug}`,
+      viewMoreLabel: tr.home.viewMore,
+      fromLabel: tr.tours.from,
+      hoursLabel: tr.tours.hours,
+    };
+  }),
+);
+---
+
+<BaseLayout lang={lang} title={tr.tours.pageTitle}>
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">{tr.tours.pageTitle}</h1>
+      <ToursFilter
+        client:load
+        tours={toursData}
+        translations={{
+          sortLabel: tr.tours.sortLabel,
+          sortPrice: tr.tours.sortPrice,
+          sortDuration: tr.tours.sortDuration,
+          filterDurationMax: tr.tours.filterDurationMax,
+          filterDurationMin: tr.tours.filterDurationMin,
+          noResults: tr.tours.noResults,
+        }}
+      />
+    </div>
+  </section>
+</BaseLayout>

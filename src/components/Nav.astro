@@ -1,0 +1,99 @@
+---
+import type { Lang } from "../i18n/index";
+import { useTranslations, languages } from "../i18n/index";
+import NavIsland from "./NavIsland.tsx";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+
+function getLangUrl(targetLang: Lang): string {
+  const withoutLang = currentPath.replace(new RegExp(`^/${lang}`), "") || "/";
+  return `/${targetLang}${withoutLang}`;
+}
+
+const navLinks = [
+  { href: `/${lang}/tours`, label: t.nav.tours },
+  { href: `/${lang}/reviews`, label: t.nav.reviews },
+  { href: `/${lang}/contact`, label: t.nav.contact },
+];
+
+const langOptions = Object.entries(languages).map(([code, info]) => ({
+  code,
+  label: info.label,
+  flag: info.flag,
+  href: getLangUrl(code as Lang),
+}));
+---
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href={`/${lang}/`} class="nav__brand">CambiaPaisagem</a>
+
+    <ul class="nav__links" role="list">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <NavIsland
+      client:load
+      links={navLinks}
+      langOptions={langOptions}
+      currentLang={lang}
+      langLabel={t.nav.language}
+    />
+  </div>
+</nav>
+
+<style>
+  /* Language trigger button */
+  :global(.lang-trigger) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0.3rem 0.75rem 0.3rem 0.5rem;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    transition:
+      background var(--transition-base),
+      border-color var(--transition-base);
+  }
+  :global(.lang-trigger:hover) {
+    background: var(--color-surface);
+    border-color: var(--color-text-muted);
+  }
+  :global(.lang-trigger__label) {
+    font-weight: 500;
+  }
+
+  /* Show language menu on desktop, hide burger */
+  :global(.nav__lang-menu) {
+    display: flex;
+  }
+  :global(.nav__burger) {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    :global(.nav__lang-menu) {
+      display: none;
+    }
+    :global(.nav__burger) {
+      display: flex;
+    }
+  }
+</style>

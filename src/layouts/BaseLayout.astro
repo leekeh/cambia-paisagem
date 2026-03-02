@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+
+import type { Lang } from "../i18n/index";
+import { useTranslations } from "../i18n/index";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title, description } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = title ? `${title} — ${t.meta.siteName}` : t.meta.siteName;
+const pageDesc = description ?? t.meta.description;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDesc} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Nav lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; {new Date().getFullYear()}
+          {t.meta.siteName}. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

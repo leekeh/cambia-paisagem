@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import type { Lang } from "../i18n/index";
+import { useTranslations, t } from "../i18n/index";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  tour: CollectionEntry<"tours">;
+  lang: Lang;
+}
+
+const { tour, lang } = Astro.props;
+const tr = useTranslations(lang);
+const { data } = tour;
+---
+
+<article class="tour-card">
+  <a href={`/${lang}/tours/${data.slug}`}>
+    <Image
+      src={data.image}
+      alt={t(data.title, lang)}
+      class="tour-card__img"
+      width={480}
+      height={360}
+    />
+  </a>
+  <div class="tour-card__body">
+    <h3 class="tour-card__title">
+      <a href={`/${lang}/tours/${data.slug}`}>{t(data.title, lang)}</a>
+    </h3>
+    <div class="tour-card__meta">
+      <span class="tour-card__meta-item">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+        </svg>
+        {data.duration}
+        {tr.tours.hours}
+      </span>
+      <span class="tour-card__price">
+        {tr.tours.from}
+        <strong>£{data.price}</strong>
+      </span>
+    </div>
+    <div class="tour-card__footer">
+      <a href={`/${lang}/tours/${data.slug}`} class="btn btn-outline">
+        {tr.home.viewMore}
+      </a>
+    </div>
+  </div>
+</article>

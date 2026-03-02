@@ -1,0 +1,73 @@
+export const pt = {
+  nav: {
+    tours: "Tours",
+    reviews: "Comentários",
+    contact: "Contactos",
+    language: "Idioma",
+  },
+  hero: {
+    tagline: "Portugal à sua medida",
+    cta: "Tours",
+  },
+  home: {
+    featuredTitle: "Mais Solicitados",
+    reviewsTitle: "Comentários dos Clientes",
+    contactTitle: "Contactos",
+    viewMore: "Ver Mais",
+    sendMessage: "Enviar Mensagem",
+    allReviews: "Ver Todos os Comentários",
+  },
+  tours: {
+    pageTitle: "Os Nossos Tours",
+    sortLabel: "Ordenar por",
+    sortPrice: "Preço",
+    sortDuration: "Duração",
+    filterDurationMax: "Duração máxima (h)",
+    filterDurationMin: "Duração mínima (h)",
+    from: "Desde",
+    hours: "h",
+    book: "Reservar",
+    highlights: "Destaques",
+    duration: "Duração",
+    price: "Preço",
+    all: "Todos",
+    noResults: "Nenhum tour encontrado.",
+  },
+  reviews: {
+    pageTitle: "Comentários dos Clientes",
+    verified: "Visita Verificada",
+    backHome: "Voltar ao início",
+  },
+  booking: {
+    title: "Reservar Tour",
+    name: "Nome",
+    email: "Email",
+    date: "Data Preferida",
+    guests: "Nº de Pessoas",
+    notes: "Notas",
+    submit: "Enviar Pedido",
+    success: "Pedido enviado! Entraremos em contacto em breve.",
+    error: "Ocorreu um erro. Por favor tente novamente.",
+  },
+  contact: {
+    pageTitle: "Contactos",
+    name: "Nome",
+    email: "Email",
+    phone: "Telefone",
+    tour: "Tour de Interesse",
+    message: "Mensagem",
+    submit: "Enviar Mensagem",
+    success: "Mensagem enviada! Responderemos em breve.",
+    error: "Ocorreu um erro. Por favor tente novamente.",
+    selectTour: "Selecione um tour",
+    phone_number: "+351 21 123 4567",
+    email_address: "info@cambiapaisagem.pt",
+  },
+  meta: {
+    siteName: "CambiaPaisagem",
+    description:
+      "Tours privados em Lisboa e Portugal. Descubra Portugal à sua medida.",
+  },
+};
+
+export type Translations = typeof pt;

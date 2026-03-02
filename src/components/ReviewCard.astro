@@ -1,0 +1,43 @@
+---
+import type { Lang } from "../i18n/index";
+import { t } from "../i18n/index";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  review: CollectionEntry<"reviews">;
+  lang: Lang;
+}
+
+const { review, lang } = Astro.props;
+const { data } = review;
+const formattedDate = data.date
+  ? new Date(data.date).toLocaleDateString(
+      lang === "pt" ? "pt-PT" : lang === "de" ? "de-DE" : "en-GB",
+      { year: "numeric", month: "short", day: "numeric" },
+    )
+  : null;
+---
+
+<article class="review-card">
+  <div class="review-card__stars" aria-label={`${data.rating} out of 5 stars`}>
+    {
+      Array.from({ length: 5 }).map((_, i) => (
+        <span
+          aria-hidden="true"
+          style={
+            i < data.rating
+              ? "color: var(--color-star)"
+              : "color: var(--color-border)"
+          }
+        >
+          ★
+        </span>
+      ))
+    }
+  </div>
+  <p class="review-card__summary">"{t(data.summary, lang)}"</p>
+  <footer class="review-card__footer">
+    <span class="review-card__author">{data.author}</span>
+    {formattedDate && <span class="review-card__date">{formattedDate}</span>}
+  </footer>
+</article>

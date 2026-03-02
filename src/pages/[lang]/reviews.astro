@@ -1,0 +1,289 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { useTranslations, languages, t } from "../../i18n/index";
+import type { Lang } from "../../i18n/index";
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const tr = useTranslations(lang);
+
+const allReviews = await getCollection("reviews");
+// Sort newest first
+const reviews = [...allReviews].sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+
+const allTours = await getCollection("tours");
+const tourMap = Object.fromEntries(
+  allTours.map((tour) => [tour.data.slug, t(tour.data.title, lang)]),
+);
+
+// Format date for display
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString(
+    lang === "pt" ? "pt-PT" : lang === "de" ? "de-DE" : "en-GB",
+    { year: "numeric", month: "long", day: "numeric" },
+  );
+}
+
+// Calculate average rating
+const avgRating = (
+  allReviews.reduce((sum, r) => sum + r.data.rating, 0) / allReviews.length
+).toFixed(1);
+---
+
+<BaseLayout lang={lang} title={tr.reviews.pageTitle}>
+  <section class="section">
+    <div class="container">
+      <!-- Header -->
+      <div class="reviews-page__header">
+        <div>
+          <h1 class="section-title" style="margin-bottom: var(--space-2);">
+            {tr.reviews.pageTitle}
+          </h1>
+          <div class="reviews-page__stats">
+            <span class="reviews-page__avg-stars">
+              {
+                Array.from({ length: 5 }).map((_, i) => (
+                  <span
+                    style={
+                      i < Math.round(Number(avgRating))
+                        ? "color:var(--color-star)"
+                        : "color:var(--color-border)"
+                    }
+                  >
+                    ★
+                  </span>
+                ))
+              }
+            </span>
+            <span class="reviews-page__avg-num">{avgRating}</span>
+            <span class="reviews-page__count"
+              >({allReviews.length} {tr.reviews.pageTitle.toLowerCase()})</span
+            >
+          </div>
+        </div>
+        <a
+          href={`/${lang}/`}
+          class="btn btn-outline"
+          style="align-self: flex-start;"
+        >
+          ← {tr.reviews.backHome}
+        </a>
+      </div>
+
+      <!-- Reviews grid -->
+      <div class="reviews-page__grid">
+        {
+          reviews.map((review) => {
+            const tourTitle = review.data.tourSlug
+              ? tourMap[review.data.tourSlug]
+              : null;
+            return (
+              <article class="review-full-card">
+                <div class="review-full-card__header">
+                  <div>
+                    <div class="review-full-card__stars">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <span
+                          style={
+                            i < review.data.rating
+                              ? "color:var(--color-star)"
+                              : "color:var(--color-border)"
+                          }
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                    <div class="review-full-card__author-row">
+                      <span class="review-full-card__author">
+                        {review.data.author}
+                      </span>
+                      <span class="review-full-card__verified">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {tr.reviews.verified}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="review-full-card__meta">
+                    <span class="review-full-card__date">
+                      {formatDate(review.data.date)}
+                    </span>
+                    {tourTitle && (
+                      <a
+                        href={`/${lang}/tours/${review.data.tourSlug}`}
+                        class="review-full-card__tour"
+                      >
+                        {tourTitle}
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <p class="review-full-card__summary">
+                  "{t(review.data.summary, lang)}"
+                </p>
+                <p class="review-full-card__content">
+                  {t(review.data.content, lang)}
+                </p>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .reviews-page__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .reviews-page__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+  }
+
+  .reviews-page__avg-stars {
+    font-size: var(--text-xl);
+    letter-spacing: 1px;
+  }
+
+  .reviews-page__avg-num {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+  }
+
+  .reviews-page__count {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .reviews-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* Full review card */
+  .review-full-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition: box-shadow var(--transition-base);
+  }
+
+  .review-full-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .review-full-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .review-full-card__stars {
+    font-size: var(--text-xl);
+    letter-spacing: 1px;
+    margin-bottom: var(--space-1);
+  }
+
+  .review-full-card__author-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .review-full-card__author {
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .review-full-card__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--text-xs);
+    color: #2d8a4e;
+    background: #e8f5ee;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    font-weight: 500;
+  }
+
+  .review-full-card__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+  }
+
+  .review-full-card__date {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .review-full-card__tour {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background var(--transition-base);
+  }
+
+  .review-full-card__tour:hover {
+    background: var(--color-border);
+  }
+
+  .review-full-card__summary {
+    font-size: var(--text-base);
+    font-style: italic;
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  .review-full-card__content {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .reviews-page__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
