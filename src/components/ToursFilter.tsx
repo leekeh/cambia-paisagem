@@ -41,7 +41,7 @@ interface Props {
 function ToursFilterInner({ tours, translations: tr }: Props) {
   const minDuration = Math.min(...tours.map((t) => t.duration));
   const maxDuration = Math.max(...tours.map((t) => t.duration));
-  const [sort, setSort] = useState<string | null>("price-asc");
+  const [sort, setSort] = useState<string | null>("duration-asc");
   const [minDur, setMinDur] = useState(minDuration);
   const [maxDur, setMaxDur] = useState(maxDuration);
 
