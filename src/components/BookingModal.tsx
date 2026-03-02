@@ -107,7 +107,7 @@ function BookingModalInner({
         radius="md"
       >
         {status === "success" ? (
-          <Text c="green" ta="center" py="xl">
+          <Text ta="center" py="xl">
             {tr.booking.success}
           </Text>
         ) : (
