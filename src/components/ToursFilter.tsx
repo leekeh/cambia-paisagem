@@ -173,7 +173,7 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                     {tour.duration} {tour.hoursLabel}
                   </span>
                   <span className="tour-card__price">
-                    {tour.fromLabel} <strong>£{tour.price}</strong>
+                    {tour.fromLabel} <strong>€{tour.price}</strong>
                   </span>
                 </div>
                 <div className="tour-card__footer">
