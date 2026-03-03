@@ -65,8 +65,11 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
     <>
       <div className={styles.toursControls}>
         <div className={styles.toursControlsGroup} style={{ minWidth: 180 }}>
-          <label className={styles.toursControlsLabel}>{tr.sortLabel}</label>
+          <label className={styles.toursControlsLabel} id="sort-label">
+            {tr.sortLabel}
+          </label>
           <Select
+            aria-labelledby="sort-label"
             value={sort}
             onChange={setSort}
             radius="md"
@@ -92,10 +95,12 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                   color: "var(--color-text-muted)",
                   marginBottom: "0.4rem",
                 }}
+                id="min-duration-label"
               >
                 {tr.filterDurationMin}
               </div>
               <Slider
+                thumbLabel={tr.filterDurationMin}
                 value={minDur}
                 onChange={(v) => {
                   setMinDur(v);
@@ -113,6 +118,7 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
             </div>
             <div style={{ flex: 1 }}>
               <div
+                id="max-duration-label"
                 style={{
                   fontSize: "0.75rem",
                   color: "var(--color-text-muted)",
@@ -122,6 +128,7 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                 {tr.filterDurationMax}
               </div>
               <Slider
+                thumbLabel={tr.filterDurationMax}
                 value={maxDur}
                 onChange={(v) => {
                   setMaxDur(v);
@@ -155,9 +162,9 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                 />
               </a>
               <div className={styles.tourCardBody}>
-                <h3 className={styles.tourCardTitle}>
+                <h2 className={styles.tourCardTitle}>
                   <a href={tour.href}>{tour.title}</a>
-                </h3>
+                </h2>
                 <div className={styles.tourCardMeta}>
                   <span className={styles.tourCardMetaItem}>
                     <svg
