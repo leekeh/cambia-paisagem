@@ -9,6 +9,7 @@ import { Image, getImage } from "astro:assets";
 import heroImg from "../../assets/images/hero-sintra.png";
 import { MailIcon, PhoneIcon } from "../../icons";
 import { buildOrganizationSchema } from "../../lib/schemas";
+import { emailAddress, phoneNumber } from "../../config";
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -101,10 +102,7 @@ const organizationSchema = buildOrganizationSchema({
           <PhoneIcon />
           {phoneNumber}
         </a>
-        <a
-          href={`mailto:${t.contact.email_address}`}
-          class="contact-info__item"
-        >
+        <a href={`mailto:${emailAddress}`} class="contact-info__item">
           <MailIcon />
           {emailAddress}
         </a>
