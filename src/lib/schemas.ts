@@ -65,7 +65,7 @@ export function buildOrganizationSchema({
   const aggregateRating = buildAggregateRating(reviews);
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "TourOperator"],
+    "@type": ["LocalBusiness"],
     name: SITE_NAME,
     url: site?.href ?? "/",
     telephone: phoneNumber,
