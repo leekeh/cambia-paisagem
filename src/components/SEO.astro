@@ -1,0 +1,64 @@
+---
+import type { Lang } from "../i18n/index";
+
+interface Props {
+  lang: Lang;
+  /** Already-formatted page title (e.g. "Tour Name — Cambia Paisagem") */
+  title: string;
+  description: string;
+  /** Fully-qualified URL for the OG / Twitter card image */
+  image?: string;
+  /** Fully-qualified canonical URL; defaults to the current request URL */
+  canonical?: string;
+  /** OG type — defaults to "website" */
+  ogType?: string;
+  /** One or more JSON-LD objects to inject as <script type="application/ld+json"> */
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  lang,
+  title,
+  description,
+  image,
+  canonical,
+  ogType = "website",
+  structuredData,
+} = Astro.props;
+
+const pageUrl = canonical ?? Astro.url.href;
+const schemas: Record<string, unknown>[] = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+---
+
+<!-- Canonical & robots -->
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={pageUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={pageUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:site_name" content="Cambia Paisagem" />
+<meta property="og:locale" content={lang} />
+{image && <meta property="og:image" content={image} />}
+{image && <meta property="og:image:alt" content={title} />}
+{image && <meta property="og:image:width" content="1200" />}
+{image && <meta property="og:image:height" content="630" />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}
+
+<!-- JSON-LD Structured Data -->
+{
+  schemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}

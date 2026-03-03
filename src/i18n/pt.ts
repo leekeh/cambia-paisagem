@@ -60,8 +60,6 @@ export const pt = {
     success: "Mensagem enviada! Responderemos em breve.",
     error: "Ocorreu um erro. Por favor tente novamente.",
     selectTour: "Selecione um tour",
-    phone_number: "+351 21 123 4567",
-    email_address: "info@cambiapaisagem.pt",
   },
   meta: {
     siteName: "Cambia Paisagem",

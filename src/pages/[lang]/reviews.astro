@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import { useTranslations, languages, t } from "../../i18n/index";
 import type { Lang } from "../../i18n/index";
+import { buildOrganizationSchema } from "../../lib/schemas";
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -31,12 +32,23 @@ function formatDate(dateStr: string): string {
 }
 
 // Calculate average rating
-const avgRating = (
-  allReviews.reduce((sum, r) => sum + r.data.rating, 0) / allReviews.length
-).toFixed(1);
+const avgRatingNum =
+  allReviews.reduce((sum, r) => sum + r.data.rating, 0) / allReviews.length;
+const avgRating = avgRatingNum.toFixed(1);
+
+// ── SEO: Organization schema with all reviews ──────────────────────────────
+const organizationSchema = buildOrganizationSchema({
+  lang,
+  reviews,
+  site: Astro.site,
+});
 ---
 
-<BaseLayout lang={lang} title={tr.reviews.pageTitle}>
+<BaseLayout
+  lang={lang}
+  title={tr.reviews.pageTitle}
+  structuredData={organizationSchema}
+>
   <section class="section">
     <div class="container">
       <!-- Header -->

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
+import SEO from "../components/SEO.astro";
 
 import type { Lang } from "../i18n/index";
 import { useTranslations } from "../i18n/index";
@@ -9,9 +10,18 @@ interface Props {
   lang: Lang;
   title?: string;
   description?: string;
+  /** Fully-qualified URL for OG / Twitter card image */
+  image?: string;
+  /** Fully-qualified canonical URL; defaults to current page URL */
+  canonical?: string;
+  /** OG type, e.g. "website" | "article" — defaults to "website" */
+  ogType?: string;
+  /** One or more JSON-LD structured-data objects to inject */
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, image, canonical, ogType, structuredData } =
+  Astro.props;
 const t = useTranslations(lang);
 const pageTitle = title ? `${title} — ${t.meta.siteName}` : t.meta.siteName;
 const pageDesc = description ?? t.meta.description;
@@ -24,6 +34,15 @@ const pageDesc = description ?? t.meta.description;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDesc} />
     <title>{pageTitle}</title>
+    <SEO
+      lang={lang}
+      title={pageTitle}
+      description={pageDesc}
+      image={image}
+      canonical={canonical}
+      ogType={ogType}
+      structuredData={structuredData}
+    />
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

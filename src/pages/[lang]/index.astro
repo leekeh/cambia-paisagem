@@ -5,9 +5,10 @@ import ReviewCard from "../../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
 import { useTranslations, languages } from "../../i18n/index";
 import type { Lang } from "../../i18n/index";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import heroImg from "../../assets/images/hero-sintra.png";
 import { MailIcon, PhoneIcon } from "../../icons";
+import { buildOrganizationSchema } from "../../lib/schemas";
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -22,9 +23,21 @@ const allReviews = await getCollection("reviews");
 const featuredReviews = allReviews.slice(0, 3);
 // Show up to 3 featured tours
 const featuredTours = allTours.slice(0, 3);
+
+// ── SEO ──────────────────────────────────────────────────────────
+const ogHeroImg = await getImage({ src: heroImg, width: 1200, height: 630 });
+const ogImageUrl = Astro.site
+  ? new URL(ogHeroImg.src, Astro.site).href
+  : ogHeroImg.src;
+
+const organizationSchema = buildOrganizationSchema({
+  lang,
+  reviews: featuredReviews,
+  site: Astro.site,
+});
 ---
 
-<BaseLayout lang={lang}>
+<BaseLayout lang={lang} image={ogImageUrl} structuredData={organizationSchema}>
   <!-- Hero -->
   <section class="hero">
     <Image
@@ -84,16 +97,16 @@ const featuredTours = allTours.slice(0, 3);
     <div class="container">
       <h2 class="section-title">{t.home.contactTitle}</h2>
       <div class="contact-info">
-        <a href={`tel:${t.contact.phone_number}`} class="contact-info__item">
+        <a href={`tel:${phoneNumber}`} class="contact-info__item">
           <PhoneIcon />
-          {t.contact.phone_number}
+          {phoneNumber}
         </a>
         <a
           href={`mailto:${t.contact.email_address}`}
           class="contact-info__item"
         >
           <MailIcon />
-          {t.contact.email_address}
+          {emailAddress}
         </a>
         <a href={`/${lang}/contact`} class="btn btn-primary"
           >{t.home.sendMessage}</a

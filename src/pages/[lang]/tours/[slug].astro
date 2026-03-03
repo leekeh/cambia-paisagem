@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BookingModal from "../../../components/BookingModal.tsx";
+import ReviewCard from "../../../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
 import { useTranslations, languages, t, tArr } from "../../../i18n/index";
 import type { Lang } from "../../../i18n/index";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+import { buildProductSchema } from "../../../lib/schemas";
 
 export async function getStaticPaths() {
   const allTours = await getCollection("tours");
@@ -24,9 +26,41 @@ const tr = useTranslations(lang);
 const title = t(tour.data.title, lang);
 const description = t(tour.data.description, lang);
 const highlights = tArr(tour.data.highlights, lang);
+
+// ── SEO ──────────────────────────────────────────────────────────
+const ogTourImg = await getImage({
+  src: tour.data.image,
+  width: 1200,
+  height: 630,
+});
+const ogImageUrl = Astro.site
+  ? new URL(ogTourImg.src, Astro.site).href
+  : ogTourImg.src;
+
+const allReviews = await getCollection("reviews");
+const tourReviews = allReviews.filter(
+  (r) => r.data.tourSlug === tour.data.slug,
+);
+
+const productSchema = buildProductSchema({
+  title,
+  description,
+  imageUrl: ogImageUrl,
+  price: tour.data.price,
+  slug: tour.data.slug,
+  lang,
+  reviews: tourReviews,
+  site: Astro.site,
+});
 ---
 
-<BaseLayout lang={lang} title={title}>
+<BaseLayout
+  lang={lang}
+  title={title}
+  description={description}
+  image={ogImageUrl}
+  structuredData={productSchema}
+>
   <section class="section">
     <div class="container" style="max-width: 860px;">
       <Image
@@ -81,6 +115,19 @@ const highlights = tArr(tour.data.highlights, lang);
           }}
         />
       </div>
+
+      {
+        tourReviews.length > 0 && (
+          <div class="tour-detail__reviews">
+            <h2 class="tour-detail__reviews-title">{tr.reviews.pageTitle}</h2>
+            <div class="tour-detail__reviews-grid">
+              {tourReviews.map((review) => (
+                <ReviewCard review={review} lang={lang} />
+              ))}
+            </div>
+          </div>
+        )
+      }
     </div>
   </section>
 </BaseLayout>
@@ -170,5 +217,22 @@ const highlights = tArr(tour.data.highlights, lang);
     margin-top: var(--space-12);
     display: flex;
     justify-content: center;
+  }
+
+  .tour-detail__reviews {
+    margin-top: var(--space-16);
+  }
+
+  .tour-detail__reviews-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .tour-detail__reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-6);
   }
 </style>

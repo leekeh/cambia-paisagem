@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 import { useTranslations, languages, t } from "../../../i18n/index";
 import type { Lang } from "../../../i18n/index";
 import { getImage } from "astro:assets";
+import { buildItemListSchema } from "../../../lib/schemas";
 
 export async function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -37,9 +38,21 @@ const toursData = await Promise.all(
     };
   }),
 );
+
+// ── SEO ──────────────────────────────────────────────────────────────────────
+const itemListSchema = buildItemListSchema({
+  label: tr.tours.pageTitle,
+  lang,
+  tours: toursData,
+  site: Astro.site,
+});
 ---
 
-<BaseLayout lang={lang} title={tr.tours.pageTitle}>
+<BaseLayout
+  lang={lang}
+  title={tr.tours.pageTitle}
+  structuredData={itemListSchema}
+>
   <section class="section">
     <div class="container">
       <h1 class="section-title" style="font-family: var(--font-serif);">
