@@ -109,6 +109,7 @@ button {
 
 .section-title {
   font-size: var(--text-3xl);
+  font-family: var(--font-serif);
   font-weight: 400;
   margin-bottom: var(--space-8);
 }
