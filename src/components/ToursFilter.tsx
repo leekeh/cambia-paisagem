@@ -8,6 +8,7 @@ import {
   Text,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import styles from "./ToursFilter.module.css";
 
 const theme = createTheme({
   primaryColor: "dark",
@@ -62,9 +63,9 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
 
   return (
     <>
-      <div className="tours-controls">
-        <div className="tours-controls__group" style={{ minWidth: 180 }}>
-          <label className="tours-controls__label">{tr.sortLabel}</label>
+      <div className={styles.toursControls}>
+        <div className={styles.toursControlsGroup} style={{ minWidth: 180 }}>
+          <label className={styles.toursControlsLabel}>{tr.sortLabel}</label>
           <Select
             value={sort}
             onChange={setSort}
@@ -78,8 +79,8 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
           />
         </div>
 
-        <div className="tours-controls__group" style={{ minWidth: 220 }}>
-          <label className="tours-controls__label">
+        <div className={styles.toursControlsGroup} style={{ minWidth: 220 }}>
+          <label className={styles.toursControlsLabel}>
             {tr.filterDurationMin}: {minDur}h – {tr.filterDurationMax}: {maxDur}
             h
           </label>
@@ -143,22 +144,22 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
       {filtered.length === 0 ? (
         <Text c="dimmed">{tr.noResults}</Text>
       ) : (
-        <div className="tours-grid">
+        <div className={styles.toursGrid}>
           {filtered.map((tour) => (
-            <article className="tour-card" key={tour.slug}>
+            <article className={styles.tourCard} key={tour.slug}>
               <a href={tour.href}>
                 <img
                   src={tour.imageUrl}
                   alt={tour.title}
-                  className="tour-card__img"
+                  className={styles.tourCardImg}
                 />
               </a>
-              <div className="tour-card__body">
-                <h3 className="tour-card__title">
+              <div className={styles.tourCardBody}>
+                <h3 className={styles.tourCardTitle}>
                   <a href={tour.href}>{tour.title}</a>
                 </h3>
-                <div className="tour-card__meta">
-                  <span className="tour-card__meta-item">
+                <div className={styles.tourCardMeta}>
+                  <span className={styles.tourCardMetaItem}>
                     <svg
                       width="14"
                       height="14"
@@ -172,11 +173,11 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                     </svg>
                     {tour.duration} {tour.hoursLabel}
                   </span>
-                  <span className="tour-card__price">
+                  <span className={styles.tourCardPrice}>
                     {tour.fromLabel} <strong>€{tour.price}</strong>
                   </span>
                 </div>
-                <div className="tour-card__footer">
+                <div className={styles.tourCardFooter}>
                   <a href={tour.href} className="btn btn-outline">
                     {tour.viewMoreLabel}
                   </a>

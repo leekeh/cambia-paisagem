@@ -45,3 +45,46 @@ const formattedDate = data.date
     {formattedDate && <span class="review-card__date">{formattedDate}</span>}
   </footer>
 </article>
+
+<style>
+  .review-card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+  }
+
+  .review-card__stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--space-4);
+    color: var(--color-star);
+    font-size: var(--text-xl);
+  }
+
+  .review-card__summary {
+    font-size: var(--text-base);
+    font-style: italic;
+    margin-bottom: var(--space-3);
+    line-height: 1.5;
+  }
+
+  .review-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .review-card__author {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .review-card__date {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    opacity: 0.7;
+  }
+</style>

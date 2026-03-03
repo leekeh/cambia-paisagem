@@ -13,6 +13,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { MantineProvider, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
+import styles from "./NavIsland.module.css";
 
 const theme = createTheme({
   primaryColor: "dark",
@@ -47,14 +48,14 @@ function NavIslandInner({ links, langOptions, currentLang, langLabel }: Props) {
   return (
     <>
       {/* Language dropdown — shown on desktop */}
-      <div className="nav__lang-menu">
+      <div className={styles.langMenu}>
         <Menu shadow="md" width={160} position="bottom-end">
           <Menu.Target>
-            <button className="lang-trigger" aria-label={langLabel}>
+            <button className={styles.langTrigger} aria-label={langLabel}>
               <span style={{ fontSize: "1.3rem", lineHeight: 1 }}>
                 {currentLangInfo?.flag}
               </span>
-              <span className="lang-trigger__label">
+              <span className={styles.langTriggerLabel}>
                 {currentLangInfo?.label}
               </span>
               <svg
@@ -88,7 +89,7 @@ function NavIslandInner({ links, langOptions, currentLang, langLabel }: Props) {
       </div>
 
       {/* Hamburger — shown on mobile */}
-      <div className="nav__burger">
+      <div className={styles.burger}>
         <Burger
           opened={drawerOpened}
           onClick={toggleDrawer}

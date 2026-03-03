@@ -37,9 +37,7 @@ const highlights = tArr(tour.data.highlights, lang);
         height={480}
       />
 
-      <h1
-        style="font-family: var(--font-serif); font-size: var(--text-4xl); font-weight: 400; margin-bottom: var(--space-6);"
-      >
+      <h1 class="tour-detail__title">
         {title}
       </h1>
 
@@ -58,16 +56,12 @@ const highlights = tArr(tour.data.highlights, lang);
         </div>
       </div>
 
-      <p
-        style="font-size: var(--text-lg); line-height: 1.8; color: var(--color-text-muted); margin-bottom: var(--space-8);"
-      >
+      <p class="tour-detail__description">
         {description}
       </p>
 
       <div class="tour-detail__highlights">
-        <h2
-          style="font-family: var(--font-serif); font-size: var(--text-2xl); font-weight: 400; margin-bottom: var(--space-4);"
-        >
+        <h2 class="tour-detail__highlights-title">
           {tr.tours.highlights}
         </h2>
         <ul>
@@ -75,9 +69,7 @@ const highlights = tArr(tour.data.highlights, lang);
         </ul>
       </div>
 
-      <div
-        style="margin-top: var(--space-12); display: flex; justify-content: center;"
-      >
+      <div class="tour-detail__book">
         <BookingModal
           client:load
           tourTitle={title}
@@ -92,3 +84,91 @@ const highlights = tArr(tour.data.highlights, lang);
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .tour-detail__hero {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-8);
+  }
+
+  .tour-detail__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+  }
+
+  .tour-detail__meta {
+    display: flex;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .tour-detail__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .tour-detail__meta-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .tour-detail__meta-value {
+    font-size: var(--text-2xl);
+    font-family: var(--font-serif);
+  }
+
+  .tour-detail__description {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .tour-detail__highlights {
+    margin-top: var(--space-8);
+  }
+
+  .tour-detail__highlights-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    margin-bottom: var(--space-4);
+  }
+
+  .tour-detail__highlights ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .tour-detail__highlights li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+  }
+
+  .tour-detail__highlights li::before {
+    content: "✓";
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .tour-detail__book {
+    margin-top: var(--space-12);
+    display: flex;
+    justify-content: center;
+  }
+</style>

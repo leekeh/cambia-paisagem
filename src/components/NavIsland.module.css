@@ -1,0 +1,45 @@
+/* ─── NavIsland ──────────────────────────────────────────────── */
+
+.langMenu {
+  display: flex;
+}
+
+.burger {
+  display: none;
+}
+
+.langTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.75rem 0.3rem 0.5rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.langTrigger:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text-muted);
+}
+
+.langTriggerLabel {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .langMenu {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}

@@ -63,7 +63,7 @@ export const pt = {
     email_address: "info@cambiapaisagem.pt",
   },
   meta: {
-    siteName: "CambiaPaisagem",
+    siteName: "Cambia Paisagem",
     description:
       "Tours privados em Lisboa e Portugal. Descubra Portugal à sua medida.",
   },

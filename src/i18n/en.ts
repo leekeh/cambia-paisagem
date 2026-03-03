@@ -65,7 +65,7 @@ export const en: Translations = {
     email_address: "info@cambiapaisagem.pt",
   },
   meta: {
-    siteName: "CambiaPaisagem",
+    siteName: "Cambia Paisagem",
     description:
       "Private tours in Lisbon and Portugal. Discover Portugal tailored for you.",
   },
