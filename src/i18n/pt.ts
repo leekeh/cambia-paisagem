@@ -51,6 +51,8 @@ export const pt = {
   },
   contact: {
     pageTitle: "Contactos",
+    content:
+      "Portugal à sua medida. Entre em contacto connosco para planear a sua experiência perfeita.",
     name: "Nome",
     email: "Email",
     phone: "Telefone",

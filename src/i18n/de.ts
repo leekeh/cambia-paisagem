@@ -53,6 +53,8 @@ export const de: Translations = {
   },
   contact: {
     pageTitle: "Kontakt",
+    content:
+      "Portugal nach Ihrem Maß. Kontaktieren Sie uns, um Ihre perfekte Erfahrung zu planen.",
     name: "Name",
     email: "E-Mail",
     phone: "Telefon",

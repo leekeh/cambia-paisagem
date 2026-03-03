@@ -53,6 +53,8 @@ export const en: Translations = {
   },
   contact: {
     pageTitle: "Contact",
+    content:
+      "Portugal tailored for you. Get in touch to plan your perfect experience.",
     name: "Name",
     email: "Email",
     phone: "Phone",
