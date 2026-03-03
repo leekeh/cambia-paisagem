@@ -4,6 +4,7 @@ import ContactForm from "../../components/ContactForm.tsx";
 import { getCollection } from "astro:content";
 import { useTranslations, languages, t } from "../../i18n/index";
 import type { Lang } from "../../i18n/index";
+import { MailIcon, PhoneIcon } from "../../icons";
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -32,105 +33,90 @@ const tourOptions = allTours.map((tour) => ({
           </p>
 
           <div class="contact-info-list">
-            <div class="contact-info-list__item">
+            <a
+              href={`tel:${tr.contact.phone_number}`}
+              class="contact-info-list__item"
+            >
               <div class="contact-info-list__icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"
-                  ></path>
-                </svg>
+                <PhoneIcon />
+                <div>
+                  {tr.contact.phone_number}
+                </div>
               </div>
-              <span>{tr.contact.phone_number}</span>
-            </div>
 
-            <div class="contact-info-list__item">
-              <div class="contact-info-list__icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                  ></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <span>{tr.contact.email_address}</span>
+              <a
+                href={`mailto:${tr.contact.email_address}`}
+                class="contact-info-list__item"
+              >
+                <div class="contact-info-list__icon">
+                  <MailIcon />
+                  <div>{tr.contact.email_address}</div>
+                </div>
+              </a>
+            </a>
+
+            <!-- Form column -->
+            <div>
+              <ContactForm
+                client:load
+                tours={tourOptions}
+                translations={tr.contact}
+              />
             </div>
           </div>
         </div>
-
-        <!-- Form column -->
-        <div>
-          <ContactForm
-            client:load
-            tours={tourOptions}
-            translations={tr.contact}
-          />
-        </div>
       </div>
     </div>
+
+    <style>
+      .contact-page__layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+        align-items: start;
+      }
+
+      .contact-page__info h1 {
+        font-size: var(--text-3xl);
+        font-weight: 400;
+        margin-bottom: var(--space-6);
+      }
+
+      .contact-page__info p {
+        color: var(--color-text-muted);
+        margin-bottom: var(--space-8);
+      }
+
+      .contact-info-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      .contact-info-list__item {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+        font-size: var(--text-base);
+      }
+
+      .contact-info-list__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--color-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: var(--text-lg);
+      }
+
+      @media (max-width: 768px) {
+        .contact-page__layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </section>
 </BaseLayout>
-
-<style>
-  .contact-page__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-    align-items: start;
-  }
-
-  .contact-page__info h1 {
-    font-size: var(--text-3xl);
-    font-weight: 400;
-    margin-bottom: var(--space-6);
-  }
-
-  .contact-page__info p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-8);
-  }
-
-  .contact-info-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .contact-info-list__item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    font-size: var(--text-base);
-  }
-
-  .contact-info-list__icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--color-surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: var(--text-lg);
-  }
-
-  @media (max-width: 768px) {
-    .contact-page__layout {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
