@@ -18,6 +18,7 @@ export const en: Translations = {
     viewMore: "View More",
     sendMessage: "Send Message",
     allReviews: "See All Reviews",
+    allTours: "View All Tours",
   },
   tours: {
     pageTitle: "Our Tours",

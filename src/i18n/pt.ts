@@ -16,6 +16,7 @@ export const pt = {
     viewMore: "Ver Mais",
     sendMessage: "Enviar Mensagem",
     allReviews: "Ver Todos os Comentários",
+    allTours: "Ver Todos os Tours",
   },
   tours: {
     pageTitle: "Os Nossos Tours",

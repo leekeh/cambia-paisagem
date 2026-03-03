@@ -18,6 +18,7 @@ export const de: Translations = {
     viewMore: "Mehr Anzeigen",
     sendMessage: "Nachricht Senden",
     allReviews: "Alle Bewertungen ansehen",
+    allTours: "Alle Touren anzeigen",
   },
   tours: {
     pageTitle: "Unsere Touren",

@@ -51,7 +51,11 @@ const featuredTours = allTours.slice(0, 3);
         {featuredTours.map((tour) => <TourCard tour={tour} lang={lang} />)}
       </div>
     </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href={`/${lang}/tours`} class="btn btn-outline">{t.home.allTours}</a>
+    </div>
   </section>
+  <!-- view all -->
 
   <!-- Reviews -->
   <section
