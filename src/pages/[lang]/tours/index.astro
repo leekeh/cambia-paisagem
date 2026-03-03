@@ -42,7 +42,9 @@ const toursData = await Promise.all(
 <BaseLayout lang={lang} title={tr.tours.pageTitle}>
   <section class="section">
     <div class="container">
-      <h1 class="section-title">{tr.tours.pageTitle}</h1>
+      <h1 class="section-title" style="font-family: var(--font-serif);">
+        {tr.tours.pageTitle}
+      </h1>
       <ToursFilter
         client:load
         tours={toursData}
