@@ -72,4 +72,12 @@ export const de: Translations = {
     description:
       "Private Touren in Lissabon und Portugal. Entdecken Sie Portugal nach Ihrem Maß.",
   },
+  errors: {
+    notFoundTitle: "Seite nicht gefunden",
+    notFoundMessage:
+      "Entschuldigung, die von Ihnen gesuchte Seite existiert nicht.",
+    serverErrorTitle: "Serverfehler",
+    serverErrorMessage:
+      "Entschuldigung, auf unserer Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+  },
 };

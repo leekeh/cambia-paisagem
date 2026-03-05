@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n/index";
+
+const tr = useTranslations("en"); // Fallback to English for 404 page, see https://github.com/withastro/astro/issues/12175
+---
+
+<BaseLayout lang={"en"} title={tr.errors.notFoundTitle}>
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">{tr.errors.notFoundTitle}</h1>
+      <p class="section-description">{tr.errors.notFoundMessage}</p>
+    </div>
+  </section>
+</BaseLayout>

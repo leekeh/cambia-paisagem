@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { useTranslations } from "../i18n/index";
+
+const tr = useTranslations("en"); // Fallback to English for 404 page
+---
+
+<BaseLayout lang={"en"} title={tr.errors.serverErrorTitle}>
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">{tr.errors.serverErrorTitle}</h1>
+      <p class="section-description">{tr.errors.serverErrorMessage}</p>
+    </div>
+  </section>
+</BaseLayout>

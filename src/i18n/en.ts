@@ -72,4 +72,11 @@ export const en: Translations = {
     description:
       "Private tours in Lisbon and Portugal. Discover Portugal tailored for you.",
   },
+  errors: {
+    notFoundTitle: "Page Not Found",
+    notFoundMessage: "Sorry, the page you are looking for does not exist.",
+    serverErrorTitle: "Server Error",
+    serverErrorMessage:
+      "Sorry, something went wrong on our end. Please try again later.",
+  },
 };

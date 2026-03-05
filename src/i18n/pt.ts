@@ -70,6 +70,13 @@ export const pt = {
     description:
       "Tours privados em Lisboa e Portugal. Descubra Portugal à sua medida.",
   },
+  errors: {
+    notFoundTitle: "Página não encontrada",
+    notFoundMessage: "Oeps, a página que você está a procura não existe.",
+    serverErrorTitle: "Erro no Servidor",
+    serverErrorMessage:
+      "Oeps, ocorreu um erro no nosso lado. Por favor, tente novamente mais tarde.",
+  },
 };
 
 export type Translations = typeof pt;
