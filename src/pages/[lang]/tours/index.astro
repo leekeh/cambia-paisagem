@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ToursFilter from "../../../components/ToursFilter.tsx";
-import AppMantineProvider from "../../../components/MantineProvider.tsx";
 import { getCollection } from "astro:content";
 import { useTranslations, languages, t } from "../../../i18n/index";
 import type { Lang } from "../../../i18n/index";
@@ -61,6 +60,7 @@ const itemListSchema = buildItemListSchema({
       <ToursFilter
         client:load
         tours={toursData}
+        lang={lang}
         translations={{
           sortLabel: tr.tours.sortLabel,
           sortPrice: tr.tours.sortPrice,

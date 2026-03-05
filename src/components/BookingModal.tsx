@@ -1,8 +1,5 @@
-"use client";
 import { useState } from "react";
 import {
-  MantineProvider,
-  createTheme,
   Modal,
   Button,
   TextInput,
@@ -12,36 +9,29 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import "@mantine/core/styles.css";
-import "@mantine/dates/styles.css";
-
-const theme = createTheme({
-  primaryColor: "dark",
-  fontFamily: "Inter, system-ui, sans-serif",
-});
+import MantineProvider from "./MantineProvider";
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import "dayjs/locale/pt";
 import "dayjs/locale/de";
+import type { Translations } from "../i18n/pt";
 
 interface Props {
   tourTitle: string;
   tourSlug: string;
   lang: string;
   translations: {
-    booking: {
-      title: string;
-      name: string;
-      email: string;
-      date: string;
-      guests: string;
-      notes: string;
-      submit: string;
-      success: string;
-      error: string;
-    };
-    tours: { book: string };
+    booking: Translations["booking"];
+    tours: { book: Translations["tours"]["book"] };
   };
+}
+
+export default function BookingModal(props: Props) {
+  return (
+    <MantineProvider>
+      <BookingModalInner {...props} />
+    </MantineProvider>
+  );
 }
 
 function BookingModalInner({
@@ -64,8 +54,13 @@ function BookingModalInner({
       notes: "",
     },
     validate: {
-      name: (v) => (!v ? tr.booking.name + " required" : null),
-      email: (v) => (!/^\S+@\S+\.\S+$/.test(v) ? "Invalid email" : null),
+      name: (v) => (!v ? `${tr.booking.name} ${tr.booking.required}` : null),
+      email: (v) => {
+        if (!v) return `${tr.booking.email} ${tr.booking.required}`;
+        return /^\S+@\S+$/.test(v)
+          ? null
+          : `${tr.booking.email} ${tr.booking.invalid}`;
+      },
     },
   });
 
@@ -102,9 +97,9 @@ function BookingModalInner({
           setOpened(false);
           setStatus("idle");
         }}
-        title={`${tr.booking.title} — ${tourTitle}`}
+        title={`${tr.booking.title}: ${tourTitle}`}
         size="md"
-        radius="md"
+        radius="lg"
       >
         {status === "success" ? (
           <Text ta="center" py="xl">
@@ -115,19 +110,23 @@ function BookingModalInner({
             <Stack gap="sm">
               <TextInput
                 label={tr.booking.name}
-                required
+                aria-required
                 {...form.getInputProps("name")}
               />
               <TextInput
                 label={tr.booking.email}
                 type="email"
-                required
+                aria-required
                 {...form.getInputProps("email")}
               />
               <DatePickerInput
                 label={tr.booking.date}
-                locale={lang === "de" ? "de" : lang === "en" ? "en" : "pt"}
+                locale={lang}
                 minDate={new Date()}
+                // one year from now
+                maxDate={
+                  new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+                }
                 {...form.getInputProps("date")}
               />
               <NumberInput
@@ -160,13 +159,5 @@ function BookingModalInner({
         )}
       </Modal>
     </>
-  );
-}
-
-export default function BookingModal(props: Props) {
-  return (
-    <MantineProvider theme={theme}>
-      <BookingModalInner {...props} />
-    </MantineProvider>
   );
 }

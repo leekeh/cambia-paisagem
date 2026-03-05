@@ -1,7 +1,5 @@
-"use client";
 import { useState } from "react";
 import {
-  MantineProvider,
   createTheme,
   TextInput,
   Textarea,
@@ -13,29 +11,23 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import "@mantine/core/styles.css";
-
-const theme = createTheme({
-  primaryColor: "dark",
-  fontFamily: "Inter, system-ui, sans-serif",
-});
+import type { Translations } from "../i18n/pt";
+import MantineProvider from "./MantineProvider";
 
 interface Props {
   tours: { value: string; label: string }[];
-  preselectedTour?: string;
-  translations: {
-    name: string;
-    email: string;
-    phone: string;
-    tour: string;
-    message: string;
-    submit: string;
-    success: string;
-    error: string;
-    selectTour: string;
-  };
+  translations: Translations["contact"];
 }
 
-function ContactFormInner({ tours, preselectedTour, translations: tr }: Props) {
+export default function ContactForm(props: Props) {
+  return (
+    <MantineProvider>
+      <ContactFormInner {...props} />
+    </MantineProvider>
+  );
+}
+
+function ContactFormInner({ tours, translations: tr }: Props) {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -45,7 +37,7 @@ function ContactFormInner({ tours, preselectedTour, translations: tr }: Props) {
       name: "",
       email: "",
       phone: "",
-      tour: preselectedTour ?? "",
+      tour: "",
       message: "",
     },
     validate: {
@@ -83,14 +75,14 @@ function ContactFormInner({ tours, preselectedTour, translations: tr }: Props) {
       <Stack gap="sm">
         <TextInput
           label={tr.name}
-          required
+          aria-required
           {...form.getInputProps("name")}
           radius="md"
         />
         <TextInput
           label={tr.email}
           type="email"
-          required
+          aria-required
           {...form.getInputProps("email")}
           radius="md"
         />
@@ -130,13 +122,5 @@ function ContactFormInner({ tours, preselectedTour, translations: tr }: Props) {
         </Group>
       </Stack>
     </form>
-  );
-}
-
-export default function ContactForm(props: Props) {
-  return (
-    <MantineProvider theme={theme}>
-      <ContactFormInner {...props} />
-    </MantineProvider>
   );
 }

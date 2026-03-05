@@ -1,19 +1,8 @@
-"use client";
 import { useState, useMemo } from "react";
-import {
-  MantineProvider,
-  createTheme,
-  Select,
-  Slider,
-  Text,
-} from "@mantine/core";
-import "@mantine/core/styles.css";
+import { Select, Slider, Text } from "@mantine/core";
+import MantineProvider from "./MantineProvider";
 import styles from "./ToursFilter.module.css";
-
-const theme = createTheme({
-  primaryColor: "dark",
-  fontFamily: "Inter, system-ui, sans-serif",
-});
+import type { Lang } from "../i18n";
 
 interface Tour {
   slug: string;
@@ -28,6 +17,7 @@ interface Tour {
 }
 
 interface Props {
+  lang: Lang;
   tours: Tour[];
   translations: {
     sortLabel: string;
@@ -39,7 +29,36 @@ interface Props {
   };
 }
 
-function ToursFilterInner({ tours, translations: tr }: Props) {
+export default function ToursFilter(props: Props) {
+  return (
+    <MantineProvider>
+      <ToursFilterInner {...props} />
+    </MantineProvider>
+  );
+}
+
+function durationFormat(
+  hours: number,
+  lang: Lang,
+  style: "short" | "long" = "short",
+) {
+  if ("DurationFormat" in Intl && typeof Intl.DurationFormat === "function") {
+    console.log("Using Intl.DurationFormat");
+    try {
+      return new Intl.DurationFormat(lang, {
+        style: style,
+      }).format({ hours: hours });
+    } catch (e) {
+      console.warn(
+        "Error using Intl.DurationFormat, falling back to manual format",
+        e,
+      );
+      return `${hours}h`;
+    }
+  }
+}
+
+function ToursFilterInner({ tours, translations: tr, lang }: Props) {
   const minDuration = Math.min(...tours.map((t) => t.duration));
   const maxDuration = Math.max(...tours.map((t) => t.duration));
   const [sort, setSort] = useState<string | null>("duration-asc");
@@ -84,8 +103,8 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
 
         <div className={styles.toursControlsGroup} style={{ minWidth: 220 }}>
           <label className={styles.toursControlsLabel}>
-            {tr.filterDurationMin}: {minDur}h – {tr.filterDurationMax}: {maxDur}
-            h
+            {tr.filterDurationMin}: {durationFormat(minDur, lang)} –{" "}
+            {tr.filterDurationMax}: {durationFormat(maxDur, lang)}
           </label>
           <div style={{ display: "flex", gap: "1.5rem" }}>
             <div style={{ flex: 1 }}>
@@ -95,7 +114,6 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                   color: "var(--color-text-muted)",
                   marginBottom: "0.4rem",
                 }}
-                id="min-duration-label"
               >
                 {tr.filterDurationMin}
               </div>
@@ -110,15 +128,20 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                 max={maxDuration}
                 step={1}
                 marks={[
-                  { value: minDuration, label: `${minDuration}h` },
-                  { value: maxDuration, label: `${maxDuration}h` },
+                  {
+                    value: minDuration,
+                    label: durationFormat(minDuration, lang),
+                  },
+                  {
+                    value: maxDuration,
+                    label: durationFormat(maxDuration, lang),
+                  },
                 ]}
                 style={{ paddingBottom: "1.2rem" }}
               />
             </div>
             <div style={{ flex: 1 }}>
               <div
-                id="max-duration-label"
                 style={{
                   fontSize: "0.75rem",
                   color: "var(--color-text-muted)",
@@ -138,8 +161,14 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                 max={maxDuration}
                 step={1}
                 marks={[
-                  { value: minDuration, label: `${minDuration}h` },
-                  { value: maxDuration, label: `${maxDuration}h` },
+                  {
+                    value: minDuration,
+                    label: durationFormat(minDuration, lang),
+                  },
+                  {
+                    value: maxDuration,
+                    label: durationFormat(maxDuration, lang),
+                  },
                 ]}
                 style={{ paddingBottom: "1.2rem" }}
               />
@@ -149,7 +178,7 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
       </div>
 
       {filtered.length === 0 ? (
-        <Text c="dimmed">{tr.noResults}</Text>
+        <Text>{tr.noResults}</Text>
       ) : (
         <div className={styles.toursGrid}>
           {filtered.map((tour) => (
@@ -178,7 +207,7 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
                       <circle cx="12" cy="12" r="10" />
                       <path d="M12 6v6l4 2" />
                     </svg>
-                    {tour.duration} {tour.hoursLabel}
+                    {durationFormat(tour.duration, lang, "long")}
                   </span>
                   <span className={styles.tourCardPrice}>
                     {tour.fromLabel} <strong>€{tour.price}</strong>
@@ -195,13 +224,5 @@ function ToursFilterInner({ tours, translations: tr }: Props) {
         </div>
       )}
     </>
-  );
-}
-
-export default function ToursFilter(props: Props) {
-  return (
-    <MantineProvider theme={theme}>
-      <ToursFilterInner {...props} />
-    </MantineProvider>
   );
 }

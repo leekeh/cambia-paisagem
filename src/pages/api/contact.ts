@@ -74,3 +74,5 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 };
+
+// TODO also send an email to the customer confirming receipt and providing next steps?

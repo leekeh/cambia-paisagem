@@ -1,4 +1,3 @@
-"use client";
 import { MantineProvider, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -26,11 +25,11 @@ const theme = createTheme({
   },
 });
 
-interface Props {
+export default function AppMantineProvider({
+  children,
+}: {
   children: ReactNode;
-}
-
-export default function AppMantineProvider({ children }: Props) {
+}) {
   return (
     <MantineProvider theme={theme} defaultColorScheme="light">
       {children}

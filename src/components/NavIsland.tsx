@@ -1,24 +1,7 @@
-"use client";
-import { useState } from "react";
-import {
-  Drawer,
-  Burger,
-  Stack,
-  Anchor,
-  Menu,
-  Button,
-  Group,
-  Text,
-} from "@mantine/core";
+import { Drawer, Burger, Stack, Anchor, Menu, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { MantineProvider, createTheme } from "@mantine/core";
-import "@mantine/core/styles.css";
 import styles from "./NavIsland.module.css";
-
-const theme = createTheme({
-  primaryColor: "dark",
-  fontFamily: "Inter, system-ui, sans-serif",
-});
+import MantineProvider from "./MantineProvider";
 
 interface LangOption {
   code: string;
@@ -38,6 +21,14 @@ interface Props {
   currentLang: string;
   langLabel: string;
   currentPath: string;
+}
+
+export default function NavIsland(props: Props) {
+  return (
+    <MantineProvider>
+      <NavIslandInner {...props} />
+    </MantineProvider>
+  );
 }
 
 function NavIslandInner({
@@ -82,6 +73,7 @@ function NavIslandInner({
               <Menu.Item
                 key={opt.code}
                 component="a"
+                aria-selected={opt.code === currentLang ? "true" : undefined}
                 href={opt.href}
                 leftSection={
                   <span style={{ fontSize: "1.2rem" }}>{opt.flag}</span>
@@ -161,6 +153,7 @@ function NavIslandInner({
                   key={opt.code}
                   href={opt.href}
                   onClick={closeDrawer}
+                  aria-current={opt.code === currentLang ? "true" : undefined}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -180,13 +173,5 @@ function NavIslandInner({
         </Stack>
       </Drawer>
     </>
-  );
-}
-
-export default function NavIsland(props: Props) {
-  return (
-    <MantineProvider theme={theme}>
-      <NavIslandInner {...props} />
-    </MantineProvider>
   );
 }
