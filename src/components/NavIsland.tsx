@@ -37,9 +37,16 @@ interface Props {
   langOptions: LangOption[];
   currentLang: string;
   langLabel: string;
+  currentPath: string;
 }
 
-function NavIslandInner({ links, langOptions, currentLang, langLabel }: Props) {
+function NavIslandInner({
+  links,
+  langOptions,
+  currentLang,
+  langLabel,
+  currentPath,
+}: Props) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
 
@@ -123,6 +130,9 @@ function NavIslandInner({ links, langOptions, currentLang, langLabel }: Props) {
             <Anchor
               key={link.href}
               href={link.href}
+              aria-current={
+                currentPath.startsWith(link.href) ? "page" : undefined
+              }
               onClick={closeDrawer}
               style={{
                 fontSize: "1.1rem",
