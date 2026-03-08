@@ -60,6 +60,7 @@ export const pt = {
     phone: "Telefone",
     tour: "Tour de Interesse",
     message: "Mensagem",
+    whatsapp: "Chat no WhatsApp",
     submit: "Enviar Mensagem",
     success: "Mensagem enviada! Responderemos em breve.",
     error: "Ocorreu um erro. Por favor tente novamente.",

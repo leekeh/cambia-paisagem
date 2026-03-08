@@ -61,6 +61,7 @@ export const de: Translations = {
     email: "E-Mail",
     phone: "Telefon",
     tour: "Tour von Interesse",
+    whatsapp: "Chatten auf WhatsApp",
     message: "Nachricht",
     submit: "Nachricht Senden",
     success: "Nachricht gesendet! Wir antworten bald.",

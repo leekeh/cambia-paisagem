@@ -62,6 +62,7 @@ export const en: Translations = {
     phone: "Phone",
     tour: "Tour of Interest",
     message: "Message",
+    whatsapp: "Chat on WhatsApp",
     submit: "Send Message",
     success: "Message sent! We will reply soon.",
     error: "An error occurred. Please try again.",
