@@ -80,4 +80,8 @@ export const en: Translations = {
     serverErrorMessage:
       "Sorry, something went wrong on our end. Please try again later.",
   },
+  a11y: {
+    toggleNavigation: "Toggle navigation menu",
+    starRating: "%rating% out of 5 stars",
+  },
 };

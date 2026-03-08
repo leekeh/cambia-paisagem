@@ -81,4 +81,8 @@ export const de: Translations = {
     serverErrorMessage:
       "Entschuldigung, auf unserer Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
   },
+  a11y: {
+    toggleNavigation: "Navigationsmenü umschalten",
+    starRating: "%rating% von 5 Sternen",
+  },
 };

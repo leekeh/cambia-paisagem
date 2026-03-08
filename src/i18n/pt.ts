@@ -78,6 +78,10 @@ export const pt = {
     serverErrorMessage:
       "Oeps, ocorreu um erro no nosso lado. Por favor, tente novamente mais tarde.",
   },
+  a11y: {
+    toggleNavigation: "Alternar menu de navegação",
+    starRating: "%rating% de 5 estrelas",
+  },
 };
 
 export type Translations = typeof pt;

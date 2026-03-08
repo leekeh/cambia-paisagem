@@ -20,6 +20,7 @@ interface Props {
   langOptions: LangOption[];
   currentLang: string;
   langLabel: string;
+  toggleNavigationLabel: string;
   currentPath: string;
 }
 
@@ -35,6 +36,7 @@ function NavIslandInner({
   links,
   langOptions,
   currentLang,
+  toggleNavigationLabel,
   langLabel,
   currentPath,
 }: Props) {
@@ -93,7 +95,7 @@ function NavIslandInner({
           opened={drawerOpened}
           onClick={toggleDrawer}
           size="sm"
-          aria-label="Toggle navigation"
+          aria-label={toggleNavigationLabel}
         />
       </div>
 

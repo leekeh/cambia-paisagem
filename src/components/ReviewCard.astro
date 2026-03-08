@@ -1,6 +1,6 @@
 ---
 import type { Lang } from "../i18n/index";
-import { t } from "../i18n/index";
+import { t, useTranslations } from "../i18n/index";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -9,6 +9,9 @@ interface Props {
 }
 
 const { review, lang } = Astro.props;
+
+const tr = useTranslations(lang);
+
 const { data } = review;
 const formattedDate = data.date
   ? new Date(data.date).toLocaleDateString(
@@ -22,7 +25,10 @@ const formattedDate = data.date
   <div
     class="review-card__stars"
     role="img"
-    aria-label={`${data.rating} out of 5 stars`}
+    aria-label={tr.a11y.starRating.replaceAll(
+      "%rating%",
+      data.rating.toString(),
+    )}
   >
     {
       Array.from({ length: 5 }).map((_, i) => (
