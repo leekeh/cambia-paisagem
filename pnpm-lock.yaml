@@ -56,6 +56,9 @@ importers:
       resend:
         specifier: ^6.9.3
         version: 6.9.4
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
     devDependencies:
       '@types/leaflet':
         specifier: ^1.9.21
