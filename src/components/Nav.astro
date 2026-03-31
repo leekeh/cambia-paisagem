@@ -93,16 +93,21 @@ const langOptions = Object.entries(languages).map(([code, info]) => ({
     align-items: center;
     gap: var(--space-8);
     list-style: none;
-  }
 
-  .nav__links a {
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-text);
-    transition: color var(--transition-base);
-  }
-  .nav__links a:hover {
-    color: var(--color-text-muted);
+    a {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text);
+      transition: color var(--transition-base);
+
+      &:hover {
+        color: var(--color-text-muted);
+      }
+
+      &[aria-current="page"] {
+        border-bottom: 1px solid currentColor;
+      }
+    }
   }
 
   @media (max-width: 768px) {
