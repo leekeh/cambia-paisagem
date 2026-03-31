@@ -7,6 +7,7 @@ import { useTranslations, languages, t, tArr } from "../../../i18n/index";
 import type { Lang } from "../../../i18n/index";
 import { Image, getImage } from "astro:assets";
 import { buildProductSchema } from "../../../lib/schemas";
+import TourCarousel from "../../../components/Map";
 
 export async function getStaticPaths() {
   const allTours = await getCollection("tours");
@@ -52,6 +53,13 @@ const productSchema = buildProductSchema({
   reviews: tourReviews,
   site: Astro.site,
 });
+
+const carouselData = await Promise.all(
+  tour.data.steps.map(async (step) => ({
+    ...step,
+    image: step.img ? await getImage({ src: step.img, width: 800 }) : null,
+  })),
+);
 ---
 
 <BaseLayout
@@ -103,6 +111,24 @@ const productSchema = buildProductSchema({
         </ul>
       </div>
 
+      <!-- tour steps -->
+
+      <div class="tour-detail__highlights">
+        <h2 class="tour-detail__highlights-title">
+          {tr.tours.itinerary}
+        </h2>
+        <TourCarousel
+          client:only="react"
+          steps={carouselData}
+          locale={lang}
+          translations={{
+            nextStep: tr.tours.nextStep,
+            prevStep: tr.tours.prevStep,
+            jumpStep: tr.tours.jumpStep,
+          }}
+        />
+      </div>
+
       <div class="tour-detail__book">
         <BookingModal
           client:load
@@ -143,7 +169,8 @@ const productSchema = buildProductSchema({
 
   .tour-detail__title {
     font-family: var(--font-serif);
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
+    line-height: 1;
     font-weight: 400;
     margin-bottom: var(--space-6);
   }
@@ -170,8 +197,10 @@ const productSchema = buildProductSchema({
   }
 
   .tour-detail__meta-value {
-    font-size: var(--text-2xl);
-    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    font-family: var(--font-sans);
+    color: var(--color-text);
   }
 
   .tour-detail__description {
@@ -187,8 +216,8 @@ const productSchema = buildProductSchema({
 
   .tour-detail__highlights-title {
     font-family: var(--font-serif);
-    font-size: var(--text-2xl);
-    font-weight: 400;
+    font-size: var(--text-3xl);
+    font-weight: 500;
     margin-bottom: var(--space-4);
   }
 

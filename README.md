@@ -41,3 +41,19 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+TODO:
+
+- translate email to portuguese
+- add domain for hosting: https://resend.com/domains
+
+QR code to go to the tour page.
+transfer service from airport to hotel and back.
+
+tourlisbon.pt
+
+calendar in the flow of the modal
+
+web mcp just for fun.
+
+redirect on the server automatically to the correct language based on the browser settings. => do after finishing onRequest middlewaremode

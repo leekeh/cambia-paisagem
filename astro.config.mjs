@@ -9,6 +9,7 @@ export default defineConfig({
   site: "https://tourlisbon.pt",
   output: "static",
   adapter: cloudflare(),
+  devToolbar: { enabled: false },
   integrations: [react()],
   vite: {
     optimizeDeps: {

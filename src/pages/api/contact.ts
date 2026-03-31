@@ -37,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
     `;
 
     const resendKey = import.meta.env.RESEND_API_KEY;
-    const toEmail = import.meta.env.CONTACT_EMAIL ?? "info@cambiapaisagem.pt";
+    const toEmail = import.meta.env.CONTACT_EMAIL;
     const fromEmail =
       import.meta.env.FROM_EMAIL ?? "CambiaPaisagem <onboarding@resend.dev>";
 

@@ -1,0 +1,187 @@
+{
+  "slug": "evora",
+  "image": "../../assets/images/evora/hero.png",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Évora — uma viagem intemporal no coração do Alentejo",
+    "en": "Évora — a timeless journey in the heart of Alentejo",
+    "de": "Évora — eine zeitlose Reise im Herzen des Alentejo"
+  },
+  "description": {
+    "pt": "O Alentejo é uma das regiões mais autênticas e históricas de Portugal, conhecida pelas suas planícies douradas, tradição vinícola e cidades históricas preservadas.\nNeste tour visitamos Évora, uma cidade classificada como Património Mundial da UNESCO e\nconsiderada um verdadeiro museu a céu aberto. A cidade reúne vestígios romanos,\nmedievais e renascentistas que contam mais de dois mil anos de história.\nPara além do património histórico, o Alentejo é também famoso pela sua gastronomia e\nprodução de vinhos, tornando este tour uma experiência cultural completa.",
+    "en": "Alentejo is one of the most authentic and historic regions of Portugal, known for its golden plains, wine tradition and well-preserved historic cities.\nIn this tour we visit Évora, a city classified as a UNESCO World Heritage Site and considered a true open-air museum. The city brings together Roman, medieval and Renaissance remains that tell more than two thousand years of history.\nIn addition to the historical heritage, Alentejo is also famous for its gastronomy and wine production, making this tour a complete cultural experience.",
+    "de": "Der Alentejo ist eine der authentischsten und historischsten Regionen Portugals, bekannt für seine goldenen Ebenen, Weintradition und gut erhaltenen historischen Städte.\nAuf dieser Tour besuchen wir Évora, eine Stadt, die als UNESCO-Weltkulturerbe eingestuft ist und als echtes Freilichtmuseum gilt. Die Stadt vereint römische, mittelalterliche und Renaissance-Reste, die mehr als zweitausend Jahre Geschichte erzählen.\nNeben dem historischen Erbe ist der Alentejo auch für seine Gastronomie und Weinproduktion bekannt, was diese Tour zu einem vollständigen kulturellen Erlebnis macht."
+  },
+  "highlights": {
+    "pt": [
+      "Centro histórico de Évora",
+      "Templo Romano",
+      "Sé Catedral de Évora",
+      "Capela dos Ossos",
+      "Praça do Giraldo"
+    ],
+    "en": [
+      "Historic center of Évora",
+      "Roman Temple",
+      "Évora Cathedral",
+      "Chapel of Bones",
+      "Giraldo Square"
+    ],
+    "de": [
+      "Historisches Zentrum von Évora",
+      "Römischer Tempel",
+      "Évora Kathedrale",
+      "Kapelle der Knochen",
+      "Giraldo Platz"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saída de Lisboa em direção ao Alentejo atravessando a Ponte 25 de Abril e seguindo pela paisagem típica da região caracterizada por montados de sobreiros e oliveiras.",
+        "en": "Departure from Lisbon towards Alentejo, crossing the 25 de Abril Bridge and travelling through the region's typical landscape of cork oak and olive groves.",
+        "de": "Abfahrt von Lissabon in Richtung Alentejo, Überquerung der Brücke 25 de Abril und Fahrt durch die typische Landschaft der Region mit Korkeichen- und Olivenhainen."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon-street.jpg"
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Évora",
+        "en": "Évora",
+        "de": "Évora"
+      },
+      "description": {
+        "pt": "Évora é uma das cidades históricas mais importantes de Portugal e foi um importante centro durante o período romano. O seu centro histórico é rodeado por muralhas medievais e preserva um conjunto extraordinário de monumentos que mostram a evolução da cidade ao longo dos séculos.",
+        "en": "Évora is one of Portugal's most important historic cities and was a major centre during the Roman period. Its historic centre is surrounded by medieval walls and preserves an extraordinary collection of monuments reflecting the city's evolution over the centuries.",
+        "de": "Évora ist eine der bedeutendsten historischen Städte Portugals und war ein wichtiges Zentrum während der Römerzeit. Ihr historisches Zentrum ist von mittelalterlichen Stadtmauern umgeben und bewahrt eine außergewöhnliche Sammlung von Denkmälern, die die Entwicklung der Stadt über die Jahrhunderte zeigen."
+      },
+      "img": "../../assets/images/evora/arcadas medievais.jpg",
+      "coordinates": {
+        "lat": 38.5714,
+        "lng": -7.9135
+      }
+    },
+    {
+      "time": 11,
+      "title": {
+        "pt": "Templo Romano de Évora",
+        "en": "Roman Temple of Évora",
+        "de": "Römischer Tempel von Évora"
+      },
+      "description": {
+        "pt": "Também conhecido como Templo de Diana, este monumento romano do século I é um dos vestígios romanos mais bem preservados da Península Ibérica. O templo fazia parte do fórum da antiga cidade romana de Ebora.",
+        "en": "Also known as the Temple of Diana, this 1st-century Roman monument is one of the best-preserved Roman remains on the Iberian Peninsula. The temple formed part of the forum of the ancient Roman city of Ebora.",
+        "de": "Auch als Diana-Tempel bekannt, ist dieses römische Bauwerk aus dem 1. Jahrhundert eines der am besten erhaltenen römischen Überreste auf der Iberischen Halbinsel. Der Tempel war Teil des Forums der antiken römischen Stadt Ebora."
+      },
+      "img": "../../assets/images/evora/templo diana.jpg",
+      "coordinates": {
+        "lat": 38.5738,
+        "lng": -7.9072
+      }
+    },
+    {
+      "time": 11.5,
+      "title": {
+        "pt": "Sé Catedral de Évora",
+        "en": "Évora Cathedral",
+        "de": "Kathedrale von Évora"
+      },
+      "description": {
+        "pt": "A Sé de Évora foi construída entre os séculos XII e XIII e é um dos maiores exemplos de arquitetura gótica em Portugal. A catedral oferece também uma vista impressionante sobre a cidade e a paisagem alentejana.",
+        "en": "Évora Cathedral was built between the 12th and 13th centuries and is one of the finest examples of Gothic architecture in Portugal. The cathedral also offers a stunning view over the city and the Alentejo landscape.",
+        "de": "Die Kathedrale von Évora wurde zwischen dem 12. und 13. Jahrhundert erbaut und ist eines der bedeutendsten Beispiele gotischer Architektur in Portugal. Die Kathedrale bietet zudem einen beeindruckenden Blick über die Stadt und die Alentejo-Landschaft."
+      },
+      "img": "../../assets/images/evora/igreja.webp",
+      "coordinates": {
+        "lat": 38.5726,
+        "lng": -7.9087
+      }
+    },
+    {
+      "time": 12,
+      "title": {
+        "pt": "Capela dos Ossos",
+        "en": "Chapel of Bones",
+        "de": "Knochenkapelle"
+      },
+      "description": {
+        "pt": "A Capela dos Ossos é um dos monumentos mais curiosos de Portugal. Foi construída no século XVII por monges franciscanos que utilizaram ossos humanos para decorar as paredes. O objetivo era transmitir uma mensagem sobre a transitoriedade da vida humana.",
+        "en": "The Chapel of Bones is one of Portugal's most remarkable monuments. It was built in the 17th century by Franciscan monks who used human bones to decorate the walls, with the aim of conveying a message about the transience of human life.",
+        "de": "Die Knochenkapelle ist eines der ungewöhnlichsten Denkmäler Portugals. Sie wurde im 17. Jahrhundert von Franziskanermönchen errichtet, die menschliche Knochen zur Dekoration der Wände verwendeten, um eine Botschaft über die Vergänglichkeit des menschlichen Lebens zu vermitteln."
+      },
+      "img": "../../assets/images/evora/capela ossos.jpg",
+      "coordinates": {
+        "lat": 38.5696,
+        "lng": -7.909
+      }
+    },
+    {
+      "time": 13,
+      "title": {
+        "pt": "Tempo livre para almoço",
+        "en": "Free time for lunch",
+        "de": "Freie Zeit zum Mittagessen"
+      },
+      "description": {
+        "pt": "Tempo livre para almoço num restaurante típico do Alentejo, onde é possível experimentar pratos tradicionais da região.",
+        "en": "Free time for lunch at a traditional Alentejo restaurant, where you can try typical dishes from the region.",
+        "de": "Freie Zeit zum Mittagessen in einem typischen Alentejo-Restaurant, wo Sie traditionelle Gerichte der Region probieren können."
+      },
+      "coordinates": {
+        "lat": 38.5714,
+        "lng": -7.9135
+      },
+      "img": "../../assets/images/food.jpg"
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Praça do Giraldo",
+        "en": "Praça do Giraldo",
+        "de": "Praça do Giraldo"
+      },
+      "description": {
+        "pt": "A Praça do Giraldo é o coração da cidade de Évora e um ponto de encontro tradicional desde a Idade Média. A praça foi palco de importantes acontecimentos históricos e continua a ser um dos locais mais animados da cidade.",
+        "en": "Praça do Giraldo is the heart of Évora and a traditional meeting point since the Middle Ages. The square has been the scene of important historical events and remains one of the city's most lively spots.",
+        "de": "Die Praça do Giraldo ist das Herz von Évora und seit dem Mittelalter ein traditioneller Treffpunkt. Der Platz war Schauplatz wichtiger historischer Ereignisse und ist bis heute einer der lebendigsten Orte der Stadt."
+      },
+      "img": "../../assets/images/evora/praca do giraldo night.jpg",
+      "coordinates": {
+        "lat": 38.5717,
+        "lng": -7.9101
+      }
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Regresso a Lisboa",
+        "en": "Return to Lisbon",
+        "de": "Rückkehr nach Lissabon"
+      },
+      "description": {
+        "pt": "Regresso a Lisboa com chegada prevista ao final da tarde.",
+        "en": "Return to Lisbon, with expected arrival in the late afternoon.",
+        "de": "Rückkehr nach Lissabon mit voraussichtlicher Ankunft am späten Nachmittag."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon-street.jpg"
+    }
+  ]
+}

@@ -22,7 +22,19 @@ const tours = defineCollection({
         en: z.array(z.string()),
         de: z.array(z.string()),
       }),
-      category: z.string().optional(),
+      steps: z.array(
+        z.object({
+          time: z.number(), // hours of day
+          title: localisedString,
+          description: localisedString,
+          img: image().optional(),
+          coordinates: z.object({
+            lat: z.number(),
+            lng: z.number(),
+            range: z.number().optional(), // in meters
+          }),
+        }),
+      ),
     }),
 });
 
