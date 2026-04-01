@@ -1,66 +1,30 @@
-# Astro Starter Kit: Minimal
+# Cambia Paisagem
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A platform for booking private tours in Lisbon, Portugal. Hosted at [cambiatours.com](https://cambiatours.com). Built with [Astro](https://astro.build) and deployed on [Cloudflare Pages](https://pages.cloudflare.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Domain settings](https://dash.cloudflare.com/808edf93dcf4598bd94f25d7cb6e1b19/cambiatours.com)
+- [Cloudflare Pages settings](https://dash.cloudflare.com/808edf93dcf4598bd94f25d7cb6e1b19/workers/services/view/cambia-paisagem/production)
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## Commands 👩‍💻
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                    | Action                                           |
+| :------------------------- | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview your build locally, before deploying     |
+| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Code guidelines 🤖
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Use Astro if possible to improve static rendering and performance. We use React for interactive UI, with Mantine for components. Use plain CSS for styling, using CSS modules. Use CSS variables for colors and fonts. If you are missing a variable, add it to the `:root` selector in `src/styles/global.css`. For icons, use the [Tabler Icons](https://tabler-icons.io/) library. Follow these guidelines to maintain consistency and readability in the codebase. Ensure images are optimized before pushing them to the repository, using the provided optimization script.
 
-TODO:
+## Image optimization 📸
 
-- translate email to portuguese
-- add domain for hosting: https://resend.com/domains
-
-QR code to go to the tour page.
-transfer service from airport to hotel and back.
-
-tourlisbon.pt
-
-calendar in the flow of the modal
-
-web mcp just for fun.
-
-redirect on the server automatically to the correct language based on the browser settings. => do after finishing onRequest middlewaremode
-
-## Image optimization
-
-Although we also use the built-in Astro image optimization, we want to optimize the images before adding them to the project, to reduce the size of the repository. To optimize the images, run the following command in the terminal:
+Although we also use the built-in Astro image optimization features, we want to optimize the images before adding them to the project, to reduce the size of the repository. To optimize the images, run the following command in the terminal:
 
 ```sh
 ./optimize.sh
@@ -73,3 +37,16 @@ brew install imagemagick
 ```
 
 You can tweak the optimization settings by changing the `QUALITY` and `MAX_DIMENSION` variables in the script. The script will process all images in the specified directories, so make sure to add any new directories that contain images to the `DIRECTORIES` array.
+
+## To do list ✏️
+
+- improve email template
+- send a confirmation email to the user after they submit the contact form, with the details of their request and a link to the tour page.
+- add domain for hosting: https://resend.com/domains
+- generate QR codes to go to the tour page.
+- add transfer service from airport to hotel and back.
+- add tours received in email
+- properly configure environmental variables for production and development
+- Add support for web mcp to send email requests
+- add rate limiting to the contact api
+- redirect on the server automatically to the correct language based on the browser settings. Dependent on https://github.com/withastro/astro/pull/15686
