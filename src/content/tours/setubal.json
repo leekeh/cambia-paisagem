@@ -1,0 +1,169 @@
+{
+  "slug": "setubal",
+  "image": "../../assets/images/setubal/panoramic.webp",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Arrabida & Setubal Wine Experience",
+    "en": "Arrabida & Setubal Wine Experience",
+    "de": "Arrabida & Setubal Weinerlebnis"
+  },
+  "description": {
+    "pt": "A regiao de Setubal e da Serra da Arrabida e considerada uma das paisagens naturais mais impressionantes de Portugal. Neste tour exploramos uma combinacao perfeita entre historia, cultura local, gastronomia e paisagens naturais.\nA poucos quilometros de Lisboa encontramos uma regiao marcada pela tradicao maritima, pela producao de vinho e por uma natureza preservada que combina montanhas verdes e aguas cristalinas.\nEste tour inclui a visita a cidade de Setubal, ao famoso Mercado do Livramento, as vistas panoramicas da Serra da Arrabida e termina com uma prova de vinhos numa das quintas mais prestigiadas da regiao.",
+    "en": "The Setubal region and the Arrabida mountain range are considered one of the most impressive natural landscapes in Portugal. On this tour, we explore a perfect combination of history, local culture, gastronomy and natural scenery.\nJust a few kilometers from Lisbon, you will discover a region shaped by maritime tradition, wine production and preserved nature that blends green mountains with crystal-clear waters.\nThis tour includes a visit to the city of Setubal, the famous Mercado do Livramento, panoramic viewpoints in Serra da Arrabida and ends with a wine tasting at one of the region's most prestigious estates.",
+    "de": "Die Region Setubal und die Serra da Arrabida gelten als eine der beeindruckendsten Naturlandschaften Portugals. Auf dieser Tour entdecken wir eine perfekte Kombination aus Geschichte, lokaler Kultur, Gastronomie und Natur.\nNur wenige Kilometer von Lissabon entfernt liegt eine Region, die von maritimer Tradition, Weinproduktion und geschutzter Natur gepragt ist, wo grune Berge auf kristallklares Wasser treffen.\nDiese Tour umfasst den Besuch der Stadt Setubal, des beruhmten Mercado do Livramento, panoramische Aussichtspunkte in der Serra da Arrabida und endet mit einer Weinprobe auf einem der renommiertesten Weinguter der Region."
+  },
+  "highlights": {
+    "pt": [
+      "Cristo Rei",
+      "Cidade de Setubal",
+      "Mercado do Livramento",
+      "Serra da Arrabida",
+      "Prova de vinhos na Quinta de Catralvos"
+    ],
+    "en": [
+      "Cristo Rei",
+      "City of Setubal",
+      "Mercado do Livramento",
+      "Serra da Arrabida",
+      "Wine tasting at Quinta de Catralvos"
+    ],
+    "de": [
+      "Cristo Rei",
+      "Stadt Setubal",
+      "Mercado do Livramento",
+      "Serra da Arrabida",
+      "Weinprobe in der Quinta de Catralvos"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saida de Lisboa em direcao a margem sul do rio Tejo. Durante o trajeto e feita uma introducao a historia da regiao e a importancia estrategica do estuario do Tejo.",
+        "en": "Departure from Lisbon towards the south bank of the Tagus River. During the journey, you get an introduction to the region's history and the strategic importance of the Tagus estuary.",
+        "de": "Abfahrt von Lissabon in Richtung Sudufer des Tejo. Wahrend der Fahrt erhalten Sie eine Einfuhrung in die Geschichte der Region und die strategische Bedeutung des Tejo-Astuars."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 9.33,
+      "title": {
+        "pt": "Cristo Rei",
+        "en": "Cristo Rei",
+        "de": "Cristo Rei"
+      },
+      "description": {
+        "pt": "O Santuario do Cristo Rei foi inaugurado em 1959 e inspirado no Cristo Redentor do Rio de Janeiro. Foi construido como simbolo de gratidao por Portugal ter sido poupado aos efeitos diretos da Segunda Guerra Mundial. O miradouro oferece uma das melhores vistas sobre Lisboa, o rio Tejo e a Ponte 25 de Abril.",
+        "en": "The Cristo Rei Sanctuary was inaugurated in 1959 and inspired by Christ the Redeemer in Rio de Janeiro. It was built as a symbol of gratitude for Portugal being spared from the direct effects of World War II. The viewpoint offers one of the best views over Lisbon, the Tagus River and the 25 de Abril Bridge.",
+        "de": "Das Santuario do Cristo Rei wurde 1959 eingeweiht und vom Christusstatue in Rio de Janeiro inspiriert. Es wurde als Symbol der Dankbarkeit errichtet, da Portugal von den direkten Auswirkungen des Zweiten Weltkriegs verschont blieb. Der Aussichtspunkt bietet einen der besten Blicke auf Lissabon, den Tejo und die Brucke 25 de Abril."
+      },
+      "img": "../../assets/images/setubal/bridge.webp",
+      "coordinates": {
+        "lat": 38.678,
+        "lng": -9.171
+      }
+    },
+    {
+      "time": 10,
+      "title": {
+        "pt": "Setubal",
+        "en": "Setubal",
+        "de": "Setubal"
+      },
+      "description": {
+        "pt": "Setubal e uma das cidades portuarias mais importantes de Portugal e tem uma longa tradicao ligada a pesca. A cidade e tambem conhecida por ser o local de nascimento de Fernao de Magalhaes, navegador responsavel pela primeira viagem de circum-navegacao do mundo.",
+        "en": "Setubal is one of Portugal's most important port cities and has a long tradition linked to fishing. The city is also known as the birthplace of Ferdinand Magellan, the navigator responsible for the first circumnavigation of the globe.",
+        "de": "Setubal ist eine der wichtigsten Hafenstadte Portugals und hat eine lange Tradition in der Fischerei. Die Stadt ist auch als Geburtsort von Ferdinand Magellan bekannt, dem Seefahrer der ersten Weltumsegelung."
+      },
+      "img": "../../assets/images/setubal/ruas.webp",
+      "coordinates": {
+        "lat": 38.5244,
+        "lng": -8.8882
+      }
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Mercado do Livramento",
+        "en": "Mercado do Livramento",
+        "de": "Mercado do Livramento"
+      },
+      "description": {
+        "pt": "Considerado um dos mercados mais bonitos do mundo, o Mercado do Livramento destaca-se pelos grandes paineis de azulejos que representam cenas da vida tradicional da regiao. Aqui encontramos peixe fresco, produtos regionais, queijos e especialidades portuguesas.",
+        "en": "Considered one of the most beautiful markets in the world, Mercado do Livramento stands out for its large tile panels depicting scenes of traditional regional life. Here you can find fresh fish, local produce, cheeses and Portuguese specialties.",
+        "de": "Der Mercado do Livramento gilt als einer der schonsten Markte der Welt und zeichnet sich durch seine grossen Azulejo-Paneele aus, die Szenen des traditionellen Lebens der Region darstellen. Hier finden Sie frischen Fisch, regionale Produkte, Kase und portugiesische Spezialitaten."
+      },
+      "img": "../../assets/images/setubal/cb_lisbon_mercadodolivramento_ab_final_exterior.webp",
+      "coordinates": {
+        "lat": 38.5248,
+        "lng": -8.8907
+      }
+    },
+    {
+      "time": 11.5,
+      "title": {
+        "pt": "Serra da Arrabida",
+        "en": "Serra da Arrabida",
+        "de": "Serra da Arrabida"
+      },
+      "description": {
+        "pt": "A Serra da Arrabida e uma area natural protegida criada em 1976. A regiao e famosa pelas suas paisagens unicas onde a montanha encontra o oceano Atlantico. As estradas panoramicas oferecem vistas espetaculares sobre algumas das praias mais bonitas de Portugal.",
+        "en": "Serra da Arrabida is a protected natural area created in 1976. The region is famous for its unique landscapes where the mountains meet the Atlantic Ocean. The panoramic roads offer spectacular views over some of Portugal's most beautiful beaches.",
+        "de": "Die Serra da Arrabida ist ein 1976 geschaffenes Naturschutzgebiet. Die Region ist beruhmt fur ihre einzigartigen Landschaften, in denen die Berge auf den Atlantik treffen. Die Panoramastrassen bieten spektakulare Ausblicke auf einige der schonsten Strande Portugals."
+      },
+      "img": "../../assets/images/setubal/panoramic.webp",
+      "coordinates": {
+        "lat": 38.4815,
+        "lng": -8.9826
+      }
+    },
+    {
+      "time": 13.5,
+      "title": {
+        "pt": "Quinta de Catralvos",
+        "en": "Quinta de Catralvos",
+        "de": "Quinta de Catralvos"
+      },
+      "description": {
+        "pt": "A Peninsula de Setubal e uma das regioes vinicolas mais importantes de Portugal. A Quinta de Catralvos e conhecida pela producao de vinhos de grande qualidade, combinando tecnicas modernas com tradicoes antigas da regiao.",
+        "en": "The Setubal Peninsula is one of Portugal's most important wine regions. Quinta de Catralvos is known for producing high-quality wines, combining modern techniques with long-standing regional traditions.",
+        "de": "Die Halbinsel Setubal ist eine der wichtigsten Weinregionen Portugals. Die Quinta de Catralvos ist fur hochwertige Weine bekannt und verbindet moderne Techniken mit alten regionalen Traditionen."
+      },
+      "img": "../../assets/images/setubal/barris2.webp",
+      "coordinates": {
+        "lat": 38.5417,
+        "lng": -9.0022
+      }
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Regresso a Lisboa",
+        "en": "Return to Lisbon",
+        "de": "Ruckfahrt nach Lissabon"
+      },
+      "description": {
+        "pt": "Regresso a Lisboa atravessando a Ponte 25 de Abril e final do tour.",
+        "en": "Return to Lisbon crossing the 25 de Abril Bridge and end of the tour.",
+        "de": "Ruckfahrt nach Lissabon uber die Brucke 25 de Abril und Ende der Tour."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}

@@ -30,7 +30,7 @@ Although we also use the built-in Astro image optimization features, we want to 
 ./optimize.sh
 ```
 
-This script will reduce the quality of the images to 80% and resize them to a maximum dimension of 860 pixels, while maintaining the aspect ratio. The optimized images will be saved in the same directory as the original images, with snake case names and the webp format. The script requires `imagemagick` to be installed on your system. You can install it using Homebrew on macOS:
+This script will reduce the quality of the images to 80% and resize them to a maximum dimension of 860 pixels, while maintaining the aspect ratio. The optimized images will be saved in the same directory as the original images, with snake case names and the png format. The script requires `imagemagick` to be installed on your system. You can install it using Homebrew on macOS:
 
 ```sh
 brew install imagemagick
