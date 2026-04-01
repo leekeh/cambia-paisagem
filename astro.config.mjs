@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://tourlisbon.pt",
   output: "static",
-  adapter: cloudflare(),
+  adapter: cloudflare({ imageService: "compile" }),
   devToolbar: { enabled: false },
   integrations: [react()],
   vite: {
