@@ -6,7 +6,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tourlisbon.pt",
+  site: "https://www.cambiatours.com",
   output: "static",
   adapter: cloudflare({ imageService: "compile" }),
   devToolbar: { enabled: false },
