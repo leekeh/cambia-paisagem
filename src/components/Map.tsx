@@ -21,6 +21,7 @@ interface TourStep {
   title: LocalisedString;
   description: LocalisedString;
   image?: GetImageResult | null; // optional image URL
+  imgAttribution?: string; // optional image attribution text
   coordinates: {
     lat: number;
     lng: number;
@@ -261,15 +262,34 @@ export default function TourCarousel({
           }}
         >
           {step.image ? (
-            <img
-              src={step.image.src}
-              alt={step.title[locale]}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            />
+            // if attribution is provided, show image with reduced opacity and attribution overlay on hover
+            step.imgAttribution ? (
+              <>
+                <img
+                  src={step.image.src}
+                  alt={step.title[locale]}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+                <div
+                  className={classes.imgAttribution}
+                  dangerouslySetInnerHTML={{ __html: step.imgAttribution }}
+                />
+              </>
+            ) : (
+              <img
+                src={step.image.src}
+                alt={step.title[locale]}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            )
           ) : (
             <div
               style={{

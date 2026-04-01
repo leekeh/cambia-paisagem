@@ -57,3 +57,19 @@ calendar in the flow of the modal
 web mcp just for fun.
 
 redirect on the server automatically to the correct language based on the browser settings. => do after finishing onRequest middlewaremode
+
+## Image optimization
+
+Although we also use the built-in Astro image optimization, we want to optimize the images before adding them to the project, to reduce the size of the repository. To optimize the images, run the following command in the terminal:
+
+```sh
+./optimize.sh
+```
+
+This script will reduce the quality of the images to 80% and resize them to a maximum dimension of 860 pixels, while maintaining the aspect ratio. The optimized images will be saved in the same directory as the original images, with snake case names and the webp format. The script requires `imagemagick` to be installed on your system. You can install it using Homebrew on macOS:
+
+```sh
+brew install imagemagick
+```
+
+You can tweak the optimization settings by changing the `QUALITY` and `MAX_DIMENSION` variables in the script. The script will process all images in the specified directories, so make sure to add any new directories that contain images to the `DIRECTORIES` array.

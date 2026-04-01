@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 
 const localisedString = z.object({
@@ -28,6 +29,7 @@ const tours = defineCollection({
           title: localisedString,
           description: localisedString,
           img: image().optional(),
+          imgAttribution: z.string().optional(),
           coordinates: z.object({
             lat: z.number(),
             lng: z.number(),

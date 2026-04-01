@@ -1,0 +1,152 @@
+{
+  "slug": "fado",
+  "image": "../../assets/images/fado/fado.webp",
+  "price": 120,
+  "duration": 4.5,
+  "title": {
+    "pt": "Tour de Fado em Lisboa",
+    "en": "Fado Tour in Lisbon",
+    "de": "Fado-Tour in Lissabon"
+  },
+  "description": {
+    "pt": "O Fado é considerado a alma musical de Portugal e foi classificado como Património Cultural Imaterial da Humanidade pela UNESCO. Este tour noturno explora o bairro histórico de Alfama, considerado o berço do Fado, onde as ruas estreitas e as antigas casas criam uma atmosfera única para esta música tradicional portuguesa. A experiência inclui uma visita ao Museu do Fado ou à Casa de Amália e termina com um jantar com espetáculo de Fado numa das casas mais emblemáticas de Lisboa.\n\nDuração: 4 a 5 horas. Pickup: Lisboa. Inclui: transporte privado, motorista profissional e água. Opcional: guia oficial e jantar com espetáculo de Fado.",
+    "en": "Fado is considered the musical soul of Portugal and has been recognized by UNESCO as Intangible Cultural Heritage of Humanity. This evening tour explores the historic district of Alfama, considered the birthplace of Fado, where narrow streets and old houses create a unique atmosphere for this traditional Portuguese music. The experience includes a visit to the Fado Museum or the Amalia House Museum and ends with dinner and a live Fado performance at one of Lisbon's most emblematic venues.\n\nDuration: 4 to 5 hours. Pickup: Lisbon. Includes: private transport, professional driver and water. Optional: official guide and dinner with Fado show.",
+    "de": "Der Fado gilt als musikalische Seele Portugals und wurde von der UNESCO als immaterielles Kulturerbe der Menschheit anerkannt. Diese Abendtour erkundet das historische Viertel Alfama, die Wiege des Fado, wo enge Gassen und alte Häuser eine einzigartige Atmosphäre für diese traditionelle portugiesische Musik schaffen. Das Erlebnis umfasst einen Besuch im Fado-Museum oder im Amalia-Hausmuseum und endet mit einem Abendessen samt Live-Fado in einem der bekanntesten Fado-Häuser Lissabons.\n\nDauer: 4 bis 5 Stunden. Abholung: Lissabon. Inklusive: privater Transport, professioneller Fahrer und Wasser. Optional: offizieller Guide und Abendessen mit Fado-Show."
+  },
+  "highlights": {
+    "pt": [
+      "Bairro histórico de Alfama",
+      "Casa Museu Amália Rodrigues",
+      "Museu do Fado",
+      "Experiência de Fado ao vivo",
+      "Gastronomia portuguesa"
+    ],
+    "en": [
+      "Historic district of Alfama",
+      "Amalia Rodrigues House Museum",
+      "Fado Museum",
+      "Live Fado experience",
+      "Portuguese gastronomy"
+    ],
+    "de": [
+      "Historisches Viertel Alfama",
+      "Amalia-Rodrigues-Hausmuseum",
+      "Fado-Museum",
+      "Live-Fado-Erlebnis",
+      "Portugiesische Gastronomie"
+    ]
+  },
+  "steps": [
+    {
+      "time": 16,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Início do tour com saída do hotel em direção ao bairro histórico de Alfama, uma das zonas mais antigas de Lisboa.",
+        "en": "Start of the tour with departure from the hotel towards the historic district of Alfama, one of the oldest areas of Lisbon.",
+        "de": "Beginn der Tour mit Abfahrt vom Hotel in Richtung des historischen Viertels Alfama, eines der ältesten Gebiete Lissabons."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 16.5,
+      "title": {
+        "pt": "Casa Museu Amália Rodrigues",
+        "en": "Amalia Rodrigues House Museum",
+        "de": "Amalia-Rodrigues-Hausmuseum"
+      },
+      "description": {
+        "pt": "A Casa Museu Amália Rodrigues foi a residência da maior voz do Fado. Amália é considerada a artista que levou o Fado para o mundo e transformou este género musical num símbolo internacional de Portugal. A casa preserva objetos pessoais, discos e memórias da sua carreira.",
+        "en": "The Amalia Rodrigues House Museum was the residence of the greatest voice of Fado. Amalia is considered the artist who brought Fado to the world and transformed this musical genre into an international symbol of Portugal. The house preserves personal objects, records and memories of her career.",
+        "de": "Das Amalia-Rodrigues-Hausmuseum war die Residenz der größten Stimme des Fado. Amalia gilt als die Künstlerin, die den Fado in die Welt getragen und dieses Musikgenre zu einem internationalen Symbol Portugals gemacht hat. Das Haus bewahrt persönliche Gegenstände, Schallplatten und Erinnerungen an ihre Karriere."
+      },
+      "img": "../../assets/images/fado/casa.webp",
+      "imgAttribution": "Jens Cederskjold from København S, Danmark, <a href=\"https://creativecommons.org/licenses/by-sa/2.0\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 2.0</a>, via Wikimedia Commons",
+      "coordinates": {
+        "lat": 38.7249,
+        "lng": -9.158
+      }
+    },
+    {
+      "time": 17.5,
+      "title": {
+        "pt": "Museu do Fado",
+        "en": "Fado Museum",
+        "de": "Fado-Museum"
+      },
+      "description": {
+        "pt": "O Museu do Fado conta a história desta música única que nasceu nos bairros populares de Lisboa durante o século XIX. O espaço apresenta instrumentos, gravações históricas e biografias de grandes fadistas que marcaram este género musical.",
+        "en": "The Fado Museum tells the story of this unique music that was born in Lisbon's popular neighborhoods during the 19th century. The museum presents instruments, historical recordings and biographies of great fadistas who shaped this musical genre.",
+        "de": "Das Fado-Museum erzählt die Geschichte dieser einzigartigen Musik, die im 19. Jahrhundert in den Volksvierteln Lissabons entstand. Das Museum zeigt Instrumente, historische Aufnahmen und Biografien großer Fado-Künstler, die dieses Musikgenre geprägt haben."
+      },
+      "img": "../../assets/images/fado/guitar.webp",
+      "coordinates": {
+        "lat": 38.7138,
+        "lng": -9.1297
+      }
+    },
+    {
+      "time": 18.5,
+      "title": {
+        "pt": "Passeio por Alfama",
+        "en": "Walk through Alfama",
+        "de": "Spaziergang durch Alfama"
+      },
+      "description": {
+        "pt": "Passeio pelas ruas estreitas de Alfama, onde é possível sentir a atmosfera autêntica do bairro mais antigo de Lisboa. Aqui surgiram muitas das primeiras casas de Fado e a tradição musical continua viva até hoje.",
+        "en": "Walk through Alfama's narrow streets, where you can feel the authentic atmosphere of Lisbon's oldest district. Many of the first Fado houses were born here, and the musical tradition remains alive to this day.",
+        "de": "Spaziergang durch die engen Gassen von Alfama, wo die authentische Atmosphäre des ältesten Viertels von Lissabon spürbar ist. Viele der ersten Fado-Häuser entstanden hier, und die musikalische Tradition lebt bis heute weiter."
+      },
+      "img": "../../assets/images/fado/alfama.webp",
+      "coordinates": {
+        "lat": 38.7112,
+        "lng": -9.1292
+      }
+    },
+    {
+      "time": 20,
+      "title": {
+        "pt": "Jantar com espetáculo de Fado",
+        "en": "Dinner with Fado show",
+        "de": "Abendessen mit Fado-Show"
+      },
+      "description": {
+        "pt": "O tour termina com um jantar tradicional português acompanhado por um espetáculo de Fado ao vivo. Opções recomendadas: Mesa de Frades ou Museu do Fado (restaurante / casa de Fado).",
+        "en": "The tour ends with a traditional Portuguese dinner accompanied by a live Fado performance. Recommended options: Mesa de Frades or Museu do Fado (restaurant / Fado house).",
+        "de": "Die Tour endet mit einem traditionellen portugiesischen Abendessen, begleitet von einer Live-Fado-Aufführung. Empfohlene Optionen: Mesa de Frades oder Museu do Fado (Restaurant / Fado-Haus)."
+      },
+      "img": "../../assets/images/fado/fadomesa.webp",
+      "coordinates": {
+        "lat": 38.7103,
+        "lng": -9.1304
+      }
+    },
+    {
+      "time": 22.5,
+      "title": {
+        "pt": "Regresso ao hotel",
+        "en": "Return to hotel",
+        "de": "Ruckfahrt zum Hotel"
+      },
+      "description": {
+        "pt": "Regresso ao hotel após o espetáculo de Fado.",
+        "en": "Return to the hotel after the Fado performance.",
+        "de": "Ruckfahrt zum Hotel nach der Fado-Auffuhrung."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
