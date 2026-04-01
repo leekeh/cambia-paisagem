@@ -1,6 +1,6 @@
 {
   "slug": "evora",
-  "image": "../../assets/images/evora/hero.webp",
+  "image": "../../assets/images/evora/hero.png",
   "price": 120,
   "duration": 8,
   "title": {
@@ -54,7 +54,7 @@
         "lng": -9.1395,
         "range": 2000
       },
-      "img": "../../assets/images/lisbon_street.webp"
+      "img": "../../assets/images/lisbon_street.png"
     },
     {
       "time": 10.75,
@@ -68,7 +68,7 @@
         "en": "Évora is one of Portugal's most important historic cities and was a major centre during the Roman period. Its historic centre is surrounded by medieval walls and preserves an extraordinary collection of monuments reflecting the city's evolution over the centuries.",
         "de": "Évora ist eine der bedeutendsten historischen Städte Portugals und war ein wichtiges Zentrum während der Römerzeit. Ihr historisches Zentrum ist von mittelalterlichen Stadtmauern umgeben und bewahrt eine außergewöhnliche Sammlung von Denkmälern, die die Entwicklung der Stadt über die Jahrhunderte zeigen."
       },
-      "img": "../../assets/images/evora/arcadas_medievais.webp",
+      "img": "../../assets/images/evora/arcadas_medievais.png",
       "coordinates": {
         "lat": 38.5714,
         "lng": -7.9135
@@ -86,7 +86,7 @@
         "en": "Also known as the Temple of Diana, this 1st-century Roman monument is one of the best-preserved Roman remains on the Iberian Peninsula. The temple formed part of the forum of the ancient Roman city of Ebora.",
         "de": "Auch als Diana-Tempel bekannt, ist dieses römische Bauwerk aus dem 1. Jahrhundert eines der am besten erhaltenen römischen Überreste auf der Iberischen Halbinsel. Der Tempel war Teil des Forums der antiken römischen Stadt Ebora."
       },
-      "img": "../../assets/images/evora/templo_diana.webp",
+      "img": "../../assets/images/evora/templo_diana.png",
       "coordinates": {
         "lat": 38.5738,
         "lng": -7.9072
@@ -104,7 +104,7 @@
         "en": "Évora Cathedral was built between the 12th and 13th centuries and is one of the finest examples of Gothic architecture in Portugal. The cathedral also offers a stunning view over the city and the Alentejo landscape.",
         "de": "Die Kathedrale von Évora wurde zwischen dem 12. und 13. Jahrhundert erbaut und ist eines der bedeutendsten Beispiele gotischer Architektur in Portugal. Die Kathedrale bietet zudem einen beeindruckenden Blick über die Stadt und die Alentejo-Landschaft."
       },
-      "img": "../../assets/images/evora/igreja.webp",
+      "img": "../../assets/images/evora/igreja.png",
       "coordinates": {
         "lat": 38.5726,
         "lng": -7.9087
@@ -122,7 +122,7 @@
         "en": "The Chapel of Bones is one of Portugal's most remarkable monuments. It was built in the 17th century by Franciscan monks who used human bones to decorate the walls, with the aim of conveying a message about the transience of human life.",
         "de": "Die Knochenkapelle ist eines der ungewöhnlichsten Denkmäler Portugals. Sie wurde im 17. Jahrhundert von Franziskanermönchen errichtet, die menschliche Knochen zur Dekoration der Wände verwendeten, um eine Botschaft über die Vergänglichkeit des menschlichen Lebens zu vermitteln."
       },
-      "img": "../../assets/images/evora/capela_ossos.webp",
+      "img": "../../assets/images/evora/capela_ossos.png",
       "coordinates": {
         "lat": 38.5696,
         "lng": -7.909
@@ -144,7 +144,7 @@
         "lat": 38.5714,
         "lng": -7.9135
       },
-      "img": "../../assets/images/food.webp"
+      "img": "../../assets/images/food.png"
     },
     {
       "time": 14.5,
@@ -158,7 +158,7 @@
         "en": "Praça do Giraldo is the heart of Évora and a traditional meeting point since the Middle Ages. The square has been the scene of important historical events and remains one of the city's most lively spots.",
         "de": "Die Praça do Giraldo ist das Herz von Évora und seit dem Mittelalter ein traditioneller Treffpunkt. Der Platz war Schauplatz wichtiger historischer Ereignisse und ist bis heute einer der lebendigsten Orte der Stadt."
       },
-      "img": "../../assets/images/evora/praca_do_giraldo_night.webp",
+      "img": "../../assets/images/evora/praca_do_giraldo_night.png",
       "coordinates": {
         "lat": 38.5717,
         "lng": -7.9101
@@ -181,7 +181,7 @@
         "lng": -9.1395,
         "range": 2000
       },
-      "img": "../../assets/images/lisbon_street.webp"
+      "img": "../../assets/images/lisbon_street.png"
     }
   ]
 }
