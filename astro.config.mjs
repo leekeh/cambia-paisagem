@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://www.cambiatours.com",
   output: "static",
-  adapter: cloudflare({ imageService: "compile" }),
+  adapter: cloudflare({ imageService: "passthrough" }),
   devToolbar: { enabled: false },
   integrations: [react()],
   vite: {
