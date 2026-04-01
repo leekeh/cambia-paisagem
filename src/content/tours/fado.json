@@ -1,6 +1,6 @@
 {
   "slug": "fado",
-  "image": "../../assets/images/fado/fado.png",
+  "image": "../../assets/images/fado/fado.webp",
   "price": 120,
   "duration": 4.5,
   "title": {
@@ -54,7 +54,7 @@
         "lng": -9.1395,
         "range": 2000
       },
-      "img": "../../assets/images/lisbon_street.png"
+      "img": "../../assets/images/lisbon_street.webp"
     },
     {
       "time": 16.5,
@@ -68,7 +68,7 @@
         "en": "The Amalia Rodrigues House Museum was the residence of the greatest voice of Fado. Amalia is considered the artist who brought Fado to the world and transformed this musical genre into an international symbol of Portugal. The house preserves personal objects, records and memories of her career.",
         "de": "Das Amalia-Rodrigues-Hausmuseum war die Residenz der größten Stimme des Fado. Amalia gilt als die Künstlerin, die den Fado in die Welt getragen und dieses Musikgenre zu einem internationalen Symbol Portugals gemacht hat. Das Haus bewahrt persönliche Gegenstände, Schallplatten und Erinnerungen an ihre Karriere."
       },
-      "img": "../../assets/images/fado/casa.png",
+      "img": "../../assets/images/fado/casa.webp",
       "imgAttribution": "Jens Cederskjold from København S, Danmark, <a href=\"https://creativecommons.org/licenses/by-sa/2.0\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 2.0</a>, via Wikimedia Commons",
       "coordinates": {
         "lat": 38.7249,
@@ -87,7 +87,7 @@
         "en": "The Fado Museum tells the story of this unique music that was born in Lisbon's popular neighborhoods during the 19th century. The museum presents instruments, historical recordings and biographies of great fadistas who shaped this musical genre.",
         "de": "Das Fado-Museum erzählt die Geschichte dieser einzigartigen Musik, die im 19. Jahrhundert in den Volksvierteln Lissabons entstand. Das Museum zeigt Instrumente, historische Aufnahmen und Biografien großer Fado-Künstler, die dieses Musikgenre geprägt haben."
       },
-      "img": "../../assets/images/fado/guitar.png",
+      "img": "../../assets/images/fado/guitar.webp",
       "coordinates": {
         "lat": 38.7138,
         "lng": -9.1297
@@ -105,7 +105,7 @@
         "en": "Walk through Alfama's narrow streets, where you can feel the authentic atmosphere of Lisbon's oldest district. Many of the first Fado houses were born here, and the musical tradition remains alive to this day.",
         "de": "Spaziergang durch die engen Gassen von Alfama, wo die authentische Atmosphäre des ältesten Viertels von Lissabon spürbar ist. Viele der ersten Fado-Häuser entstanden hier, und die musikalische Tradition lebt bis heute weiter."
       },
-      "img": "../../assets/images/fado/alfama.png",
+      "img": "../../assets/images/fado/alfama.webp",
       "coordinates": {
         "lat": 38.7112,
         "lng": -9.1292
@@ -123,7 +123,7 @@
         "en": "The tour ends with a traditional Portuguese dinner accompanied by a live Fado performance. Recommended options: Mesa de Frades or Museu do Fado (restaurant / Fado house).",
         "de": "Die Tour endet mit einem traditionellen portugiesischen Abendessen, begleitet von einer Live-Fado-Aufführung. Empfohlene Optionen: Mesa de Frades oder Museu do Fado (Restaurant / Fado-Haus)."
       },
-      "img": "../../assets/images/fado/fadomesa.png",
+      "img": "../../assets/images/fado/fadomesa.webp",
       "coordinates": {
         "lat": 38.7103,
         "lng": -9.1304
@@ -146,7 +146,7 @@
         "lng": -9.1395,
         "range": 2000
       },
-      "img": "../../assets/images/lisbon_street.png"
+      "img": "../../assets/images/lisbon_street.webp"
     }
   ]
 }

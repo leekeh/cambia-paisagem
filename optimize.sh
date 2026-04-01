@@ -7,11 +7,13 @@
 #
 readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 readonly DIRECTORIES=(
-	"$SCRIPT_DIRECTORY/src/assets/images/setubal"
+	"$SCRIPT_DIRECTORY/src/assets/images"
+	"$SCRIPT_DIRECTORY/src/assets/images/evora"
+	"$SCRIPT_DIRECTORY/src/assets/images/fado"
 )
-readonly QUALITY="100"
-readonly MAX_DIMENSION="2048"
-readonly OUTPUT_FORMAT="png"
+readonly QUALITY="95"
+readonly MAX_DIMENSION="1024"
+readonly OUTPUT_FORMAT="webp"
 readonly FORMATS_TO_PROCESS=(
     "png"
     "jpg"
