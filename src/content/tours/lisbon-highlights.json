@@ -1,0 +1,187 @@
+{
+  "slug": "lisbon-highlights",
+  "image": "../../assets/images/lisbon-highlights/skylinecomponte.webp",
+  "price": 0,
+  "duration": 7.5,
+  "title": {
+    "pt": "Descubra a essência de Lisboa com conforto e autenticidade",
+    "en": "Discover the essence of Lisbon with comfort and authenticity",
+    "de": "Entdecken Sie die Essenz Lissabons mit Komfort und Authentizität"
+  },
+  "description": {
+    "pt": "Dos bairros históricos de Alfama e Mouraria às avenidas elegantes da Baixa e Chiado, este tour leva-o numa viagem completa pelo coração de Lisboa. Ao longo do percurso, irá descobrir miradouros com vistas deslumbrantes sobre o rio Tejo, percorrer ruas cheias de história e sentir o ritmo único da cidade. Em Belém, mergulhamos na época dos Descobrimentos, com paragens junto aos seus monumentos mais emblemáticos, onde o passado glorioso de Portugal ganha vida. Cada momento deste percurso revela o contraste perfeito entre tradição e modernidade, entre o antigo e o contemporâneo. Pensado para ser feito com tranquilidade, conforto e atenção ao detalhe, este tour permite-lhe absorver Lisboa ao seu ritmo, sem pressas e sem superficialidade. Uma experiência completa, envolvente e memorável - daquelas que fazem Lisboa deixar de ser apenas um destino para passar a ser uma memória.",
+    "en": "From the historic neighborhoods of Alfama and Mouraria to the elegant avenues of Baixa and Chiado, this tour takes you on a complete journey through the heart of Lisbon. Along the way, you will discover viewpoints with stunning views over the Tagus River, walk through streets full of history, and feel the city's unique rhythm. In Belem, we dive into the Age of Discoveries, with stops at its most emblematic monuments where Portugal's glorious past comes to life. Every moment of this route reveals the perfect contrast between tradition and modernity, between the old and the contemporary. Designed to be enjoyed with calm, comfort, and attention to detail, this tour lets you absorb Lisbon at your own pace, without rush and without superficiality. A complete, immersive, and memorable experience - one that turns Lisbon from just a destination into a lasting memory.",
+    "de": "Von den historischen Vierteln Alfama und Mouraria bis zu den eleganten Avenuen von Baixa und Chiado fuhrt Sie diese Tour auf eine vollstandige Reise durch das Herz von Lissabon. Unterwegs entdecken Sie Aussichtspunkte mit atemberaubendem Blick auf den Tejo, spazieren durch geschichtstrachtige Strassen und erleben den einzigartigen Rhythmus der Stadt. In Belem tauchen wir in die Epoche der Entdeckungen ein, mit Stopps an den bedeutendsten Denkmalern, wo Portugals ruhmreiche Vergangenheit lebendig wird. Jeder Moment dieser Route zeigt den perfekten Kontrast zwischen Tradition und Moderne, zwischen Alt und Zeitgenossisch. Diese Tour ist auf Ruhe, Komfort und Liebe zum Detail ausgelegt und erlaubt es Ihnen, Lissabon in Ihrem eigenen Tempo zu erleben, ohne Eile und ohne Oberflachlichkeit. Ein vollstandiges, fesselndes und unvergessliches Erlebnis - eines, das Lissabon von einem Reiseziel in eine bleibende Erinnerung verwandelt."
+  },
+  "highlights": {
+    "pt": [
+      "Alfama e Mouraria",
+      "Baixa e Chiado",
+      "Miradouros sobre o Tejo",
+      "Torre de Belem",
+      "Mosteiro dos Jeronimos"
+    ],
+    "en": [
+      "Alfama and Mouraria",
+      "Baixa and Chiado",
+      "Viewpoints over the Tagus",
+      "Belem Tower",
+      "Jeronimos Monastery"
+    ],
+    "de": [
+      "Alfama und Mouraria",
+      "Baixa und Chiado",
+      "Aussichtspunkte uber den Tejo",
+      "Torre de Belem",
+      "Hieronymus-Kloster"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Inicio do tour com recolha no hotel e partida para o centro historico de Lisboa.",
+        "en": "Start of the tour with hotel pickup and departure towards Lisbon's historic center.",
+        "de": "Beginn der Tour mit Abholung im Hotel und Abfahrt ins historische Zentrum von Lissabon."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 9.5,
+      "title": {
+        "pt": "Alfama e Mouraria",
+        "en": "Alfama and Mouraria",
+        "de": "Alfama und Mouraria"
+      },
+      "description": {
+        "pt": "Passeio pelos bairros mais antigos de Lisboa, entre ruelas historicas, escadinhas e miradouros que revelam a alma autentica da cidade.",
+        "en": "Walk through Lisbon's oldest districts, among historic alleys, stairways and viewpoints that reveal the city's authentic soul.",
+        "de": "Spaziergang durch die altesten Viertel Lissabons mit historischen Gassen, Treppen und Aussichtspunkten, die die authentische Seele der Stadt zeigen."
+      },
+      "img": "../../assets/images/lisbon-highlights/alfama_tram_cathedral.webp",
+      "coordinates": {
+        "lat": 38.7112,
+        "lng": -9.1292
+      }
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Baixa e Chiado",
+        "en": "Baixa and Chiado",
+        "de": "Baixa und Chiado"
+      },
+      "description": {
+        "pt": "Passagem pelas avenidas e pracas mais elegantes da cidade, onde o classico lisboeta encontra a energia cultural contemporanea.",
+        "en": "Route through the city's most elegant avenues and squares, where classic Lisbon meets contemporary cultural energy.",
+        "de": "Fahrt durch die elegantesten Alleen und Platze der Stadt, wo klassisches Lissabon auf zeitgenossische Kulturenergie trifft."
+      },
+      "img": "../../assets/images/lisbon-highlights/istock_1401046369.webp",
+      "coordinates": {
+        "lat": 38.7109,
+        "lng": -9.1415
+      }
+    },
+    {
+      "time": 12,
+      "title": {
+        "pt": "Miradouros sobre o Tejo",
+        "en": "Viewpoints over the Tagus",
+        "de": "Aussichtspunkte uber den Tejo"
+      },
+      "description": {
+        "pt": "Paragem em miradouros panoramicos para apreciar Lisboa de cima e contemplar o rio Tejo em toda a sua extensao.",
+        "en": "Stop at panoramic viewpoints to admire Lisbon from above and contemplate the Tagus River in full view.",
+        "de": "Stopp an panoramischen Aussichtspunkten, um Lissabon von oben zu bewundern und den Tejo in seiner ganzen Weite zu sehen."
+      },
+      "img": "../../assets/images/lisbon-highlights/skylinesemponte.webp",
+      "coordinates": {
+        "lat": 38.7155,
+        "lng": -9.1331
+      }
+    },
+    {
+      "time": 13.75,
+      "title": {
+        "pt": "Torre de Belem",
+        "en": "Belem Tower",
+        "de": "Torre de Belem"
+      },
+      "description": {
+        "pt": "Visita exterior a um dos simbolos maiores da epoca dos Descobrimentos, junto ao rio, com forte valor historico e arquitetonico.",
+        "en": "Exterior visit to one of the greatest symbols of the Age of Discoveries by the river, with strong historical and architectural value.",
+        "de": "Aussenbesichtigung eines der grossten Symbole der Entdeckungszeit am Fluss mit starkem historischem und architektonischem Wert."
+      },
+      "img": "../../assets/images/lisbon-highlights/torrebelem.webp",
+      "coordinates": {
+        "lat": 38.6916,
+        "lng": -9.216
+      }
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Mosteiro dos Jeronimos",
+        "en": "Jeronimos Monastery",
+        "de": "Hieronymus-Kloster"
+      },
+      "description": {
+        "pt": "Paragem junto ao monumento manuelino mais emblematico de Lisboa, ligado aos grandes navegadores e ao apogeu maritimo portugues.",
+        "en": "Stop at Lisbon's most emblematic Manueline monument, linked to great navigators and Portugal's maritime golden age.",
+        "de": "Stopp am bedeutendsten manuelinischen Monument Lissabons, verbunden mit grossen Seefahrern und Portugals maritimer Blutezeit."
+      },
+      "img": "../../assets/images/lisbon-highlights/jeronimos.webp",
+      "coordinates": {
+        "lat": 38.6979,
+        "lng": -9.2061
+      }
+    },
+    {
+      "time": 15.25,
+      "title": {
+        "pt": "Avenidas e Marques de Pombal",
+        "en": "Avenues and Marques de Pombal",
+        "de": "Avenuen und Marques de Pombal"
+      },
+      "description": {
+        "pt": "Percurso por zonas modernas e elegantes de Lisboa, mostrando o contraste entre o centro historico e a cidade contemporanea.",
+        "en": "Route through Lisbon's modern and elegant areas, showing the contrast between the historic center and the contemporary city.",
+        "de": "Route durch moderne und elegante Bereiche Lissabons, die den Kontrast zwischen historischem Zentrum und zeitgenossischer Stadt zeigt."
+      },
+      "img": "../../assets/images/lisbon-highlights/marquesnoite.webp",
+      "coordinates": {
+        "lat": 38.7241,
+        "lng": -9.15
+      }
+    },
+    {
+      "time": 16.5,
+      "title": {
+        "pt": "Dropoff no hotel",
+        "en": "Hotel dropoff",
+        "de": "Hotelruckfahrt"
+      },
+      "description": {
+        "pt": "Regresso ao hotel no final da experiencia, com Lisboa vista em profundidade e sem pressas.",
+        "en": "Return to the hotel at the end of the experience, after seeing Lisbon in depth and without rush.",
+        "de": "Ruckkehr zum Hotel am Ende des Erlebnisses, nachdem Sie Lissabon intensiv und ohne Eile entdeckt haben."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
