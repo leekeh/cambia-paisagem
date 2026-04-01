@@ -1,0 +1,151 @@
+{
+  "slug": "lisbon-sunset",
+  "image": "../../assets/images/lisbon-sunset/hero.webp",
+  "price": 120,
+  "duration": 3.5,
+  "title": {
+    "pt": "Viva Lisboa ao pôr do sol nos seus miradouros mais impressionantes",
+    "en": "Experience Lisbon at sunset from its most stunning viewpoints",
+    "de": "Erleben Sie Lissabon beim Sonnenuntergang von seinen beeindruckendsten Aussichtspunkten"
+  },
+  "description": {
+    "pt": "Lisboa é considerada uma das cidades mais bonitas da Europa ao final do dia, quando a luz dourada do pôr do sol ilumina os telhados da cidade e o rio Tejo. Este tour foi pensado para quem quer viver Lisboa num ambiente mais relaxado, com paragens em alguns dos miradouros mais impressionantes da cidade. A experiência inclui vistas panorâmicas, bairros históricos e termina com um momento especial para assistir ao pôr do sol sobre o rio.",
+    "en": "Lisbon is considered one of the most beautiful cities in Europe at the end of the day, when the golden light of sunset illuminates the city's rooftops and the Tagus River. This tour was designed for those who want to experience Lisbon in a more relaxed atmosphere, with stops at some of the city's most impressive viewpoints. The experience includes panoramic views, historic neighbourhoods, and ends with a special moment to watch the sunset over the river.",
+    "de": "Lissabon gilt als eine der schönsten Städte Europas am Ende des Tages, wenn das goldene Licht des Sonnenuntergangs die Dächer der Stadt und den Tejo erleuchtet. Diese Tour wurde für diejenigen konzipiert, die Lissabon in einer entspannteren Atmosphäre erleben möchten, mit Stopps an einigen der beeindruckendsten Aussichtspunkte der Stadt. Das Erlebnis umfasst Panoramablicke, historische Viertel und endet mit einem besonderen Moment, um den Sonnenuntergang über dem Fluss zu beobachten."
+  },
+  "highlights": {
+    "pt": [
+      "Miradouro da Senhora do Monte",
+      "Bairro de Alfama",
+      "Belém",
+      "Pôr do sol sobre o rio Tejo",
+      "Vistas panorâmicas de Lisboa"
+    ],
+    "en": [
+      "Viewpoint da Senhora do Monte",
+      "Alfama neighbourhood",
+      "Belém",
+      "Sunset over the Tagus River",
+      "Panoramic views of Lisbon"
+    ],
+    "de": [
+      "Aussichtspunkt da Senhora do Monte",
+      "Stadtviertel Alfama",
+      "Belém",
+      "Sonnenuntergang über dem Tejo",
+      "Panoramablicke auf Lissabon"
+    ]
+  },
+  "steps": [
+    {
+      "time": 17,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Início do tour ao final da tarde com saída do hotel em direção ao centro histórico de Lisboa para explorar alguns dos miradouros mais emblemáticos da cidade.",
+        "en": "Start of the tour in the late afternoon, departing from the hotel towards Lisbon's historic centre to explore some of the city's most iconic viewpoints.",
+        "de": "Beginn der Tour am späten Nachmittag mit Abfahrt vom Hotel in Richtung historisches Zentrum von Lissabon, um einige der markantesten Aussichtspunkte der Stadt zu erkunden."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 17.5,
+      "title": {
+        "pt": "Miradouro da Senhora do Monte",
+        "en": "Viewpoint of Senhora do Monte",
+        "de": "Aussichtspunkt Senhora do Monte"
+      },
+      "description": {
+        "pt": "Um dos miradouros mais altos de Lisboa, com uma vista panorâmica deslumbrante sobre a cidade, incluindo o Castelo de São Jorge, o rio Tejo e a Ponte 25 de Abril. É um dos locais favoritos para fotografar Lisboa ao final da tarde.",
+        "en": "One of Lisbon's highest viewpoints, offering a stunning panoramic view over the city, including São Jorge Castle, the Tagus River and the 25 de Abril Bridge. It is one of the favourite spots to photograph Lisbon in the late afternoon.",
+        "de": "Einer der höchsten Aussichtspunkte Lissabons mit einem atemberaubenden Panoramablick über die Stadt, einschließlich der Burg São Jorge, des Tejo und der Brücke 25 de Abril. Es ist einer der beliebtesten Orte, um Lissabon am späten Nachmittag zu fotografieren."
+      },
+      "img": "../../assets/images/lisbon-sunset/miradouro.webp",
+      "coordinates": {
+        "lat": 38.7174,
+        "lng": -9.1302
+      }
+    },
+    {
+      "time": 18,
+      "title": {
+        "pt": "Alfama",
+        "en": "Alfama",
+        "de": "Alfama"
+      },
+      "description": {
+        "pt": "Passeio panorâmico pelo bairro mais antigo de Lisboa. Alfama mantém o seu traçado medieval com ruas estreitas, escadarias e pequenas praças. Este bairro é também considerado o berço do Fado.",
+        "en": "Scenic drive through Lisbon's oldest neighbourhood. Alfama retains its medieval layout with narrow streets, stairways and small squares. This neighbourhood is also considered the birthplace of Fado.",
+        "de": "Panoramafahrt durch Lissabons ältestes Viertel. Alfama bewahrt seinen mittelalterlichen Grundriss mit engen Gassen, Treppen und kleinen Plätzen. Dieses Viertel gilt auch als die Wiege des Fado."
+      },
+      "img": "../../assets/images/lisbon-sunset/alfama.webp",
+      "coordinates": {
+        "lat": 38.7112,
+        "lng": -9.1292
+      }
+    },
+    {
+      "time": 18.5,
+      "title": {
+        "pt": "Belém",
+        "en": "Belém",
+        "de": "Belém"
+      },
+      "description": {
+        "pt": "A zona de Belém é um dos locais mais bonitos para observar o pôr do sol sobre o rio Tejo. Aqui encontram-se monumentos históricos ligados aos Descobrimentos portugueses, como a Torre de Belém e o Mosteiro dos Jerónimos.",
+        "en": "The Belém area is one of the most beautiful places to watch the sunset over the Tagus River. Here you will find historic monuments linked to the Portuguese Age of Discovery, such as the Belém Tower and the Jerónimos Monastery.",
+        "de": "Das Belém-Viertel ist einer der schönsten Orte, um den Sonnenuntergang über dem Tejo zu beobachten. Hier finden sich historische Denkmäler, die mit dem portugiesischen Zeitalter der Entdeckungen verbunden sind, wie der Torre de Belém und das Hieronymus-Kloster."
+      },
+      "img": "../../assets/images/lisbon-sunset/belem.webp",
+      "coordinates": {
+        "lat": 38.6916,
+        "lng": -9.216
+      }
+    },
+    {
+      "time": 19.25,
+      "title": {
+        "pt": "Pôr do sol junto ao rio Tejo",
+        "en": "Sunset over the Tagus River",
+        "de": "Sonnenuntergang am Tejo"
+      },
+      "description": {
+        "pt": "Paragem para apreciar o pôr do sol sobre o rio Tejo. Um dos momentos mais especiais do tour, com a cidade iluminada pelas cores douradas do final do dia.",
+        "en": "A stop to enjoy the sunset over the Tagus River. One of the most special moments of the tour, with the city bathed in the golden colours of the end of the day.",
+        "de": "Ein Stopp, um den Sonnenuntergang über dem Tejo zu genießen. Einer der schönsten Momente der Tour, die Stadt in den goldenen Farben des Tagesendes getaucht."
+      },
+      "img": "../../assets/images/lisbon-sunset/tejo.webp",
+      "coordinates": {
+        "lat": 38.6944,
+        "lng": -9.2059
+      }
+    },
+    {
+      "time": 20,
+      "title": {
+        "pt": "Regresso ao hotel",
+        "en": "Return to hotel",
+        "de": "Rückkehr zum Hotel"
+      },
+      "description": {
+        "pt": "Regresso ao hotel ou possibilidade de terminar o tour num restaurante tradicional ou bar com vista para o rio.",
+        "en": "Return to the hotel, or the option to end the tour at a traditional restaurant or bar with a view over the river.",
+        "de": "Rückkehr zum Hotel oder die Möglichkeit, die Tour in einem traditionellen Restaurant oder einer Bar mit Blick auf den Fluss zu beenden."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
