@@ -1,0 +1,190 @@
+{
+  "slug": "obidos",
+  "image": "../../assets/images/obidos/hero.webp",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Experiência Óbidos e Nazaré",
+    "en": "Óbidos & Nazaré Experience",
+    "de": "Óbidos & Nazaré Erlebnis"
+  },
+  "description": {
+    "pt": "A vila medieval de Óbidos e a vila piscatória da Nazaré representam duas das tradições mais autênticas de Portugal.\nNeste tour exploramos uma das vilas medievais mais bem preservadas do país, conhecida pelas suas muralhas, ruas de pedra e pela famosa ginjinha de Óbidos. Seguimos depois para a Nazaré, uma vila histórica ligada ao mar e famosa pelas suas tradições piscatórias e pelas ondas gigantes da Praia do Norte.\nEste tour combina história, cultura, paisagens costeiras e tradições portuguesas num percurso único ao longo da costa atlântica.",
+    "en": "The medieval town of Óbidos and the fishing village of Nazaré represent two of Portugal's most authentic traditions.\nOn this tour, we explore one of the best-preserved medieval towns in the country, known for its walls, stone streets and the famous Óbidos cherry liqueur. We then continue to Nazaré, a historic seaside village known for its fishing traditions and the giant waves of Praia do Norte.\nThis tour combines history, culture, coastal scenery and Portuguese traditions in a unique route along the Atlantic coast.",
+    "de": "Die mittelalterliche Stadt Óbidos und das Fischerdorf Nazaré verkörpern zwei der authentischsten Traditionen Portugals.\nAuf dieser Tour entdecken wir eine der am besten erhaltenen mittelalterlichen Städte des Landes, bekannt für ihre Stadtmauern, gepflasterten Gassen und den berühmten Kirschlikör aus Óbidos. Danach fahren wir nach Nazaré, ein historisches Küstendorf, das für seine Fischereitraditionen und die riesigen Wellen von Praia do Norte berühmt ist.\nDiese Tour verbindet Geschichte, Kultur, Küstenlandschaften und portugiesische Traditionen auf einer einzigartigen Route entlang der Atlantikküste."
+  },
+  "highlights": {
+    "pt": [
+      "Vila medieval de Óbidos",
+      "Muralhas históricas",
+      "Ginjinha de Óbidos",
+      "Nazaré",
+      "Sítio da Nazaré",
+      "Forte de São Miguel Arcanjo e ondas gigantes"
+    ],
+    "en": [
+      "Medieval town of Óbidos",
+      "Historic walls",
+      "Óbidos cherry liqueur",
+      "Nazaré",
+      "Nazaré viewpoint",
+      "Fort of São Miguel Arcanjo and giant waves"
+    ],
+    "de": [
+      "Mittelalterliche Stadt Óbidos",
+      "Historische Stadtmauern",
+      "Kirschlikör aus Óbidos",
+      "Nazaré",
+      "Aussichtspunkt von Nazaré",
+      "Festung São Miguel Arcanjo und Riesenwellen"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Pickup em Lisboa, Cascais ou Sintra e saída em direção ao norte pela costa atlântica. Durante o trajeto é apresentada a história da região oeste de Portugal e o papel destas vilas ao longo da história portuguesa.",
+        "en": "Pickup in Lisbon, Cascais or Sintra and departure north along the Atlantic coast. During the drive, you will be introduced to the history of western Portugal and the role these towns played throughout Portuguese history.",
+        "de": "Abholung in Lissabon, Cascais oder Sintra und Fahrt nach Norden entlang der Atlantikküste. Während der Strecke erhalten Sie eine Einführung in die Geschichte des Westens Portugals und die Rolle dieser Orte in der portugiesischen Geschichte."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 10.25,
+      "title": {
+        "pt": "Óbidos",
+        "en": "Óbidos",
+        "de": "Óbidos"
+      },
+      "description": {
+        "pt": "Óbidos é uma das vilas medievais mais encantadoras de Portugal. Com origens romanas e posteriormente ocupada pelos mouros, foi reconquistada pelos cristãos no século XII. A vila tornou-se famosa por ter sido oferecida como presente de casamento às rainhas de Portugal durante vários séculos, ficando conhecida como a Vila das Rainhas. As muralhas que rodeiam a vila oferecem uma vista impressionante sobre a paisagem envolvente.",
+        "en": "Óbidos is one of Portugal's most charming medieval towns. With Roman origins and later occupied by the Moors, it was reconquered by the Christians in the 12th century. The town became famous for having been offered as a wedding gift to the queens of Portugal for several centuries, becoming known as the Town of the Queens. The walls surrounding the town offer an impressive view over the surrounding landscape.",
+        "de": "Óbidos ist eine der bezauberndsten mittelalterlichen Städte Portugals. Mit römischen Ursprüngen und späterer Besetzung durch die Mauren wurde sie im 12. Jahrhundert von den Christen zurückerobert. Die Stadt wurde berühmt, weil sie über mehrere Jahrhunderte den Königinnen Portugals als Hochzeitsgeschenk überreicht wurde und dadurch als Stadt der Königinnen bekannt wurde. Die Stadtmauern bieten einen beeindruckenden Blick auf die umliegende Landschaft."
+      },
+      "img": "../../assets/images/obidos/obidos_walls.webp",
+      "coordinates": {
+        "lat": 39.3606,
+        "lng": -9.1578
+      }
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Centro histórico de Óbidos",
+        "en": "Historic centre of Óbidos",
+        "de": "Historisches Zentrum von Óbidos"
+      },
+      "description": {
+        "pt": "Passeio pelas ruas estreitas e pelas casas brancas decoradas com flores. A vila mantém o seu caráter medieval, com lojas artesanais e pequenas tabernas tradicionais. Óbidos é também famosa pela ginjinha, um licor de ginja servido frequentemente em pequenos copos de chocolate.",
+        "en": "Walk through the narrow streets and white houses decorated with flowers. The town preserves its medieval character, with artisan shops and small traditional taverns. Óbidos is also famous for its cherry liqueur, often served in small chocolate cups.",
+        "de": "Spaziergang durch die engen Gassen und weißen, mit Blumen geschmückten Häuser. Die Stadt bewahrt ihren mittelalterlichen Charakter mit Kunsthandwerksläden und kleinen traditionellen Tavernen. Óbidos ist außerdem für seinen Kirschlikör bekannt, der oft in kleinen Schokoladenbechern serviert wird."
+      },
+      "img": "../../assets/images/obidos/obidos_historic_center.webp",
+      "coordinates": {
+        "lat": 39.3602,
+        "lng": -9.1565
+      }
+    },
+    {
+      "time": 12.5,
+      "title": {
+        "pt": "Nazaré",
+        "en": "Nazaré",
+        "de": "Nazaré"
+      },
+      "description": {
+        "pt": "A Nazaré é uma das vilas piscatórias mais emblemáticas de Portugal. Durante séculos os pescadores locais viveram do mar e desenvolveram tradições únicas que ainda hoje são visíveis. As mulheres da Nazaré ficaram famosas pelo traje tradicional com várias saias sobrepostas.",
+        "en": "Nazaré is one of Portugal's most emblematic fishing villages. For centuries, local fishermen lived from the sea and developed unique traditions that are still visible today. The women of Nazaré became famous for their traditional dress with multiple layered skirts.",
+        "de": "Nazaré ist eines der bekanntesten Fischerdörfer Portugals. Über Jahrhunderte lebten die lokalen Fischer vom Meer und entwickelten einzigartige Traditionen, die bis heute sichtbar sind. Die Frauen von Nazaré wurden für ihre traditionelle Kleidung mit mehreren übereinander getragenen Röcken bekannt."
+      },
+      "img": "../../assets/images/obidos/nazare_fishing_traditions.webp",
+      "coordinates": {
+        "lat": 39.6015,
+        "lng": -9.0703
+      }
+    },
+    {
+      "time": 13,
+      "title": {
+        "pt": "Sítio da Nazaré",
+        "en": "Sítio da Nazaré",
+        "de": "Sítio da Nazaré"
+      },
+      "description": {
+        "pt": "O Sítio da Nazaré fica situado no topo da falésia com vista sobre a vila e o oceano Atlântico. Segundo a lenda, neste local ocorreu o milagre de Nossa Senhora da Nazaré, que salvou um cavaleiro medieval de cair da falésia.",
+        "en": "Sítio da Nazaré sits at the top of the cliff overlooking the town and the Atlantic Ocean. According to legend, this is where the miracle of Our Lady of Nazaré took place, saving a medieval knight from falling off the cliff.",
+        "de": "Das Sítio da Nazaré liegt oben auf der Klippe mit Blick über den Ort und den Atlantik. Der Legende nach ereignete sich hier das Wunder von Nossa Senhora da Nazaré, die einen mittelalterlichen Ritter davor bewahrte, von der Klippe zu stürzen."
+      },
+      "img": "../../assets/images/obidos/nazare_viewpoint.webp",
+      "coordinates": {
+        "lat": 39.6036,
+        "lng": -9.0725
+      }
+    },
+    {
+      "time": 13.5,
+      "title": {
+        "pt": "Forte de São Miguel Arcanjo",
+        "en": "Fort of São Miguel Arcanjo",
+        "de": "Festung São Miguel Arcanjo"
+      },
+      "description": {
+        "pt": "O Forte de São Miguel Arcanjo tornou-se mundialmente conhecido devido às ondas gigantes da Praia do Norte. Aqui foram registados alguns dos maiores recordes mundiais de surf, com ondas que podem ultrapassar os 20 metros de altura.",
+        "en": "The Fort of São Miguel Arcanjo became world famous because of the giant waves at Praia do Norte. Some of the world's biggest surfing records were set here, with waves that can rise above 20 metres in height.",
+        "de": "Die Festung São Miguel Arcanjo wurde durch die riesigen Wellen von Praia do Norte weltweit bekannt. Hier wurden einige der größten Surfrekorde der Welt aufgestellt, mit Wellen, die mehr als 20 Meter Höhe erreichen können."
+      },
+      "img": "../../assets/images/obidos/nazare_giant_waves.webp",
+      "coordinates": {
+        "lat": 39.6057,
+        "lng": -9.0761
+      }
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Tempo livre para almoço",
+        "en": "Free time for lunch",
+        "de": "Freie Zeit zum Mittagessen"
+      },
+      "description": {
+        "pt": "Tempo livre para almoço num restaurante local com vista para o mar ou para explorar a vila da Nazaré.",
+        "en": "Free time for lunch at a local restaurant with a sea view or to explore the village of Nazaré.",
+        "de": "Freie Zeit zum Mittagessen in einem lokalen Restaurant mit Meerblick oder um den Ort Nazaré weiter zu erkunden."
+      },
+      "coordinates": {
+        "lat": 39.6015,
+        "lng": -9.0703
+      },
+      "img": "../../assets/images/food.webp"
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Regresso a Lisboa",
+        "en": "Return to Lisbon",
+        "de": "Rückkehr nach Lissabon"
+      },
+      "description": {
+        "pt": "Viagem de regresso a Lisboa com chegada aproximada ao final da tarde.",
+        "en": "Return journey to Lisbon with expected arrival in the late afternoon.",
+        "de": "Rückfahrt nach Lissabon mit voraussichtlicher Ankunft am späten Nachmittag."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}

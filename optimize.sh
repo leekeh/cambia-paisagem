@@ -8,7 +8,7 @@
 readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 readonly DIRECTORIES=(
 	"$SCRIPT_DIRECTORY/src/assets/images"
-	"$SCRIPT_DIRECTORY/src/assets/images/evora"
+	"$SCRIPT_DIRECTORY/src/assets/images/obidos"
 	"$SCRIPT_DIRECTORY/src/assets/images/fado"
 )
 readonly QUALITY="95"
@@ -17,6 +17,7 @@ readonly OUTPUT_FORMAT="webp"
 readonly FORMATS_TO_PROCESS=(
     "png"
     "jpg"
+	"avif"
 )
 readonly RED='\033[1;31m'
 readonly GREEN='\033[1;32m'
