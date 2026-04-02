@@ -2,7 +2,7 @@
   "slug": "fado",
   "image": "../../assets/images/fado/fado.webp",
   "price": 120,
-  "duration": 4.5,
+  "duration": [4, 5],
   "title": {
     "pt": "Tour de Fado em Lisboa",
     "en": "Fado Tour in Lisbon",

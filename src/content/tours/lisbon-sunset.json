@@ -2,7 +2,7 @@
   "slug": "lisbon-sunset",
   "image": "../../assets/images/lisbon-sunset/hero.webp",
   "price": 120,
-  "duration": 3.5,
+  "duration": [3, 4],
   "title": {
     "pt": "Viva Lisboa ao pôr do sol nos seus miradouros mais impressionantes",
     "en": "Experience Lisbon at sunset from its most stunning viewpoints",
