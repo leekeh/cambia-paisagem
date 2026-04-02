@@ -26,7 +26,6 @@ export const pt = {
     filterDurationMax: "Duração máxima",
     filterDurationMin: "Duração mínima",
     from: "Desde",
-    hours: "h",
     book: "Reservar",
     highlights: "Destaques",
     itinerary: "Itinerário",

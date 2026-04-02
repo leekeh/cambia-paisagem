@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { Lang } from "../i18n/index";
 import { useTranslations, t } from "../i18n/index";
 import type { CollectionEntry } from "astro:content";
+import { formatDurationRange } from "../util";
 
 interface Props {
   tour: CollectionEntry<"tours">;
@@ -40,8 +41,7 @@ const { data } = tour;
         >
           <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
         </svg>
-        {data.duration}
-        {tr.tours.hours}
+        {formatDurationRange(data.duration, lang)}
       </span>
       <span class="tour-card__price">
         {tr.tours.from}

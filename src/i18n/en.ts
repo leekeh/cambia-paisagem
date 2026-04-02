@@ -28,7 +28,6 @@ export const en: Translations = {
     filterDurationMax: "Max duration",
     filterDurationMin: "Min duration",
     from: "From",
-    hours: "h",
     book: "Book",
     highlights: "Highlights",
     itinerary: "Itinerary",

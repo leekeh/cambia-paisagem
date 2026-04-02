@@ -3,17 +3,17 @@ import { Select, Slider, Text } from "@mantine/core";
 import MantineProvider from "./MantineProvider";
 import styles from "./ToursFilter.module.css";
 import type { Lang } from "../i18n";
+import { durationFormat, formatDurationRange } from "../util";
 
 interface Tour {
   slug: string;
   title: string;
   price: number;
-  duration: number;
+  duration: number | number[];
   imageUrl: string;
   href: string;
   viewMoreLabel: string;
   fromLabel: string;
-  hoursLabel: string;
 }
 
 interface Props {
@@ -29,6 +29,16 @@ interface Props {
   };
 }
 
+// Helper function to get minimum duration from a tour (handles both number and array)
+function getMinDuration(duration: number | number[]): number {
+  return Array.isArray(duration) ? Math.min(...duration) : duration;
+}
+
+// Helper function to get maximum duration from a tour (handles both number and array)
+function getMaxDuration(duration: number | number[]): number {
+  return Array.isArray(duration) ? Math.max(...duration) : duration;
+}
+
 export default function ToursFilter(props: Props) {
   return (
     <MantineProvider>
@@ -37,46 +47,38 @@ export default function ToursFilter(props: Props) {
   );
 }
 
-function durationFormat(
-  hours: number,
-  lang: Lang,
-  style: "short" | "long" = "short",
-) {
-  if ("DurationFormat" in Intl && typeof Intl.DurationFormat === "function") {
-    console.log("Using Intl.DurationFormat");
-    try {
-      return new Intl.DurationFormat(lang, {
-        style: style,
-      }).format({ hours: hours });
-    } catch (e) {
-      console.warn(
-        "Error using Intl.DurationFormat, falling back to manual format",
-        e,
-      );
-      return `${hours}h`;
-    }
-  }
-}
-
 function ToursFilterInner({ tours, translations: tr, lang }: Props) {
-  const minDuration = Math.min(...tours.map((t) => t.duration));
-  const maxDuration = Math.max(...tours.map((t) => t.duration));
+  // Get min and max durations considering both single values and arrays
+  const allDurations = tours.flatMap((t) =>
+    Array.isArray(t.duration) ? t.duration : [t.duration],
+  );
+  const minDuration = Math.min(...allDurations);
+  const maxDuration = Math.max(...allDurations);
   const [sort, setSort] = useState<string | null>("duration-asc");
   const [minDur, setMinDur] = useState(minDuration);
   const [maxDur, setMaxDur] = useState(maxDuration);
 
   const filtered = useMemo(() => {
-    let list = tours.filter(
-      (t) => t.duration >= minDur && t.duration <= maxDur,
-    );
+    let list = tours.filter((t) => {
+      // Check if tour's duration (or any duration in array) falls within filter range
+      const tourMin = getMinDuration(t.duration);
+      const tourMax = getMaxDuration(t.duration);
+      // Tour matches if any of its durations overlap with the filter range
+      return tourMin <= maxDur && tourMax >= minDur;
+    });
+
     if (sort === "price-asc")
       list = [...list].sort((a, b) => a.price - b.price);
     if (sort === "price-desc")
       list = [...list].sort((a, b) => b.price - a.price);
     if (sort === "duration-asc")
-      list = [...list].sort((a, b) => a.duration - b.duration);
+      list = [...list].sort(
+        (a, b) => getMinDuration(a.duration) - getMinDuration(b.duration),
+      );
     if (sort === "duration-desc")
-      list = [...list].sort((a, b) => b.duration - a.duration);
+      list = [...list].sort(
+        (a, b) => getMaxDuration(b.duration) - getMaxDuration(a.duration),
+      );
     return list;
   }, [tours, sort, minDur, maxDur]);
 
@@ -207,7 +209,7 @@ function ToursFilterInner({ tours, translations: tr, lang }: Props) {
                       <circle cx="12" cy="12" r="10" />
                       <path d="M12 6v6l4 2" />
                     </svg>
-                    {durationFormat(tour.duration, lang, "long")}
+                    {formatDurationRange(tour.duration, lang)}
                   </span>
                   <span className={styles.tourCardPrice}>
                     {tour.fromLabel} <strong>€{tour.price}</strong>

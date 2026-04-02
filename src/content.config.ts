@@ -15,7 +15,7 @@ const tours = defineCollection({
       slug: z.string(),
       image: image(),
       price: z.number(),
-      duration: z.number(), // hours
+      duration: z.union([z.number(), z.array(z.number())]), // hours or array of hours
       title: localisedString,
       description: localisedString,
       highlights: z.object({

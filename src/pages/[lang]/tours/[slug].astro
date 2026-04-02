@@ -8,6 +8,7 @@ import type { Lang } from "../../../i18n/index";
 import { Image, getImage } from "astro:assets";
 import { buildProductSchema } from "../../../lib/schemas";
 import TourCarousel from "../../../components/Map";
+import { formatDurationRange } from "../../../util";
 
 export async function getStaticPaths() {
   const allTours = await getCollection("tours");
@@ -42,6 +43,16 @@ const allReviews = await getCollection("reviews");
 const tourReviews = allReviews.filter(
   (r) => r.data.tourSlug === tour.data.slug,
 );
+
+// Helper to format duration for display
+const formatDuration = (duration: number | number[]) => {
+  if (Array.isArray(duration)) {
+    const min = Math.min(...duration);
+    const max = Math.max(...duration);
+    return min === max ? `${min}` : `${min}–${max}`;
+  }
+  return `${duration}`;
+};
 
 const productSchema = buildProductSchema({
   title,
@@ -87,7 +98,7 @@ const carouselData = await Promise.all(
         <div class="tour-detail__meta-item">
           <span class="tour-detail__meta-label">{tr.tours.duration}</span>
           <span class="tour-detail__meta-value"
-            >{tour.data.duration} {tr.tours.hours}</span
+            >{formatDurationRange(tour.data.duration, lang)}</span
           >
         </div>
         <div class="tour-detail__meta-item">
