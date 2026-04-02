@@ -1,0 +1,190 @@
+{
+  "slug": "royal",
+  "image": "../../assets/images/royal/queluz_palace.webp",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Royal Palaces — um percurso pela monarquia portuguesa",
+    "en": "Royal Palaces — a journey through Portuguese monarchy",
+    "de": "Royal Palaces — eine Reise durch die portugiesische Monarchie"
+  },
+  "description": {
+    "pt": "Portugal possui uma rica história monárquica que se estende por quase oito séculos.\nDurante esse período, vários palácios foram construídos para servir como residências reais\ne centros de poder político.\nNeste tour exploramos alguns dos palácios mais importantes ligados à história da\nmonarquia portuguesa, descobrindo como viviam os reis e rainhas de Portugal.\nO percurso inclui o elegante Palácio Nacional de Queluz, muitas vezes comparado ao\n'Versailles português', e o Palácio Nacional da Ajuda, última residência oficial da família real\nportuguesa.",
+    "en": "Portugal has a rich monarchical history spanning nearly eight centuries.\nDuring this period, several palaces were built to serve as royal residences\nand centres of political power.\nIn this tour we explore some of the most important palaces linked to the history of the\nPortuguese monarchy, discovering how the kings and queens of Portugal lived.\nThe route includes the elegant Queluz National Palace, often compared to the\n'Portuguese Versailles', and the Ajuda National Palace, the last official residence of the\nPortuguese royal family.",
+    "de": "Portugal hat eine reiche monarchische Geschichte, die sich über fast acht Jahrhunderte erstreckt.\nIn dieser Zeit wurden mehrere Paläste als königliche Residenzen\nund Zentren politischer Macht erbaut.\nAuf dieser Tour erkunden wir einige der bedeutendsten Paläste, die mit der Geschichte der\nportugiesischen Monarchie verbunden sind, und entdecken, wie die Könige und Königinnen Portugals lebten.\nDie Route umfasst den eleganten Nationalpalast Queluz, der oft mit dem\n'portugiesischen Versailles' verglichen wird, und den Nationalpalast Ajuda, die letzte offizielle Residenz der\nportugiesischen Königsfamilie."
+  },
+  "highlights": {
+    "pt": [
+      "Palácio Nacional de Queluz",
+      "Jardins de Queluz",
+      "Palácio Nacional da Ajuda",
+      "Belém",
+      "Mosteiro dos Jerónimos",
+      "Pastéis de Belém"
+    ],
+    "en": [
+      "Queluz National Palace",
+      "Queluz Gardens",
+      "Ajuda National Palace",
+      "Belém",
+      "Jerónimos Monastery",
+      "Pastéis de Belém"
+    ],
+    "de": [
+      "Nationalpalast Queluz",
+      "Gärten von Queluz",
+      "Nationalpalast Ajuda",
+      "Belém",
+      "Jerónimos-Kloster",
+      "Pastéis de Belém"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saída do hotel em direção a Queluz. Durante o trajeto é feita uma introdução à história da monarquia portuguesa e às principais dinastias que governaram Portugal ao longo dos séculos.",
+        "en": "Departure from the hotel towards Queluz. During the journey, an introduction is made to the history of the Portuguese monarchy and the main dynasties that ruled Portugal throughout the centuries.",
+        "de": "Abfahrt vom Hotel in Richtung Queluz. Während der Fahrt wird eine Einführung in die Geschichte der portugiesischen Monarchie und die wichtigsten Dynastien gegeben, die Portugal im Laufe der Jahrhunderte regierten."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 9.5,
+      "title": {
+        "pt": "Palácio Nacional de Queluz",
+        "en": "Queluz National Palace",
+        "de": "Nationalpalast Queluz"
+      },
+      "description": {
+        "pt": "O Palácio Nacional de Queluz foi construído no século XVIII como residência de verão da família real portuguesa. É considerado um dos mais importantes exemplos da arquitetura rococó em Portugal e é frequentemente comparado ao Palácio de Versailles em França. O palácio ficou especialmente associado ao reinado de D. Pedro III e da rainha D. Maria I.",
+        "en": "Queluz National Palace was built in the 18th century as a summer residence for the Portuguese royal family. It is considered one of the finest examples of Rococo architecture in Portugal and is often compared to the Palace of Versailles in France. The palace is particularly associated with the reign of King Pedro III and Queen Maria I.",
+        "de": "Der Nationalpalast Queluz wurde im 18. Jahrhundert als Sommerresidenz der portugiesischen Königsfamilie erbaut. Er gilt als eines der bedeutendsten Beispiele des Rokoko-Stils in Portugal und wird häufig mit dem Schloss Versailles in Frankreich verglichen. Der Palast ist besonders mit der Regentschaft von König Pedro III. und Königin Maria I. verbunden."
+      },
+      "coordinates": {
+        "lat": 38.7479,
+        "lng": -9.2577
+      },
+      "img": "../../assets/images/royal/queluz_palace.webp"
+    },
+    {
+      "time": 10.5,
+      "title": {
+        "pt": "Jardins de Queluz",
+        "en": "Queluz Gardens",
+        "de": "Gärten von Queluz"
+      },
+      "description": {
+        "pt": "Os jardins formais do palácio são um exemplo clássico da paisagem europeia do século XVIII, com estátuas, fontes e canais decorativos. Entre os elementos mais conhecidos está o Canal dos Azulejos, decorado com painéis que representam cenas da vida cortesã.",
+        "en": "The palace's formal gardens are a classic example of 18th-century European landscape design, featuring statues, fountains, and decorative canals. Among the best-known features is the Canal dos Azulejos, decorated with tile panels depicting scenes of courtly life.",
+        "de": "Die formalen Gärten des Palastes sind ein klassisches Beispiel der europäischen Gartengestaltung des 18. Jahrhunderts mit Statuen, Springbrunnen und dekorativen Kanälen. Zu den bekanntesten Elementen gehört der Canal dos Azulejos, der mit Kachelfeldern verziert ist, die Szenen des höfischen Lebens darstellen."
+      },
+      "coordinates": {
+        "lat": 38.7472,
+        "lng": -9.2565
+      },
+      "img": "../../assets/images/royal/queluz_gardens.webp"
+    },
+    {
+      "time": 12,
+      "title": {
+        "pt": "Palácio Nacional da Ajuda",
+        "en": "Ajuda National Palace",
+        "de": "Nationalpalast Ajuda"
+      },
+      "description": {
+        "pt": "O Palácio Nacional da Ajuda foi construído no século XIX após o terramoto de 1755 ter destruído grande parte da antiga residência real. Este palácio tornou-se a residência oficial da família real portuguesa até à implantação da República em 1910. No interior encontram-se salas ricamente decoradas que mostram o estilo de vida da corte portuguesa.",
+        "en": "Ajuda National Palace was built in the 19th century after the 1755 earthquake destroyed much of the former royal residence. It became the official residence of the Portuguese royal family until the establishment of the Republic in 1910. Inside, richly decorated rooms showcase the lifestyle of the Portuguese court.",
+        "de": "Der Nationalpalast Ajuda wurde im 19. Jahrhundert erbaut, nachdem das Erdbeben von 1755 große Teile der früheren königlichen Residenz zerstört hatte. Er wurde zur offiziellen Residenz der portugiesischen Königsfamilie bis zur Gründung der Republik 1910. Im Inneren zeigen reich dekorierte Räume den Lebensstil des portugiesischen Hofes."
+      },
+      "coordinates": {
+        "lat": 38.7072,
+        "lng": -9.1964
+      },
+      "img": "../../assets/images/royal/ajuda_palace.webp"
+    },
+    {
+      "time": 13.5,
+      "title": {
+        "pt": "Belém",
+        "en": "Belém",
+        "de": "Belém"
+      },
+      "description": {
+        "pt": "A zona de Belém está profundamente ligada à história da monarquia e dos Descobrimentos portugueses. Aqui encontram-se vários monumentos importantes que simbolizam o poder e a influência de Portugal durante os séculos XV e XVI.",
+        "en": "The Belém area is deeply connected to the history of the Portuguese monarchy and the Age of Discoveries. Here you will find several important monuments that symbolise the power and influence of Portugal during the 15th and 16th centuries.",
+        "de": "Das Viertel Belém ist eng mit der Geschichte der portugiesischen Monarchie und dem Zeitalter der Entdeckungen verbunden. Hier befinden sich mehrere bedeutende Denkmäler, die die Macht und den Einfluss Portugals im 15. und 16. Jahrhundert symbolisieren."
+      },
+      "coordinates": {
+        "lat": 38.6971,
+        "lng": -9.2049
+      },
+      "img": "../../assets/images/royal/belem.webp"
+    },
+    {
+      "time": 14,
+      "title": {
+        "pt": "Mosteiro dos Jerónimos",
+        "en": "Jerónimos Monastery",
+        "de": "Jerónimos-Kloster"
+      },
+      "description": {
+        "pt": "O Mosteiro dos Jerónimos foi mandado construir pelo rei D. Manuel I no início do século XVI para celebrar a viagem de Vasco da Gama à Índia. Este monumento é considerado uma das obras-primas da arquitetura manuelina e é hoje Património Mundial da UNESCO.",
+        "en": "Jerónimos Monastery was commissioned by King Manuel I in the early 16th century to celebrate Vasco da Gama's voyage to India. This monument is considered one of the masterpieces of Manueline architecture and is today a UNESCO World Heritage Site.",
+        "de": "Das Jerónimos-Kloster wurde von König Manuel I. im frühen 16. Jahrhundert in Auftrag gegeben, um Vasco da Gamas Reise nach Indien zu feiern. Dieses Bauwerk gilt als eines der Meisterwerke der manuelinischen Architektur und ist heute UNESCO-Weltkulturerbe."
+      },
+      "coordinates": {
+        "lat": 38.6979,
+        "lng": -9.2067
+      },
+      "img": "../../assets/images/royal/jeronimos.webp"
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Pastéis de Belém",
+        "en": "Pastéis de Belém",
+        "de": "Pastéis de Belém"
+      },
+      "description": {
+        "pt": "Paragem na famosa pastelaria onde são produzidos os autênticos Pastéis de Belém. A receita original foi criada pelos monges do Mosteiro dos Jerónimos no século XIX e permanece secreta até hoje.",
+        "en": "A stop at the famous bakery where the authentic Pastéis de Belém are produced. The original recipe was created by the monks of Jerónimos Monastery in the 19th century and remains a secret to this day.",
+        "de": "Ein Halt bei der berühmten Bäckerei, in der die authentischen Pastéis de Belém hergestellt werden. Das Originalrezept wurde im 19. Jahrhundert von den Mönchen des Jerónimos-Klosters kreiert und ist bis heute ein Geheimnis."
+      },
+      "coordinates": {
+        "lat": 38.6975,
+        "lng": -9.2039
+      },
+      "img": "../../assets/images/royal/pasteis_belem.webp"
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Regresso ao hotel",
+        "en": "Return to hotel",
+        "de": "Rückkehr zum Hotel"
+      },
+      "description": {
+        "pt": "Regresso ao hotel e final do tour.",
+        "en": "Return to the hotel and end of the tour.",
+        "de": "Rückkehr zum Hotel und Ende der Tour."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
