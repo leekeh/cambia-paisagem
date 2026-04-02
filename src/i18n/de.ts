@@ -30,7 +30,7 @@ export const de: Translations = {
     from: "Ab",
     book: "Buchen",
     highlights: "Höhepunkte",
-    itinerary: "Reiseverlauf",
+    itinerary: "Beispielreiseverlauf",
     duration: "Dauer",
     price: "Preis",
     all: "Alle",

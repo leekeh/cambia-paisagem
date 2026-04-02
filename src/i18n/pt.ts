@@ -28,7 +28,7 @@ export const pt = {
     from: "Desde",
     book: "Reservar",
     highlights: "Destaques",
-    itinerary: "Itinerário",
+    itinerary: "Itinerário de exemplo",
     duration: "Duração",
     price: "Preço",
     all: "Todos",

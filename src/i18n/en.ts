@@ -30,7 +30,7 @@ export const en: Translations = {
     from: "From",
     book: "Book",
     highlights: "Highlights",
-    itinerary: "Itinerary",
+    itinerary: "Sample itinerary",
     duration: "Duration",
     price: "Price",
     all: "All",
