@@ -1,0 +1,187 @@
+{
+  "slug": "sintra",
+  "image": "../../assets/images/sintra/hero.webp",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Sintra & Cascais — o lado mais magico e costeiro de Portugal",
+    "en": "Sintra & Cascais — Portugal's most magical and coastal side",
+    "de": "Sintra & Cascais — Portugals magischste und kuestennahe Seite"
+  },
+  "description": {
+    "pt": "Entre palacios de contos de fadas e paisagens naturais de cortar a respiracao, este tour leva-o a descobrir uma das regioes mais fascinantes de Portugal. Em Sintra, exploramos o encanto unico das colinas envoltas em nevoeiro, onde palacios, jardins e historias se cruzam num ambiente quase irreal. Seguimos depois ate ao ponto mais ocidental da Europa, o Cabo da Roca, onde a terra termina e o oceano comeca, antes de descer pela costa ate Cascais, uma vila elegante marcada pela ligacao ao mar e pelo seu estilo descontraido. Pensado para ser feito com conforto e fluidez, este tour combina natureza, historia e paisagens unicas numa experiencia envolvente e equilibrada.",
+    "en": "Between fairytale palaces and breathtaking natural landscapes, this tour takes you through one of Portugal's most fascinating regions. In Sintra, we explore the unique charm of mist-covered hills where palaces, gardens and stories meet in an almost unreal atmosphere. We then continue to Cabo da Roca, the westernmost point of Europe, where the land ends and the ocean begins, before following the coast down to Cascais, an elegant seaside town known for its maritime character and relaxed style. Designed for comfort and flow, this experience blends nature, history and striking scenery in a balanced and immersive journey.",
+    "de": "Zwischen maerchenhaften Palaesten und atemberaubenden Naturlandschaften fuehrt diese Tour durch eine der faszinierendsten Regionen Portugals. In Sintra entdecken wir den einzigartigen Zauber nebelverhuellter Huegel, wo Palaeste, Gaerten und Geschichten in einer fast unwirklichen Atmosphaere aufeinandertreffen. Anschliessend geht es zum Cabo da Roca, dem westlichsten Punkt Europas, wo das Land endet und der Ozean beginnt, bevor wir entlang der Kueste nach Cascais fahren, einem eleganten Badeort mit maritimer Praegung und entspannter Lebensart. Diese Tour ist auf Komfort und einen ruhigen Ablauf ausgelegt und verbindet Natur, Geschichte und besondere Landschaften zu einem stimmigen Erlebnis."
+  },
+  "highlights": {
+    "pt": [
+      "Centro historico de Sintra",
+      "Palacio da Pena",
+      "Cabo da Roca",
+      "Costa do Guincho",
+      "Cascais"
+    ],
+    "en": [
+      "Sintra historic center",
+      "Pena Palace",
+      "Cabo da Roca",
+      "Guincho coast",
+      "Cascais"
+    ],
+    "de": [
+      "Historisches Zentrum von Sintra",
+      "Palacio da Pena",
+      "Cabo da Roca",
+      "Guincho-Kueste",
+      "Cascais"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saida de Lisboa em direcao a Sintra com viagem confortavel para iniciar o dia de descoberta entre serra e costa.",
+        "en": "Departure from Lisbon towards Sintra with a comfortable drive to begin the day between mountains and coast.",
+        "de": "Abfahrt von Lissabon in Richtung Sintra mit einer komfortablen Fahrt als Start in den Tag zwischen Bergen und Kueste."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 10,
+      "title": {
+        "pt": "Sintra",
+        "en": "Sintra",
+        "de": "Sintra"
+      },
+      "description": {
+        "pt": "Chegada a Sintra para explorar o ambiente romantico da vila, marcado por colinas verdes, nevoeiro e patrimonio historico.",
+        "en": "Arrival in Sintra to experience its romantic setting of green hills, mist and rich historical heritage.",
+        "de": "Ankunft in Sintra, um die romantische Atmosphaere mit gruenen Huegeln, Nebel und reichem historischem Erbe zu erleben."
+      },
+      "img": "../../assets/images/sintra/pena_palace_mist.webp",
+      "coordinates": {
+        "lat": 38.7974,
+        "lng": -9.3904
+      }
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Palacio da Pena",
+        "en": "Pena Palace",
+        "de": "Palacio da Pena"
+      },
+      "description": {
+        "pt": "Paragem junto ao Palacio da Pena, um dos simbolos de Sintra e da arquitetura romantica em Portugal.",
+        "en": "Stop at Pena Palace, one of Sintra's great symbols and a landmark of Romantic architecture in Portugal.",
+        "de": "Stopp am Palacio da Pena, einem der wichtigsten Wahrzeichen Sintras und der romantischen Architektur in Portugal."
+      },
+      "img": "../../assets/images/sintra/sintra_palace.webp",
+      "coordinates": {
+        "lat": 38.7873,
+        "lng": -9.3904
+      }
+    },
+    {
+      "time": 12,
+      "title": {
+        "pt": "Cabo da Roca",
+        "en": "Cabo da Roca",
+        "de": "Cabo da Roca"
+      },
+      "description": {
+        "pt": "No ponto mais ocidental da Europa continental, admiramos as arribas dramaticas e o encontro entre terra e Atlantico.",
+        "en": "At continental Europe's westernmost point, enjoy dramatic cliffs and the meeting point between land and Atlantic Ocean.",
+        "de": "Am westlichsten Punkt des europaeischen Festlands erleben wir dramatische Klippen und den Treffpunkt von Land und Atlantik."
+      },
+      "img": "../../assets/images/sintra/cabo_da_roca.webp",
+      "coordinates": {
+        "lat": 38.7804,
+        "lng": -9.4989
+      }
+    },
+    {
+      "time": 13,
+      "title": {
+        "pt": "Tempo livre para almoco",
+        "en": "Free time for lunch",
+        "de": "Freie Zeit zum Mittagessen"
+      },
+      "description": {
+        "pt": "Pausa para almoco durante o percurso, com tempo para relaxar e aproveitar a gastronomia local.",
+        "en": "Lunch break during the route, with time to relax and enjoy local cuisine.",
+        "de": "Mittagspause entlang der Route, mit Zeit zum Entspannen und um die lokale Kueche zu geniessen."
+      },
+      "coordinates": {
+        "lat": 38.7337,
+        "lng": -9.4722
+      },
+      "img": "../../assets/images/food.webp"
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Costa do Guincho",
+        "en": "Guincho Coast",
+        "de": "Guincho-Kueste"
+      },
+      "description": {
+        "pt": "Descida panoramica pela costa do Guincho, uma das zonas mais impressionantes do litoral de Cascais.",
+        "en": "Scenic coastal drive through Guincho, one of the most striking stretches of Cascais coastline.",
+        "de": "Panoramafahrt entlang der Guincho-Kueste, einem der eindrucksvollsten Abschnitte der Kueste von Cascais."
+      },
+      "img": "../../assets/images/sintra/guincho.webp",
+      "coordinates": {
+        "lat": 38.7337,
+        "lng": -9.4722
+      }
+    },
+    {
+      "time": 15.25,
+      "title": {
+        "pt": "Cascais",
+        "en": "Cascais",
+        "de": "Cascais"
+      },
+      "description": {
+        "pt": "Chegada a Cascais para apreciar o ambiente elegante da vila, a marina e a forte ligacao da cidade ao mar.",
+        "en": "Arrival in Cascais to enjoy the town's elegant atmosphere, marina and strong connection to the sea.",
+        "de": "Ankunft in Cascais, um die elegante Atmosphaere, den Yachthafen und die starke Verbindung der Stadt zum Meer zu erleben."
+      },
+      "img": "../../assets/images/sintra/cascais_marina.webp",
+      "coordinates": {
+        "lat": 38.6979,
+        "lng": -9.4215
+      }
+    },
+    {
+      "time": 16.5,
+      "title": {
+        "pt": "Regresso a Lisboa",
+        "en": "Return to Lisbon",
+        "de": "Rueckkehr nach Lissabon"
+      },
+      "description": {
+        "pt": "Regresso confortavel a Lisboa no final da experiencia.",
+        "en": "Comfortable return to Lisbon at the end of the experience.",
+        "de": "Komfortable Rueckfahrt nach Lissabon zum Ende des Erlebnisses."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
