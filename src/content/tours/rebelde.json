@@ -1,0 +1,191 @@
+{
+  "slug": "rebelde",
+  "image": "../../assets/images/rebelde/alfama_district_portugal.webp",
+  "price": 120,
+  "duration": [4, 8],
+  "title": {
+    "pt": "Premium Rebelde — Lisboa Escondida",
+    "en": "Premium Rebelde — Hidden Lisbon",
+    "de": "Premium Rebelde — Verborgenes Lissabon"
+  },
+  "description": {
+    "pt": "O Premium Rebelde é um tour exclusivo pensado para quem já conhece os locais mais famosos de Lisboa e quer descobrir uma cidade diferente.\nEm vez dos pontos turísticos tradicionais, este percurso explora lugares menos conhecidos, miradouros escondidos, histórias curiosas e bairros autênticos onde ainda se sente o verdadeiro espírito da cidade.\nEste tour oferece uma perspetiva alternativa de Lisboa, revelando detalhes históricos, culturais e locais pouco explorados pelo turismo.\nDisponível em 4 ou 8 horas.",
+    "en": "The Premium Rebelde is an exclusive tour designed for those who already know Lisbon's most famous spots and want to discover a different city.\nInstead of traditional tourist attractions, this route explores lesser-known places, hidden viewpoints, curious stories and authentic neighbourhoods where the true spirit of the city can still be felt.\nThis tour offers an alternative perspective of Lisbon, revealing historical, cultural and local details rarely explored by tourism.\nAvailable in 4 or 8 hours.",
+    "de": "Das Premium Rebelde ist eine exklusive Tour, die für diejenigen konzipiert ist, die Lissabons berühmteste Orte bereits kennen und die Stadt aus einer anderen Perspektive entdecken möchten.\nAnstatt traditionelle Touristenattraktionen zu besuchen, erkundet diese Route weniger bekannte Orte, verborgene Aussichtspunkte, kuriose Geschichten und authentische Viertel, wo der wahre Geist der Stadt noch spürbar ist.\nDiese Tour bietet eine alternative Perspektive auf Lissabon und enthüllt historische, kulturelle und lokale Details, die selten vom Tourismus erforscht werden.\nErhältlich in 4 oder 8 Stunden."
+  },
+  "highlights": {
+    "pt": [
+      "Miradouro do Monte Agudo",
+      "Bairro de Campo de Ourique",
+      "Jardim da Estrela",
+      "Basílica da Estrela",
+      "LX Factory",
+      "Miradouro de Santa Catarina"
+    ],
+    "en": [
+      "Monte Agudo Viewpoint",
+      "Campo de Ourique Neighbourhood",
+      "Jardim da Estrela",
+      "Basilica da Estrela",
+      "LX Factory",
+      "Santa Catarina Viewpoint"
+    ],
+    "de": [
+      "Monte Agudo Aussichtspunkt",
+      "Viertel Campo de Ourique",
+      "Jardim da Estrela",
+      "Basilika da Estrela",
+      "LX Factory",
+      "Santa Catarina Aussichtspunkt"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saída do hotel para explorar locais menos conhecidos da cidade.",
+        "en": "Departure from the hotel to explore lesser-known areas of the city.",
+        "de": "Abfahrt vom Hotel, um weniger bekannte Gegenden der Stadt zu erkunden."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 9.33,
+      "title": {
+        "pt": "Miradouro do Monte Agudo",
+        "en": "Monte Agudo Viewpoint",
+        "de": "Monte Agudo Aussichtspunkt"
+      },
+      "description": {
+        "pt": "Este miradouro é um dos segredos mais bem guardados de Lisboa. Oferece uma vista tranquila sobre a cidade longe das multidões dos miradouros mais conhecidos.",
+        "en": "This viewpoint is one of Lisbon's best-kept secrets. It offers a tranquil view over the city far from the crowds of more famous viewpoints.",
+        "de": "Dieser Aussichtspunkt ist einer von Lissabons best gehüteten Geheimnissen. Er bietet einen ruhigen Blick über die Stadt fern von den Menschenmassen bekannteren Aussichtspunkte."
+      },
+      "img": "../../assets/images/rebelde/monte_agudo.webp",
+      "imgAttribution": "Alexkom000, <a href=\"https://creativecommons.org/licenses/by/4.0\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY 4.0</a>, via Wikimedia Commons",
+      "coordinates": {
+        "lat": 38.7393,
+        "lng": -9.1473
+      }
+    },
+    {
+      "time": 10,
+      "title": {
+        "pt": "Campo de Ourique",
+        "en": "Campo de Ourique",
+        "de": "Campo de Ourique"
+      },
+      "description": {
+        "pt": "Campo de Ourique é um bairro residencial tradicional conhecido pela sua vida de bairro, cafés históricos e ambiente local. Aqui viveu também Fernando Pessoa durante parte da sua vida.",
+        "en": "Campo de Ourique is a traditional residential neighbourhood known for its neighbourhood life, historic cafés and local atmosphere. The poet Fernando Pessoa also lived here for part of his life.",
+        "de": "Campo de Ourique ist ein traditionelles Wohnviertel, das für sein Nachbarschaftsleben, historische Cafés und lokale Atmosphäre bekannt ist. Der Dichter Fernando Pessoa lebte auch einen Teil seines Lebens hier."
+      },
+      "img": "../../assets/images/rebelde/campo_de_ourique.webp",
+      "coordinates": {
+        "lat": 38.7316,
+        "lng": -9.1533
+      }
+    },
+    {
+      "time": 10.75,
+      "title": {
+        "pt": "Jardim da Estrela",
+        "en": "Jardim da Estrela",
+        "de": "Jardim da Estrela"
+      },
+      "description": {
+        "pt": "O Jardim da Estrela é um dos jardins mais elegantes de Lisboa e foi inaugurado no século XIX. Este espaço verde tornou-se um ponto de encontro tradicional dos lisboetas.",
+        "en": "Jardim da Estrela is one of Lisbon's most elegant gardens and was inaugurated in the 19th century. This green space became a traditional meeting point for Lisbon residents.",
+        "de": "Der Jardim da Estrela ist einer der elegantesten Gärten Lissabons und wurde im 19. Jahrhundert eingeweiht. Dieser grüne Raum wurde zu einem traditionellen Treffpunkt für Lissaboner."
+      },
+      "img": "../../assets/images/rebelde/jardim_da_estrela.webp",
+      "coordinates": {
+        "lat": 38.7239,
+        "lng": -9.1492
+      }
+    },
+    {
+      "time": 11.5,
+      "title": {
+        "pt": "Basílica da Estrela",
+        "en": "Basilica da Estrela",
+        "de": "Basilika da Estrela"
+      },
+      "description": {
+        "pt": "A Basílica da Estrela foi construída no final do século XVIII por ordem da rainha D. Maria I. É considerada uma das igrejas mais importantes da arquitetura barroca tardia em Portugal.",
+        "en": "The Basilica da Estrela was built in the late 18th century at the orders of Queen Maria I. It is considered one of the most important examples of late Baroque architecture in Portugal.",
+        "de": "Die Basilika da Estrela wurde Ende des 18. Jahrhunderts auf Befehl der Königin Maria I. erbaut. Sie gilt als eines der bedeutendsten Beispiele der Spätbarockarchitektur in Portugal."
+      },
+      "img": "../../assets/images/rebelde/freguesia_de_estrela_pomznvpl7mi_unsplash.webp",
+      "coordinates": {
+        "lat": 38.7225,
+        "lng": -9.1492
+      }
+    },
+    {
+      "time": 12.5,
+      "title": {
+        "pt": "LX Factory",
+        "en": "LX Factory",
+        "de": "LX Factory"
+      },
+      "description": {
+        "pt": "A LX Factory é um antigo complexo industrial transformado num dos espaços culturais mais criativos de Lisboa. Aqui encontramos livrarias, galerias, restaurantes e lojas independentes.",
+        "en": "LX Factory is a former industrial complex transformed into one of Lisbon's most creative cultural spaces. Here you'll find bookstores, galleries, restaurants and independent shops.",
+        "de": "Die LX Factory ist ein ehemaliger Industriekomplex, der in einen der kreativsten Kulturräume Lissabons umgewandelt wurde. Hier finden Sie Buchhandlungen, Galerien, Restaurants und unabhängige Geschäfte."
+      },
+      "img": "../../assets/images/rebelde/lx.webp",
+      "coordinates": {
+        "lat": 38.7129,
+        "lng": -9.1419
+      }
+    },
+    {
+      "time": 14,
+      "title": {
+        "pt": "Miradouro de Santa Catarina",
+        "en": "Santa Catarina Viewpoint",
+        "de": "Santa Catarina Aussichtspunkt"
+      },
+      "description": {
+        "pt": "Este miradouro é muito popular entre os lisboetas e oferece uma vista fantástica sobre o rio Tejo e a ponte 25 de Abril. É um excelente local para relaxar e sentir o ambiente da cidade.",
+        "en": "This viewpoint is very popular with locals and offers a fantastic view over the Tagus River and the 25 de Abril Bridge. It's an excellent place to relax and experience the city's atmosphere.",
+        "de": "Dieser Aussichtspunkt ist sehr beliebt bei Einheimischen und bietet einen fantastischen Blick auf den Tejo und die Brücke 25 de Abril. Es ist ein ausgezeichneter Ort zum Entspannen und zum Erleben der Atmosphäre der Stadt."
+      },
+      "img": "../../assets/images/rebelde/santa_catarina.webp",
+      "coordinates": {
+        "lat": 38.7091,
+        "lng": -9.1468
+      }
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Regresso ao hotel",
+        "en": "Return to hotel",
+        "de": "Rückkehr zum Hotel"
+      },
+      "description": {
+        "pt": "Regresso ao hotel e final do tour.",
+        "en": "Return to the hotel and end of the tour.",
+        "de": "Rückkehr zum Hotel und Ende der Tour."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}
