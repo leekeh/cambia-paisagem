@@ -8,8 +8,15 @@
 readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 readonly DIRECTORIES=(
 	"$SCRIPT_DIRECTORY/src/assets/images"
-	"$SCRIPT_DIRECTORY/src/assets/images/obidos"
+	"$SCRIPT_DIRECTORY/src/assets/images/evora"
 	"$SCRIPT_DIRECTORY/src/assets/images/fado"
+	"$SCRIPT_DIRECTORY/src/assets/images/lisbon-highlights"
+	"$SCRIPT_DIRECTORY/src/assets/images/lisbon-sunset"
+	"$SCRIPT_DIRECTORY/src/assets/images/obidos"
+	"$SCRIPT_DIRECTORY/src/assets/images/rebelde"
+	"$SCRIPT_DIRECTORY/src/assets/images/royal"
+	"$SCRIPT_DIRECTORY/src/assets/images/setubal"
+	"$SCRIPT_DIRECTORY/src/assets/images/sintra"
 )
 readonly QUALITY="95"
 readonly MAX_DIMENSION="1024"
