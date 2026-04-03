@@ -6,7 +6,9 @@
     "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "optimize-resources": "bash optimize_resources.sh",
+    "generate-qr-codes": "bash generate_qr_codes.sh"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",

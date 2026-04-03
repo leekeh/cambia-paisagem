@@ -9,14 +9,16 @@ A platform for booking private tours in Lisbon, Portugal. Hosted at [cambiatours
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                    | Action                                           |
-| :------------------------- | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm run build`           | Build your production site to `./dist/`          |
-| `pnpm run preview`         | Preview your build locally, before deploying     |
-| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                       | Action                                                                         |
+| :---------------------------- | :----------------------------------------------------------------------------- |
+| `pnpm install`                | Installs dependencies                                                          |
+| `pnpm run dev`                | Starts local dev server at `localhost:4321`                                    |
+| `pnpm run build`              | Build your production site to `./dist/`                                        |
+| `pnpm run preview`            | Preview your build locally, before deploying                                   |
+| `pnpm run optimize-resources` | Optimize `.png`, `.jpg`, `.avif` resources in the assets directory             |
+| `pnpm run generate-qr-codes`  | Generates a QR Code for each available tour. Output can be found at `./output` |
+| `pnpm run astro ...`          | Run CLI commands like `astro add`, `astro check`                               |
+| `pnpm run astro -- --help`    | Get help using the Astro CLI                                                   |
 
 ## Code guidelines 🤖
 
@@ -27,7 +29,7 @@ Use Astro if possible to improve static rendering and performance. We use React 
 Although we also use the built-in Astro image optimization features, we want to optimize the images before adding them to the project, to reduce the size of the repository. To optimize the images, run the following command in the terminal:
 
 ```sh
-./optimize.sh
+./optimize_resources.sh
 ```
 
 This script will reduce the quality of the images to 80% and resize them to a maximum dimension of 860 pixels, while maintaining the aspect ratio. The optimized images will be saved in the same directory as the original images, with snake case names and the png format. The script requires `imagemagick` to be installed on your system. You can install it using Homebrew on macOS:
@@ -38,12 +40,28 @@ brew install imagemagick
 
 You can tweak the optimization settings by changing the `QUALITY` and `MAX_DIMENSION` variables in the script. The script will process all images in the specified directories, so make sure to add any new directories that contain images to the `DIRECTORIES` array.
 
+## Generating QR Code for the Tours 🤳
+
+Individual QR codes can be generated for each tour, linking them directly to it's page on the `https://www.cambiatours.com` website. To generate the QR codes, run the following command in the terminal:
+
+```sh
+./generate_qr_codes.sh
+```
+
+The script requires `qrencode` to be installed on your system. You can install it using Homebrew on macOS:
+
+```sh
+brew install qrencode
+```
+
+The generated QR codes will be named after it's tour's name and can be found at `./output`
+
 ## To do list ✏️
 
 - improve email template
 - send a confirmation email to the user after they submit the contact form, with the details of their request and a link to the tour page.
 - add domain for hosting: https://resend.com/domains
-- generate QR codes to go to the tour page.
+- ~~generate QR codes to go to the tour page.~~
 - add transfer service from airport to hotel and back.
 - add tours received in email
 - properly configure environmental variables for production and development
