@@ -40,7 +40,7 @@
       "image map"
       "content content"
       "nav nav";
-    grid-template-rows: 344px 1fr auto;
+    grid-template-rows: 256px 1fr auto;
   }
 }
 
