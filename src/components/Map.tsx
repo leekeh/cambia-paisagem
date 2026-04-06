@@ -264,7 +264,7 @@ export default function TourCarousel({
           {step.image ? (
             // if attribution is provided, show image with reduced opacity and attribution overlay on hover
             step.imgAttribution ? (
-              <>
+              <figure style={{ display: "contents" }}>
                 <img
                   src={step.image.src}
                   alt={step.title[locale]}
@@ -274,11 +274,11 @@ export default function TourCarousel({
                     objectFit: "cover",
                   }}
                 />
-                <div
+                <figcaption
                   className={classes.imgAttribution}
                   dangerouslySetInnerHTML={{ __html: step.imgAttribution }}
                 />
-              </>
+              </figure>
             ) : (
               <img
                 src={step.image.src}
