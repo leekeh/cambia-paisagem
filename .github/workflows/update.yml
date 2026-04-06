@@ -1,0 +1,39 @@
+name: Update dependencies
+
+on:
+  schedule:
+    # once a month
+    - cron: "0 0 1 * *"
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98 #v6.0.2
+        with:
+          depth: 0
+
+      - uses: pnpm/action-setup@6e7bdbda5fe05107efc88b23b7ed00aa05f84ca0 #v5.0.0
+        name: Install pnpm
+        with:
+          cache: true
+
+      - name: Update dependencies
+        run: pnpm update --latest
+
+      - name: Test the build
+        run: pnpm build
+        continue-on-error: true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@d32e88dac789dcc7906e7d26f69f24116fa9c97d #v8.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update dependencies"
+          title: "Update dependencies"
+          body: "This PR updates the dependencies to their latest versions. Run `pnpm install` to ensure the lockfile is correct. ${ { steps.update-dependencies.outcome == 'failure' && 'Note: The build failed, so you may need to fix the build before merging this PR.' } }"
+          base: main
+          branch: update-dependencies
