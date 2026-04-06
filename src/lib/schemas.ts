@@ -8,16 +8,13 @@ const BRAND = { "@type": "Brand", name: SITE_NAME };
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 /** Returns an absolute URL string. Falls back to the path itself if no site. */
-export function absUrl(path: string, site?: URL): string {
+function absUrl(path: string, site?: URL): string {
   return site ? new URL(path, site).href : path;
 }
 
 // ── Review building blocks ─────────────────────────────────────────────────
 
-export function buildReviewSchemas(
-  reviews: CollectionEntry<"reviews">[],
-  lang: Lang,
-) {
+function buildReviewSchemas(reviews: CollectionEntry<"reviews">[], lang: Lang) {
   return reviews.map((r) => ({
     "@type": "Review",
     author: { "@type": "Person", name: r.data.author },
@@ -33,7 +30,7 @@ export function buildReviewSchemas(
   }));
 }
 
-export function buildAggregateRating(
+function buildAggregateRating(
   reviews: CollectionEntry<"reviews">[],
 ): Record<string, unknown> | null {
   if (reviews.length === 0) return null;

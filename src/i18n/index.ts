@@ -5,13 +5,7 @@ import type { Translations } from "./pt";
 
 export type Lang = "pt" | "en" | "de";
 
-export const translations: Record<Lang, Translations> = { pt, en, de };
-
-export function getLangFromUrl(url: URL): Lang {
-  const [, lang] = url.pathname.split("/");
-  if (lang in translations) return lang as Lang;
-  return "pt";
-}
+const translations: Record<Lang, Translations> = { pt, en, de };
 
 export function useTranslations(lang: Lang) {
   return translations[lang];
