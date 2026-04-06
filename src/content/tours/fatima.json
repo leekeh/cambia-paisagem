@@ -1,0 +1,229 @@
+{
+  "slug": "fatima",
+  "image": "../../assets/images/fatima/hero.webp",
+  "price": 120,
+  "duration": 8,
+  "title": {
+    "pt": "Fatima Peregrinacao Tour - fe e espiritualidade",
+    "en": "Fatima Pilgrimage Tour - faith and spirituality",
+    "de": "Fatima Pilgerreise - Glaube und Spiritualitaet"
+  },
+  "description": {
+    "pt": "O Santuario de Fatima e um dos mais importantes centros de peregrinacao do mundo catolico. Todos os anos, milhoes de peregrinos visitam este local sagrado para recordar as aparicoes de Nossa Senhora aos tres pastorinhos em 1917. Neste tour exploramos os principais locais ligados a historia das aparicoes, incluindo a Capelinha das Aparicoes, as basilicas do santuario e os lugares onde viveram Lucia, Jacinta e Francisco. Para alem do seu significado religioso, Fatima tornou-se tambem um simbolo de fe e espiritualidade reconhecido internacionalmente. Inclui transporte privado, motorista profissional e agua. Guia oficial disponivel como opcional.",
+    "en": "The Sanctuary of Fatima is one of the most important pilgrimage centers in the Catholic world. Every year, millions of pilgrims visit this sacred place to remember the apparitions of Our Lady to the three shepherd children in 1917. On this tour we explore the main places connected to the apparition history, including the Chapel of the Apparitions, the sanctuary basilicas, and the places where Lucia, Jacinta and Francisco lived. Beyond its religious meaning, Fatima has also become an internationally recognized symbol of faith and spirituality. Includes private transport, professional driver and water. Official guide available as an optional extra.",
+    "de": "Das Heiligtum von Fatima ist eines der wichtigsten Pilgerzentren der katholischen Welt. Jedes Jahr besuchen Millionen von Pilgern diesen heiligen Ort, um an die Erscheinungen Unserer Lieben Frau vor den drei Hirtenkindern im Jahr 1917 zu erinnern. Auf dieser Tour besuchen wir die wichtigsten Orte der Erscheinungsgeschichte, darunter die Erscheinungskapelle, die Basiliken des Heiligtums und die Orte, an denen Lucia, Jacinta und Francisco lebten. Neben seiner religioesen Bedeutung ist Fatima auch ein international anerkanntes Symbol fuer Glauben und Spiritualitaet geworden. Enthalten sind privater Transport, professioneller Fahrer und Wasser. Ein offizieller Guide ist optional verfuegbar."
+  },
+  "highlights": {
+    "pt": [
+      "Santuario de Fatima",
+      "Capelinha das Aparicoes",
+      "Basilica de Nossa Senhora do Rosario",
+      "Basilica da Santissima Trindade",
+      "Valinhos",
+      "Casas dos Pastorinhos"
+    ],
+    "en": [
+      "Sanctuary of Fatima",
+      "Chapel of the Apparitions",
+      "Basilica of Our Lady of the Rosary",
+      "Basilica of the Holy Trinity",
+      "Valinhos",
+      "Shepherds' Houses"
+    ],
+    "de": [
+      "Heiligtum von Fatima",
+      "Erscheinungskapelle",
+      "Basilika Unserer Lieben Frau vom Rosenkranz",
+      "Basilika der Heiligsten Dreifaltigkeit",
+      "Valinhos",
+      "Hirtenhaeuser"
+    ]
+  },
+  "steps": [
+    {
+      "time": 9,
+      "title": {
+        "pt": "Pickup no hotel",
+        "en": "Hotel pickup",
+        "de": "Hotelabholung"
+      },
+      "description": {
+        "pt": "Saida de Lisboa em direcao a Fatima. Durante o trajeto e apresentada a historia das aparicoes de 1917 e o contexto religioso e historico da regiao.",
+        "en": "Departure from Lisbon towards Fatima. During the drive, we present the story of the 1917 apparitions and the religious and historical context of the region.",
+        "de": "Abfahrt von Lissabon in Richtung Fatima. Waehrend der Fahrt erzaehlen wir die Geschichte der Erscheinungen von 1917 sowie den religioesen und historischen Kontext der Region."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    },
+    {
+      "time": 10.5,
+      "title": {
+        "pt": "Santuario de Fatima",
+        "en": "Sanctuary of Fatima",
+        "de": "Heiligtum von Fatima"
+      },
+      "description": {
+        "pt": "O Santuario de Fatima tornou-se um dos principais locais de peregrinacao catolica apos as aparicoes de Nossa Senhora a tres criancas pastoras: Lucia, Jacinta e Francisco. As aparicoes ocorreram entre maio e outubro de 1917 e atrairam milhares de pessoas ao longo dos anos.",
+        "en": "The Sanctuary of Fatima became one of the leading Catholic pilgrimage sites after the apparitions of Our Lady to three shepherd children: Lucia, Jacinta and Francisco. The apparitions took place between May and October 1917 and attracted thousands of people over the years.",
+        "de": "Das Heiligtum von Fatima wurde nach den Erscheinungen Unserer Lieben Frau vor drei Hirtenkindern - Lucia, Jacinta und Francisco - zu einem der wichtigsten katholischen Pilgerorte. Die Erscheinungen fanden zwischen Mai und Oktober 1917 statt und zogen im Laufe der Jahre Tausende von Menschen an."
+      },
+      "coordinates": {
+        "lat": 39.6300079,
+        "lng": -8.6746971
+      },
+      "img": "../../assets/images/fatima/sanctuary_square.webp"
+    },
+    {
+      "time": 11,
+      "title": {
+        "pt": "Capelinha das Aparicoes",
+        "en": "Chapel of the Apparitions",
+        "de": "Erscheinungskapelle"
+      },
+      "description": {
+        "pt": "A Capelinha das Aparicoes marca o local exato onde, segundo a tradicao, Nossa Senhora apareceu aos tres pastorinhos. Este e o coracao espiritual do santuario e um local de oracao para peregrinos de todo o mundo.",
+        "en": "The Chapel of the Apparitions marks the exact place where, according to tradition, Our Lady appeared to the three shepherd children. This is the spiritual heart of the sanctuary and a place of prayer for pilgrims from all over the world.",
+        "de": "Die Erscheinungskapelle markiert den genauen Ort, an dem nach der Ueberlieferung Unsere Liebe Frau den drei Hirtenkindern erschien. Dies ist das spirituelle Herz des Heiligtums und ein Gebetsort fuer Pilger aus der ganzen Welt."
+      },
+      "coordinates": {
+        "lat": 39.6316619,
+        "lng": -8.6733153
+      },
+      "img": "../../assets/images/fatima/chapel_of_apparitions.webp"
+    },
+    {
+      "time": 11.5,
+      "title": {
+        "pt": "Basilica de Nossa Senhora do Rosario",
+        "en": "Basilica of Our Lady of the Rosary",
+        "de": "Basilika Unserer Lieben Frau vom Rosenkranz"
+      },
+      "description": {
+        "pt": "A Basilica foi construida no inicio do seculo XX e alberga os tumulos dos tres pastorinhos. O edificio destaca-se pela sua arquitetura classica e pela torre central que domina toda a praca do santuario.",
+        "en": "The basilica was built in the early 20th century and houses the tombs of the three shepherd children. The building stands out for its classical architecture and the central tower that dominates the sanctuary square.",
+        "de": "Die Basilika wurde zu Beginn des 20. Jahrhunderts erbaut und beherbergt die Graeber der drei Hirtenkinder. Das Gebaeude zeichnet sich durch seine klassische Architektur und den zentralen Turm aus, der den Platz des Heiligtums praegt."
+      },
+      "coordinates": {
+        "lat": 39.6323334,
+        "lng": -8.6716865
+      },
+      "img": "../../assets/images/fatima/basilica_our_lady_rosary.webp"
+    },
+    {
+      "time": 12,
+      "title": {
+        "pt": "Basilica da Santissima Trindade",
+        "en": "Basilica of the Holy Trinity",
+        "de": "Basilika der Heiligsten Dreifaltigkeit"
+      },
+      "description": {
+        "pt": "Inaugurada em 2007, esta basilica moderna e uma das maiores igrejas catolicas do mundo. Foi construida para receber o crescente numero de peregrinos que visitam Fatima todos os anos.",
+        "en": "Opened in 2007, this modern basilica is one of the largest Catholic churches in the world. It was built to receive the growing number of pilgrims who visit Fatima every year.",
+        "de": "Diese moderne Basilika wurde 2007 eingeweiht und ist eine der groessten katholischen Kirchen der Welt. Sie wurde errichtet, um die wachsende Zahl von Pilgern aufzunehmen, die Fatima jedes Jahr besuchen."
+      },
+      "coordinates": {
+        "lat": 39.6292877,
+        "lng": -8.6758391
+      },
+      "img": "../../assets/images/fatima/basilica_holy_trinity.webp",
+      "imgAttribution": "Berthold Werner, <a href=\"https://creativecommons.org/licenses/by-sa/4.0\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 4.0</a>, via Wikimedia Commons"
+    },
+    {
+      "time": 13,
+      "title": {
+        "pt": "Tempo livre para almoco ou oracao",
+        "en": "Free time for lunch or prayer",
+        "de": "Freie Zeit fuer Mittagessen oder Gebet"
+      },
+      "description": {
+        "pt": "Tempo livre para almoco ou para explorar o santuario com mais calma.",
+        "en": "Free time for lunch or to explore the sanctuary at your own pace.",
+        "de": "Freie Zeit fuer ein Mittagessen oder um das Heiligtum in Ruhe zu erkunden."
+      },
+      "coordinates": {
+        "lat": 39.6300079,
+        "lng": -8.6746971
+      },
+      "img": "../../assets/images/fatima/prayer_candles.webp"
+    },
+    {
+      "time": 14.5,
+      "title": {
+        "pt": "Valinhos",
+        "en": "Valinhos",
+        "de": "Valinhos"
+      },
+      "description": {
+        "pt": "Valinhos e um dos locais onde ocorreram aparicoes adicionais em 1917. A area mantem ainda hoje um ambiente tranquilo e espiritual.",
+        "en": "Valinhos is one of the locations where additional apparitions took place in 1917. The area still keeps a calm and spiritual atmosphere today.",
+        "de": "Valinhos ist einer der Orte, an denen 1917 zusaetzliche Erscheinungen stattfanden. Die Gegend bewahrt bis heute eine ruhige und spirituelle Atmosphaere."
+      },
+      "coordinates": {
+        "lat": 39.6185928,
+        "lng": -8.6679573
+      },
+      "img": "../../assets/images/fatima/valinhos.webp",
+      "imgAttribution": "Janos Korom Dr. from Wien, Austria, <a href=\"https://commons.wikimedia.org/wiki/File:Calv%C3%A1ro_Hungaro_Fatima_0627_(18589366814).jpg\" target=\"_blank\" rel=\"noopener noreferrer\">source</a>, <a href=\"https://creativecommons.org/licenses/by-sa/2.0\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 2.0</a>, via Wikimedia Commons"
+    },
+    {
+      "time": 15,
+      "title": {
+        "pt": "Casa dos Pastorinhos (Aljustrel)",
+        "en": "Shepherds' Houses (Aljustrel)",
+        "de": "Hirtenhaeuser (Aljustrel)"
+      },
+      "description": {
+        "pt": "Na pequena aldeia de Aljustrel encontram-se as casas onde viveram Lucia, Jacinta e Francisco. Estas casas preservam o ambiente simples da vida rural portuguesa do inicio do seculo XX.",
+        "en": "In the small village of Aljustrel, you can visit the houses where Lucia, Jacinta and Francisco lived. These homes preserve the simple atmosphere of early 20th-century Portuguese rural life.",
+        "de": "Im kleinen Dorf Aljustrel befinden sich die Haeuser, in denen Lucia, Jacinta und Francisco lebten. Diese Hauser bewahren die schlichte Atmosphaere des portugiesischen Landlebens zu Beginn des 20. Jahrhunderts."
+      },
+      "coordinates": {
+        "lat": 39.6157354,
+        "lng": -8.6648484
+      },
+      "img": "../../assets/images/fatima/shepherds_houses.webp"
+    },
+    {
+      "time": 15.5,
+      "title": {
+        "pt": "Loja do Sino",
+        "en": "Loja do Sino",
+        "de": "Loja do Sino"
+      },
+      "description": {
+        "pt": "Paragem numa loja tradicional de artigos religiosos, onde e possivel encontrar lembrancas e objetos ligados a devocao de Fatima.",
+        "en": "Stop at a traditional religious goods store, where you can find souvenirs and devotional items connected to Fatima.",
+        "de": "Stopp in einem traditionellen Geschaeft fuer religioese Artikel, in dem Sie Souvenirs und Andachtsgegenstaende im Zusammenhang mit Fatima finden koennen."
+      },
+      "coordinates": {
+        "lat": 39.6300079,
+        "lng": -8.6746971,
+        "range": 500
+      },
+      "img": "../../assets/images/fatima/loja_do_sino.webp"
+    },
+    {
+      "time": 16,
+      "title": {
+        "pt": "Regresso a Lisboa",
+        "en": "Return to Lisbon",
+        "de": "Rueckkehr nach Lissabon"
+      },
+      "description": {
+        "pt": "Regresso a Lisboa com chegada aproximada ao final da tarde.",
+        "en": "Return to Lisbon with expected arrival in the late afternoon.",
+        "de": "Rueckkehr nach Lissabon mit voraussichtlicher Ankunft am spaeten Nachmittag."
+      },
+      "coordinates": {
+        "lat": 38.7169,
+        "lng": -9.1395,
+        "range": 2000
+      },
+      "img": "../../assets/images/lisbon_street.webp"
+    }
+  ]
+}

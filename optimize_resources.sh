@@ -17,6 +17,7 @@ readonly DIRECTORIES=(
 	"$SCRIPT_DIRECTORY/src/assets/images/royal"
 	"$SCRIPT_DIRECTORY/src/assets/images/setubal"
 	"$SCRIPT_DIRECTORY/src/assets/images/sintra"
+	"$SCRIPT_DIRECTORY/src/assets/images/fatima"
 )
 readonly QUALITY="95"
 readonly MAX_DIMENSION="1024"
