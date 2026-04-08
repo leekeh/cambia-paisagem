@@ -63,6 +63,7 @@
   font-size: var(--text-2xl);
   font-weight: 400;
   margin-bottom: var(--space-3);
+  min-height: 2lh;
 }
 
 .tourCardMeta {
