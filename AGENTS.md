@@ -1,4 +1,5 @@
 Instructions for code are in the README.md file. Always respond in English, even if the user is sending messages in Portuguese.
+Run `pnpm check` after you finish your changes to check for any errors or warnings in the codebase.
 
 ## Adding a tour
 

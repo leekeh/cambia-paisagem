@@ -15,6 +15,12 @@ import { useForm } from "@mantine/form";
 import "dayjs/locale/pt";
 import "dayjs/locale/de";
 import type { Translations } from "../i18n/pt";
+import {
+  submitFormWithStatus,
+  toTourBookingPayload,
+  type FormStatus,
+  validateEmail,
+} from "../lib/apiClient";
 
 interface Props {
   tourTitle: string;
@@ -41,9 +47,7 @@ function BookingModalInner({
   translations: tr,
 }: Props) {
   const [opened, setOpened] = useState(false);
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<FormStatus>("idle");
 
   const form = useForm({
     initialValues: {
@@ -57,28 +61,35 @@ function BookingModalInner({
       name: (v) => (!v ? `${tr.booking.name} ${tr.booking.required}` : null),
       email: (v) => {
         if (!v) return `${tr.booking.email} ${tr.booking.required}`;
-        return /^\S+@\S+$/.test(v)
-          ? null
-          : `${tr.booking.email} ${tr.booking.invalid}`;
+        const emailError = validateEmail(v);
+        return emailError ? tr.booking.emailInvalid : null;
       },
     },
   });
 
-  async function handleSubmit(values: typeof form.values) {
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, tour: tourTitle, tourSlug, lang }),
-      });
-      if (!res.ok) throw new Error();
-      setStatus("success");
-      form.reset();
-    } catch {
-      setStatus("error");
-    }
+  function handleSubmit(values: typeof form.values) {
+    submitFormWithStatus({
+      form,
+      values,
+      setStatus,
+      endpoint: "/api/tour-booking",
+      logLabel: "Tour booking",
+      toPayload: (currentValues) =>
+        toTourBookingPayload(currentValues, {
+          tour: tourTitle,
+          tourSlug,
+          lang,
+        }),
+    });
   }
+
+  function handleCloseModal() {
+    setOpened(false);
+    setStatus("idle");
+    form.reset();
+  }
+
+  const isLoading = status === "loading";
 
   return (
     <>
@@ -93,30 +104,38 @@ function BookingModalInner({
 
       <Modal
         opened={opened}
-        onClose={() => {
-          setOpened(false);
-          setStatus("idle");
-        }}
+        onClose={handleCloseModal}
         title={`${tr.booking.title}: ${tourTitle}`}
         size="md"
         radius="lg"
       >
         {status === "success" ? (
-          <Text ta="center" py="xl">
-            {tr.booking.success}
-          </Text>
+          <>
+            <Text ta="center" py="xl">
+              {tr.booking.success}
+            </Text>
+            <Group justify="center" mt="md">
+              <Button onClick={handleCloseModal} radius="xl">
+                Close
+              </Button>
+            </Group>
+          </>
         ) : (
           <form onSubmit={form.onSubmit(handleSubmit)}>
             <Stack gap="sm">
               <TextInput
-                label={tr.booking.name}
+                label={`${tr.booking.name} ${tr.booking.requiredMark}`}
+                autoComplete="name"
                 aria-required
+                disabled={isLoading}
                 {...form.getInputProps("name")}
               />
               <TextInput
-                label={tr.booking.email}
+                label={`${tr.booking.email} ${tr.booking.requiredMark}`}
                 type="email"
+                autoComplete="email"
                 aria-required
+                disabled={isLoading}
                 {...form.getInputProps("email")}
               />
               <DatePickerInput
@@ -127,17 +146,20 @@ function BookingModalInner({
                 maxDate={
                   new Date(new Date().setFullYear(new Date().getFullYear() + 1))
                 }
+                disabled={isLoading}
                 {...form.getInputProps("date")}
               />
               <NumberInput
                 label={tr.booking.guests}
                 min={1}
                 max={20}
+                disabled={isLoading}
                 {...form.getInputProps("guests")}
               />
               <Textarea
                 label={tr.booking.notes}
                 rows={3}
+                disabled={isLoading}
                 {...form.getInputProps("notes")}
               />
               {status === "error" && (
@@ -147,8 +169,18 @@ function BookingModalInner({
               )}
               <Group justify="flex-end" mt="md">
                 <Button
+                  type="button"
+                  variant="default"
+                  onClick={handleCloseModal}
+                  disabled={isLoading}
+                  radius="xl"
+                >
+                  Cancel
+                </Button>
+                <Button
                   type="submit"
-                  loading={status === "loading"}
+                  loading={isLoading}
+                  disabled={isLoading}
                   radius="xl"
                 >
                   {tr.booking.submit}

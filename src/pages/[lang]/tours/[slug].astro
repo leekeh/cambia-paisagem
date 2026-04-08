@@ -44,16 +44,6 @@ const tourReviews = allReviews.filter(
   (r) => r.data.tourSlug === tour.data.slug,
 );
 
-// Helper to format duration for display
-const formatDuration = (duration: number | number[]) => {
-  if (Array.isArray(duration)) {
-    const min = Math.min(...duration);
-    const max = Math.max(...duration);
-    return min === max ? `${min}` : `${min}–${max}`;
-  }
-  return `${duration}`;
-};
-
 const productSchema = buildProductSchema({
   title,
   description,
