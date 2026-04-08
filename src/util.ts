@@ -1,10 +1,11 @@
 import type { Lang } from "./i18n";
 
 export function durationFormat(
-  hours: number,
-  lang: Lang,
+  hours?: number,
+  lang?: Lang,
   style: "short" | "long" = "short",
 ) {
+  if (!hours || !lang) return `${hours}h`;
   if ("DurationFormat" in Intl && typeof Intl.DurationFormat === "function") {
     try {
       const hoursRounded = Math.floor(hours);
@@ -13,15 +14,15 @@ export function durationFormat(
         style: style,
       })
         .format({ hours: hoursRounded })
-        .replace(hoursRounded, hours);
+        .replace(`${hoursRounded}`, `${hours}`);
     } catch (e) {
       console.warn(
         "Error using Intl.DurationFormat, falling back to manual format",
         e,
       );
-      return `${hours}h`;
     }
   }
+  return `${hours}h`;
 }
 
 export function formatDurationRange(
