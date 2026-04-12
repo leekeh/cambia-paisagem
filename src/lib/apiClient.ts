@@ -28,6 +28,7 @@ interface ContactFormPayload {
 interface TourBookingPayload {
   name: string;
   email: string;
+  phone: string;
   date: string | null;
   guests: number;
   notes: string;
@@ -168,6 +169,7 @@ export function toTourBookingPayload(
   values: {
     name: string;
     email: string;
+    phone: string;
     date: Date | string | null;
     guests: number;
     notes: string;
@@ -184,6 +186,7 @@ export function toTourBookingPayload(
   return {
     name: values.name,
     email: values.email,
+    phone: values.phone,
     date: serializedDate,
     guests: values.guests,
     notes: values.notes,

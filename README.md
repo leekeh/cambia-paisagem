@@ -62,9 +62,10 @@ The generated QR codes will be named after it's tour's name and can be found at 
 - ~~send a confirmation email to the user after they submit the contact form, with the details of their request and a link to the tour page.~~
 - ~~add domain for hosting: https://resend.com/domains~~
 - ~~generate QR codes to go to the tour page.~~
-- add transfer service from airport to hotel and back.
+- ~~add transfer service from airport to hotel and back.~~
 - ~~add tours received in email~~
 - ~~properly configure environmental variables for production and development~~
 - Add support for web mcp to send email requests
 - add rate limiting to the contact apis
 - redirect on the server automatically to the correct language based on the browser settings. Dependent on https://github.com/withastro/astro/pull/15686
+- ~~fix env vars in production~~

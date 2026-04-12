@@ -9,7 +9,6 @@ import {
   Group,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import "@mantine/core/styles.css";
 import type { Translations } from "../i18n/pt";
 import {
   submitFormWithStatus,
@@ -59,6 +58,20 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
     },
   });
 
+  const getFieldA11y = (field: keyof typeof form.values) => {
+    const message = form.errors[field];
+    if (typeof message !== "string" || message.length === 0) {
+      return {};
+    }
+
+    const errorId = `contact-${String(field)}-error`;
+    return {
+      error: <span id={errorId}>{message}</span>,
+      "aria-invalid": true,
+      "aria-describedby": errorId,
+    };
+  };
+
   function handleSubmit(values: typeof form.values) {
     submitFormWithStatus({
       form,
@@ -88,6 +101,7 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
           aria-required
           disabled={isLoading}
           {...form.getInputProps("name")}
+          {...getFieldA11y("name")}
           radius="md"
         />
         <TextInput
@@ -96,12 +110,14 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
           aria-required
           disabled={isLoading}
           {...form.getInputProps("email")}
+          {...getFieldA11y("email")}
           radius="md"
         />
         <TextInput
           label={tr.phone}
           disabled={isLoading}
           {...form.getInputProps("phone")}
+          {...getFieldA11y("phone")}
           radius="md"
         />
         <Select

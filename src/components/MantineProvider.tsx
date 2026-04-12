@@ -1,6 +1,5 @@
 import { MantineProvider, createTheme } from "@mantine/core";
 import "@mantine/core/styles.css";
-import "@mantine/dates/styles.css";
 import type { ReactNode } from "react";
 
 const theme = createTheme({

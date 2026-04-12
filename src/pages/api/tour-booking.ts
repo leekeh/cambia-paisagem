@@ -7,7 +7,7 @@ import {
   getUserAutoReplyTemplate,
 } from "../../lib/email/templates";
 import { sendEmails } from "../../lib/email/sender";
-import { validateEmail } from "../../lib/validators";
+import { validateEmail, validatePhone } from "../../lib/validators";
 import { env as cloudflareEnv } from "cloudflare:workers";
 
 export const POST: APIRoute = async ({ request }) => {
@@ -16,6 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const name = typeof body?.name === "string" ? body.name.trim() : "";
     const email = typeof body?.email === "string" ? body.email.trim() : "";
+    const phone = typeof body?.phone === "string" ? body.phone.trim() : "";
     const lang = typeof body?.lang === "string" ? body.lang.trim() : "en";
 
     if (!name) {
@@ -33,6 +34,13 @@ export const POST: APIRoute = async ({ request }) => {
     const emailError = validateEmail(email);
     if (emailError) {
       return new Response(JSON.stringify({ error: emailError }), {
+        status: 400,
+      });
+    }
+
+    const phoneError = validatePhone(phone);
+    if (phoneError) {
+      return new Response(JSON.stringify({ error: phoneError }), {
         status: 400,
       });
     }
