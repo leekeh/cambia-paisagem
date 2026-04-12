@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { env as cloudflareEnv } from "cloudflare:workers";
 
 interface OutgoingEmail {
   to: string;
@@ -14,9 +15,9 @@ interface MailEnv {
 }
 
 const env: MailEnv = {
-  resendApiKey: import.meta.env.RESEND_API_KEY,
-  fromEmail: import.meta.env.FROM_EMAIL,
-  contactEmail: import.meta.env.CONTACT_EMAIL,
+  resendApiKey: cloudflareEnv.RESEND_API_KEY,
+  fromEmail: cloudflareEnv.FROM_EMAIL,
+  contactEmail: cloudflareEnv.CONTACT_EMAIL,
 };
 if (!env.resendApiKey || !env.fromEmail || !env.contactEmail) {
   console.warn(

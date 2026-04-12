@@ -8,6 +8,7 @@ import {
 } from "../../lib/email/templates";
 import { sendEmails } from "../../lib/email/sender";
 import { validateEmail } from "../../lib/validators";
+import { env as cloudflareEnv } from "cloudflare:workers";
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -42,7 +43,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     await sendEmails([
       {
-        to: import.meta.env.CONTACT_EMAIL,
+        to: cloudflareEnv.CONTACT_EMAIL,
         subject: ownerMessage.subject,
         html: ownerMessage.html,
         replyTo: email,

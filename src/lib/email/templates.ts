@@ -34,7 +34,6 @@ Informações de contacto:
 | Email            | {{email}} |
 | Telemóvel        | {{phone}} |
 | Idioma utilizado | {{lang}}  |
-| Data             | {{date}}  |
 `;
 
 export const ownerTransferTemplate = `Subject: Novo pedido de transfer no Cambia Paisagem!
