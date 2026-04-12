@@ -104,6 +104,7 @@ const organizationSchema = buildOrganizationSchema({
             {t.home.transferTitle}
           </h2>
           <p class="transfer-box__description">{t.home.transferDescription}</p>
+          <p class="transfer-box__service-note">{t.home.transferServiceNote}</p>
           <p class="transfer-box__price">
             {t.tours.from}{` `}<b>{t.home.transferPrice}</b>
           </p>
@@ -282,6 +283,12 @@ const organizationSchema = buildOrganizationSchema({
     max-width: 56ch;
     color: var(--color-text-muted);
     font-size: var(--text-base);
+  }
+
+  .transfer-box__service-note {
+    margin-top: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
   }
 
   .transfer-box__price {

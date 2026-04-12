@@ -56,6 +56,19 @@ const itemListSchema = buildItemListSchema({
       <h1 class="section-title" style="font-family: var(--font-serif);">
         {tr.tours.pageTitle}
       </h1>
+      <p class="tours-page__conditions-note">
+        <strong>{tr.tours.sharedConditionsTitle}:</strong>
+        {` `}
+        {tr.tours.sharedConditionsMinGuests}
+        {` `}
+        {tr.tours.sharedConditionsExclusions}
+        {` `}
+        {tr.tours.sharedConditionsTransfers}
+        {` `}
+        <a href={`/${lang}/#transfer`} class="tours-page__conditions-note-link"
+          >{tr.tours.sharedConditionsTransfersLink}</a
+        >
+      </p>
       <ToursFilter
         client:load
         tours={toursData}
@@ -72,3 +85,19 @@ const itemListSchema = buildItemListSchema({
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .tours-page__conditions-note {
+    margin: 0 0 var(--space-6);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .tours-page__conditions-note-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

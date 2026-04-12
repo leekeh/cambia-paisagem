@@ -18,6 +18,8 @@ export const en: Translations = {
     transferTitle: "Private Transfers",
     transferDescription:
       "Book your transfer with custom pickup and dropoff points.",
+    transferServiceNote:
+      "A separate service from tours, including taxi and private chauffeur options.",
     transferPrice: "€15 / person",
     viewMore: "View More",
     sendMessage: "Send Message",
@@ -42,6 +44,18 @@ export const en: Translations = {
     nextStep: "Next Step",
     prevStep: "Previous Step",
     jumpStep: "Go to step %step%",
+    sharedConditionsTitle: "Terms & Conditions",
+    sharedConditionsIntro:
+      "These rates apply to our premium shared-minibus model.",
+    sharedConditionsMinGuests:
+      "A minimum of 12 participants is required per tour.",
+    sharedConditionsExclusions:
+      "Entrance fees, meals, and optional activities are not included and are paid locally.",
+    sharedConditionsGuide:
+      "Optional private guide upgrade: +EUR 25 per person or +EUR 350 per group.",
+    sharedConditionsTransfers:
+      "Transfers are available separately as an additional service.",
+    sharedConditionsTransfersLink: "Book transfer",
   },
   reviews: {
     pageTitle: "Client Reviews",

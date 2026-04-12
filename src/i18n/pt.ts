@@ -16,6 +16,8 @@ export const pt = {
     transferTitle: "Transfers Privados",
     transferDescription:
       "Reserve o seu transfer com recolha e destino personalizados.",
+    transferServiceNote:
+      "Serviço separado dos tours, incluindo opções de táxi e private chauffeur.",
     transferPrice: "€15 / pessoa",
     viewMore: "Ver Mais",
     sendMessage: "Enviar Mensagem",
@@ -40,6 +42,18 @@ export const pt = {
     nextStep: "Próximo Passo",
     prevStep: "Passo Anterior",
     jumpStep: "Ir para o passo %step%",
+    sharedConditionsTitle: "Termos e Condições",
+    sharedConditionsIntro:
+      "Estas tarifas aplicam-se ao nosso modelo premium em minibus partilhado.",
+    sharedConditionsMinGuests:
+      "É necessário um mínimo de 12 participantes por tour.",
+    sharedConditionsExclusions:
+      "Entradas, refeições e atividades opcionais não estão incluídas e são pagas localmente.",
+    sharedConditionsGuide:
+      "Upgrade opcional para guia privado: +€25 por pessoa ou +€350 por grupo.",
+    sharedConditionsTransfers:
+      "Transfers disponíveis separadamente, como serviço adicional.",
+    sharedConditionsTransfersLink: "Reservar transfer",
   },
   reviews: {
     pageTitle: "Comentários dos Clientes",

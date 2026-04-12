@@ -18,6 +18,8 @@ export const de: Translations = {
     transferTitle: "Private Transfers",
     transferDescription:
       "Buchen Sie Ihren Transfer mit individuellem Abhol- und Zielort.",
+    transferServiceNote:
+      "Ein separater Service ausserhalb der Touren mit Taxi- und Private-Chauffeur-Optionen.",
     transferPrice: "€15 / Person",
     viewMore: "Mehr Anzeigen",
     sendMessage: "Nachricht Senden",
@@ -42,6 +44,18 @@ export const de: Translations = {
     nextStep: "Nächster Schritt",
     prevStep: "Vorheriger Schritt",
     jumpStep: "Gehe zu Schritt %step%",
+    sharedConditionsTitle: "Allgemeine Bedingungen",
+    sharedConditionsIntro:
+      "Diese Preise gelten fuer unser Premium-Modell im geteilten Minibus.",
+    sharedConditionsMinGuests:
+      "Pro Tour ist eine Mindestteilnehmerzahl von 12 Personen erforderlich.",
+    sharedConditionsExclusions:
+      "Eintritte, Mahlzeiten und optionale Aktivitaeten sind nicht enthalten und werden vor Ort bezahlt.",
+    sharedConditionsGuide:
+      "Optionales Upgrade auf einen privaten Guide: +EUR 25 pro Person oder +EUR 350 pro Gruppe.",
+    sharedConditionsTransfers:
+      "Transfers sind als zusaetzlicher Service separat verfuegbar.",
+    sharedConditionsTransfersLink: "Transfer buchen",
   },
   reviews: {
     pageTitle: "Kundenbewertungen",

@@ -143,6 +143,30 @@ const carouselData = await Promise.all(
         />
       </div>
 
+      <div
+        class="tour-detail__conditions"
+        aria-label={tr.tours.sharedConditionsTitle}
+      >
+        <h2 class="tour-detail__conditions-title">
+          {tr.tours.sharedConditionsTitle}
+        </h2>
+        <p class="tour-detail__conditions-intro">
+          {tr.tours.sharedConditionsIntro}
+        </p>
+        <ul class="tour-detail__conditions-list">
+          <li>{tr.tours.sharedConditionsMinGuests}</li>
+          <li>{tr.tours.sharedConditionsExclusions}</li>
+          <li>{tr.tours.sharedConditionsGuide}</li>
+          <li>
+            {tr.tours.sharedConditionsTransfers}
+            {` `}
+            <a href={`/${lang}/#transfer`} class="tour-detail__conditions-link">
+              {tr.tours.sharedConditionsTransfersLink}
+            </a>
+          </li>
+        </ul>
+      </div>
+
       {
         tourReviews.length > 0 && (
           <div class="tour-detail__reviews">
@@ -209,6 +233,35 @@ const carouselData = await Promise.all(
     line-height: 1.8;
     color: var(--color-text-muted);
     margin-bottom: var(--space-8);
+  }
+
+  .tour-detail__conditions {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+  }
+
+  .tour-detail__conditions-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .tour-detail__conditions-intro {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .tour-detail__conditions-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .tour-detail__conditions-link {
+    text-decoration: underline;
   }
 
   .tour-detail__highlights {
