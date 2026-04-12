@@ -58,6 +58,8 @@ export const en: Translations = {
     sharedConditionsTransfers:
       "Transfers are available separately as an additional service.",
     sharedConditionsTransfersLink: "Book transfer",
+    whatsappCTA: "Message on WhatsApp",
+    whatsappMessage: "Hello, I'm interested in the {tour} tour.",
   },
   reviews: {
     pageTitle: "Client Reviews",

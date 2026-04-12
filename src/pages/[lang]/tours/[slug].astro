@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BookingModal from "../../../components/BookingModal.tsx";
+import WhatsAppCTA from "../../../components/WhatsAppCTA.tsx";
 import ReviewCard from "../../../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
 import { useTranslations, languages, t, tArr } from "../../../i18n/index";
@@ -139,6 +140,14 @@ const carouselData = await Promise.all(
           translations={{
             booking: tr.booking,
             tours: { book: tr.tours.book },
+          }}
+        />
+        <WhatsAppCTA
+          client:load
+          tourTitle={title}
+          translations={{
+            whatsappCTA: tr.tours.whatsappCTA,
+            whatsappMessage: tr.tours.whatsappMessage,
           }}
         />
       </div>
@@ -301,6 +310,8 @@ const carouselData = await Promise.all(
     margin-top: var(--space-12);
     display: flex;
     justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
   }
 
   .tour-detail__reviews {

@@ -56,6 +56,8 @@ export const pt = {
     sharedConditionsTransfers:
       "Transfers disponíveis separadamente, como serviço adicional.",
     sharedConditionsTransfersLink: "Reservar transfer",
+    whatsappCTA: "Enviar Mensagem no WhatsApp",
+    whatsappMessage: "Olá, estou interessado no tour {tour}.",
   },
   reviews: {
     pageTitle: "Comentários dos Clientes",
