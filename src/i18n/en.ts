@@ -49,6 +49,8 @@ export const en: Translations = {
       "These rates apply to our premium shared-minibus model.",
     sharedConditionsMinGuests:
       "A minimum of 12 participants is required per tour.",
+    sharedConditionsSmallGroups:
+      "Prices may vary depending on the number of participants. Smaller groups and individual travellers can be accommodated on request, subject to quotation.",
     sharedConditionsExclusions:
       "Entrance fees, meals, and optional activities are not included and are paid locally.",
     sharedConditionsGuide:

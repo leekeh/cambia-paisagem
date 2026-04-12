@@ -47,6 +47,8 @@ export const pt = {
       "Estas tarifas aplicam-se ao nosso modelo premium em minibus partilhado.",
     sharedConditionsMinGuests:
       "É necessário um mínimo de 12 participantes por tour.",
+    sharedConditionsSmallGroups:
+      "Os preços podem variar consoante o número de participantes. Grupos mais pequenos e viajantes individuais podem ser acomodados mediante pedido e orçamento.",
     sharedConditionsExclusions:
       "Entradas, refeições e atividades opcionais não estão incluídas e são pagas localmente.",
     sharedConditionsGuide:

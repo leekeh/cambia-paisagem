@@ -49,6 +49,8 @@ export const de: Translations = {
       "Diese Preise gelten fuer unser Premium-Modell im geteilten Minibus.",
     sharedConditionsMinGuests:
       "Pro Tour ist eine Mindestteilnehmerzahl von 12 Personen erforderlich.",
+    sharedConditionsSmallGroups:
+      "Die Preise koennen je nach Teilnehmerzahl variieren. Kleinere Gruppen und Einzelreisende koennen auf Anfrage und nach individueller Kalkulation beruecksichtigt werden.",
     sharedConditionsExclusions:
       "Eintritte, Mahlzeiten und optionale Aktivitaeten sind nicht enthalten und werden vor Ort bezahlt.",
     sharedConditionsGuide:
