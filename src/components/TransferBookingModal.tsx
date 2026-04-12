@@ -3,6 +3,11 @@ import type { Translations } from "../i18n/pt";
 
 interface Props {
   lang: string;
+  ctaLabel?: string;
+  transferType?: string;
+  modalTitle?: string;
+  pickupPlaceholder?: string;
+  dropoffPlaceholder?: string;
   translations: {
     transfer: Translations["transfer"];
   };
@@ -47,7 +52,7 @@ export default function TransferBookingModal(props: Props) {
         disabled={isOpening}
       >
         {isOpening && <span className="btn-spinner" aria-hidden="true" />}
-        <span>{props.translations.transfer.cta}</span>
+        <span>{props.ctaLabel ?? props.translations.transfer.cta}</span>
       </button>
 
       {loadInner && (

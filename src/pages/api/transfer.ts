@@ -10,6 +10,25 @@ import { sendEmails } from "../../lib/email/sender";
 import { validateEmail, validatePhone } from "../../lib/validators";
 import { env as cloudflareEnv } from "cloudflare:workers";
 
+function normalizeTransferType(value: unknown): string {
+  if (typeof value !== "string") return "Transfer";
+
+  const key = value.trim().toLowerCase();
+  const labels: Record<string, string> = {
+    "private-taxi": "Private Taxi",
+    "airport-cruise-transfer": "Airport/Cruise Transfer",
+    transfer: "Transfer",
+  };
+
+  if (labels[key]) return labels[key];
+
+  return key
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
@@ -18,6 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
     const email = typeof body?.email === "string" ? body.email.trim() : "";
     const phone = typeof body?.phone === "string" ? body.phone.trim() : "";
     const lang = typeof body?.lang === "string" ? body.lang.trim() : "en";
+    const type = normalizeTransferType(body?.type);
 
     if (!name) {
       return new Response(JSON.stringify({ error: "Name is required" }), {
@@ -45,7 +65,10 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const ownerMessage = parseTemplate(ownerTransferTemplate, body);
+    const ownerMessage = parseTemplate(ownerTransferTemplate, {
+      ...body,
+      type,
+    });
 
     const userMessage = parseTemplate(getUserAutoReplyTemplate(lang), { name });
 

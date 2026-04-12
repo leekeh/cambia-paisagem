@@ -95,26 +95,69 @@ const organizationSchema = buildOrganizationSchema({
     </div>
   </section>
 
-  <!-- Transfer Booking -->
+  <!-- Services: Transfers & Taxi -->
   <section class="section" id="transfer">
     <div class="container">
-      <div class="transfer-box">
-        <div>
-          <h2 class="section-title transfer-box__title">
-            {t.home.transferTitle}
-          </h2>
-          <p class="transfer-box__description">{t.home.transferDescription}</p>
-          <p class="transfer-box__service-note">{t.home.transferServiceNote}</p>
-          <p class="transfer-box__price">
-            {t.tours.from}{` `}<b>{t.home.transferPrice}</b>
+      <h2 class="section-title">{t.home.servicesTitle}</h2>
+      <div class="services-grid">
+        <!-- Private Taxi Card -->
+        <div class="service-card">
+          <h3 class="service-card__title">{t.home.privateTaxiTitle}</h3>
+          <p class="service-card__description">
+            {t.home.privateTaxiDescription}
           </p>
+          <p class="service-card__note">{t.home.privateTaxiNote}</p>
+          <div class="service-card__cta">
+            <TransferBookingModal
+              client:load
+              lang={lang}
+              ctaLabel={t.home.bookNow}
+              transferType="private-taxi"
+              modalTitle={t.transfer.privateTaxiModalTitle}
+              pickupPlaceholder={t.transfer.privateTaxiPickupPlaceholder}
+              dropoffPlaceholder={t.transfer.privateTaxiDropoffPlaceholder}
+              translations={{ transfer: t.transfer }}
+            />
+            <a
+              href={`https://wa.me/${phoneNumber.replaceAll(" ", "").replaceAll("+", "")}?text=${encodeURIComponent(t.transfer.privateTaxiWhatsapp)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+            >
+              <WhatsappIcon />
+              {t.home.messageNow}
+            </a>
+          </div>
         </div>
-        <div class="transfer-box__cta">
-          <TransferBookingModal
-            client:only
-            lang={lang}
-            translations={{ transfer: t.transfer }}
-          />
+
+        <!-- Airport & Cruise Transfer Card -->
+        <div class="service-card">
+          <h3 class="service-card__title">{t.home.airportTransferTitle}</h3>
+          <p class="service-card__description">
+            {t.home.airportTransferDescription}
+          </p>
+          <p class="service-card__note">{t.home.airportTransferNote}</p>
+          <div class="service-card__cta">
+            <TransferBookingModal
+              client:load
+              lang={lang}
+              ctaLabel={t.home.bookNow}
+              transferType="airport-cruise-transfer"
+              modalTitle={t.transfer.airportTransferModalTitle}
+              pickupPlaceholder={t.transfer.airportTransferPickupPlaceholder}
+              dropoffPlaceholder={t.transfer.airportTransferDropoffPlaceholder}
+              translations={{ transfer: t.transfer }}
+            />
+            <a
+              href={`https://wa.me/${phoneNumber.replaceAll(" ", "").replaceAll("+", "")}?text=${encodeURIComponent(t.transfer.airportTransferWhatsapp)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+            >
+              <WhatsappIcon />
+              {t.home.messageNow}
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -303,6 +346,67 @@ const organizationSchema = buildOrganizationSchema({
     align-items: center;
   }
 
+  /* ─── Services Grid ────────────────────────────────────────── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-8);
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .service-card__description {
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  .service-card__note {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .service-card__cta {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .service-card__cta .btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .hero__title {
       font-size: var(--text-4xl);
@@ -320,6 +424,23 @@ const organizationSchema = buildOrganizationSchema({
 
     .transfer-box__cta {
       justify-content: center;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .service-card {
+      padding: var(--space-6);
+    }
+
+    .service-card__title {
+      font-size: var(--text-xl);
+    }
+
+    .service-card:hover {
+      transform: none;
     }
   }
 </style>

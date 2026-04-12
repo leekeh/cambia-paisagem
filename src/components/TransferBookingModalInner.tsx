@@ -9,7 +9,7 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import { DatePickerInput } from "@mantine/dates";
+import { DatePickerInput, TimePicker } from "@mantine/dates";
 import "@mantine/dates/styles.css";
 import { useForm } from "@mantine/form";
 import "dayjs/locale/pt";
@@ -28,6 +28,10 @@ interface Props {
   lang: string;
   openSignal?: number;
   onReady?: () => void;
+  transferType?: string;
+  modalTitle?: string;
+  pickupPlaceholder?: string;
+  dropoffPlaceholder?: string;
   translations: {
     transfer: Translations["transfer"];
   };
@@ -43,6 +47,10 @@ export default function TransferBookingModalInner(props: Props) {
 
 function TransferBookingModalInnerContent({
   lang,
+  transferType,
+  modalTitle,
+  pickupPlaceholder,
+  dropoffPlaceholder,
   translations: tr,
   openSignal = 0,
   onReady,
@@ -65,6 +73,7 @@ function TransferBookingModalInnerContent({
       name: "",
       email: "",
       phone: "",
+      type: transferType ?? "transfer",
       pickup: "",
       dropoff: "",
       date: null as Date | null,
@@ -87,6 +96,13 @@ function TransferBookingModalInnerContent({
         !v ? `${tr.transfer.pickup} ${tr.transfer.required}` : null,
       dropoff: (v) =>
         !v ? `${tr.transfer.dropoff} ${tr.transfer.required}` : null,
+      time: (v) => {
+        if (!v) return null;
+        const trimmed = v.trim();
+        return /^([01]\d|2[0-3]):([0-5]\d)$/.test(trimmed)
+          ? null
+          : tr.transfer.timeInvalid;
+      },
     },
   });
 
@@ -128,7 +144,7 @@ function TransferBookingModalInnerContent({
       <Modal
         opened={opened}
         onClose={handleCloseModal}
-        title={tr.transfer.title}
+        title={modalTitle ?? tr.transfer.title}
         size="lg"
         radius="lg"
       >
@@ -145,6 +161,7 @@ function TransferBookingModalInnerContent({
           </>
         ) : (
           <form onSubmit={form.onSubmit(handleSubmit)}>
+            <input type="hidden" {...form.getInputProps("type")} />
             <Stack gap="sm">
               <TextInput
                 label={`${tr.transfer.name} ${tr.transfer.requiredMark}`}
@@ -179,7 +196,9 @@ function TransferBookingModalInnerContent({
                 />
                 <TextInput
                   label={`${tr.transfer.pickup} ${tr.transfer.requiredMark}`}
-                  placeholder={tr.transfer.pickupPlaceholder}
+                  placeholder={
+                    pickupPlaceholder ?? tr.transfer.pickupPlaceholder
+                  }
                   aria-required
                   disabled={isLoading}
                   {...form.getInputProps("pickup")}
@@ -187,7 +206,9 @@ function TransferBookingModalInnerContent({
                 />
                 <TextInput
                   label={`${tr.transfer.dropoff} ${tr.transfer.requiredMark}`}
-                  placeholder={tr.transfer.dropoffPlaceholder}
+                  placeholder={
+                    dropoffPlaceholder ?? tr.transfer.dropoffPlaceholder
+                  }
                   aria-required
                   disabled={isLoading}
                   {...form.getInputProps("dropoff")}
@@ -209,11 +230,12 @@ function TransferBookingModalInnerContent({
                   disabled={isLoading}
                   {...form.getInputProps("date")}
                 />
-                <TextInput
+                <TimePicker
                   label={tr.transfer.time}
-                  type="time"
                   disabled={isLoading}
                   {...form.getInputProps("time")}
+                  {...getFieldA11y("time")}
+                  format="24h"
                 />
                 <NumberInput
                   label={tr.transfer.people}

@@ -15,16 +15,23 @@ export const en: Translations = {
     featuredTitle: "Most Requested",
     reviewsTitle: "Client Reviews",
     contactTitle: "Contact",
-    transferTitle: "Private Transfers",
-    transferDescription:
-      "Book your transfer with custom pickup and dropoff points.",
-    transferServiceNote:
-      "A separate service from tours, including taxi and private chauffeur options.",
-    transferPrice: "€15 / person",
+    servicesTitle: "Services",
+    privateTaxiTitle: "Private Taxi Services",
+    privateTaxiDescription:
+      "We offer reliable private taxi services for all types of local and long-distance journeys. Whether you need a quick transfer within the city or a comfortable ride to another destination, we ensure a safe, punctual, and professional service tailored to your needs.",
+    privateTaxiNote:
+      "Available on request, with flexible scheduling and competitive pricing.",
+    airportTransferTitle: "Airport & Cruise Port Transfers",
+    airportTransferDescription:
+      "We provide comfortable and reliable transfers between Lisbon Airport or cruise terminals and your hotel, as well as return journeys in the opposite direction. Enjoy a smooth, stress-free arrival or departure with a professional driver, punctual service, and assistance with your luggage.",
+    airportTransferNote:
+      "Available on request, with flexible scheduling to match your flight or cruise times.",
     viewMore: "View More",
     sendMessage: "Send Message",
     allReviews: "See All Reviews",
     allTours: "View All Tours",
+    bookNow: "Book Now",
+    messageNow: "Message",
   },
   tours: {
     pageTitle: "Our Tours",
@@ -99,6 +106,7 @@ export const en: Translations = {
     requiredMark: "(required)",
     emailInvalid: "Invalid email format",
     phoneInvalid: "Invalid phone format",
+    timeInvalid: "Invalid time format (24h)",
     pickupPlaceholder: "e.g. Lisbon airport",
     dropoffPlaceholder: "e.g. Your hotel",
     submit: "Send Request",
@@ -106,6 +114,15 @@ export const en: Translations = {
     cancel: "Cancel",
     success: "Request sent! We will contact you soon.",
     error: "An error occurred. Please try again.",
+    privateTaxiWhatsapp: "I'm interested in your private taxi services.",
+    airportTransferWhatsapp:
+      "I'm interested in your airport/cruise port transfer services.",
+    privateTaxiModalTitle: "Book Private Taxi",
+    airportTransferModalTitle: "Book Airport/Cruise Transfer",
+    privateTaxiPickupPlaceholder: "e.g. Your hotel in Lisbon",
+    privateTaxiDropoffPlaceholder: "e.g. Cascais or another destination",
+    airportTransferPickupPlaceholder: "e.g. Lisbon Airport",
+    airportTransferDropoffPlaceholder: "e.g. Your hotel or cruise terminal",
   },
   contact: {
     pageTitle: "Contact",

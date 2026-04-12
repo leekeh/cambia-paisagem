@@ -13,16 +13,23 @@ export const pt = {
     featuredTitle: "Mais Solicitados",
     reviewsTitle: "Comentários dos Clientes",
     contactTitle: "Contactos",
-    transferTitle: "Transfers Privados",
-    transferDescription:
-      "Reserve o seu transfer com recolha e destino personalizados.",
-    transferServiceNote:
-      "Serviço separado dos tours, incluindo opções de táxi e private chauffeur.",
-    transferPrice: "€15 / pessoa",
+    servicesTitle: "Serviços",
+    privateTaxiTitle: "Serviços de Táxi Privado",
+    privateTaxiDescription:
+      "Oferecemos serviços fiáveis de táxi privado para todos os tipos de viagens locais e de longa distância. Quer necessite de uma transferência rápida na cidade ou de um trajeto confortável para outro destino, garantimos um serviço seguro, pontual e profissional adaptado às suas necessidades.",
+    privateTaxiNote:
+      "Disponível mediante procura, com horários flexíveis e preços competitivos.",
+    airportTransferTitle: "Transfers Aeroporto & Terminais de Cruzeiro",
+    airportTransferDescription:
+      "Proporcionamos transferências confortáveis e fiáveis entre o Aeroporto de Lisboa ou terminais de cruzeiro e o seu hotel, bem como viagens de regresso na direção oposta. Desfrute de uma chegada ou partida tranquila e sem stress com um motorista profissional, serviço pontual e assistência com a sua bagagem.",
+    airportTransferNote:
+      "Disponível mediante procura, com horários flexíveis para se adequarem aos seus voos ou cruzeiros.",
     viewMore: "Ver Mais",
     sendMessage: "Enviar Mensagem",
     allReviews: "Ver Todos os Comentários",
     allTours: "Ver Todos os Tours",
+    bookNow: "Reservar Agora",
+    messageNow: "Enviar Mensagem",
   },
   tours: {
     pageTitle: "Os Nossos Tours",
@@ -97,6 +104,7 @@ export const pt = {
     requiredMark: "(obrigatório)",
     emailInvalid: "Formato de email inválido",
     phoneInvalid: "Formato de telefone inválido",
+    timeInvalid: "Formato de hora inválido (24h)",
     pickupPlaceholder: "ex. Aeroporto de Lisboa",
     dropoffPlaceholder: "ex. Seu hotel",
     submit: "Enviar Pedido",
@@ -104,6 +112,15 @@ export const pt = {
     cancel: "Cancelar",
     success: "Pedido enviado! Entraremos em contacto em breve.",
     error: "Ocorreu um erro. Por favor tente novamente.",
+    privateTaxiWhatsapp: "Estou interessado nos seus serviços de táxi privado.",
+    airportTransferWhatsapp:
+      "Estou interessado nos seus serviços de transfer para aeroporto/terminal de cruzeiro.",
+    privateTaxiModalTitle: "Reservar Táxi Privado",
+    airportTransferModalTitle: "Reservar Transfer Aeroporto/Cruzeiro",
+    privateTaxiPickupPlaceholder: "ex. Hotel em Lisboa",
+    privateTaxiDropoffPlaceholder: "ex. Cascais ou outro destino",
+    airportTransferPickupPlaceholder: "ex. Aeroporto de Lisboa",
+    airportTransferDropoffPlaceholder: "ex. Seu hotel ou terminal de cruzeiro",
   },
   contact: {
     pageTitle: "Contactos",

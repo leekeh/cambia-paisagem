@@ -41,6 +41,7 @@ interface TransferPayload {
   name: string;
   email: string;
   phone: string;
+  type: string;
   pickup: string;
   dropoff: string;
   date: string | null;
@@ -201,6 +202,7 @@ export function toTransferPayload(
     name: string;
     email: string;
     phone: string;
+    type: string;
     pickup: string;
     dropoff: string;
     date: Date | string | null;
@@ -221,6 +223,7 @@ export function toTransferPayload(
     name: values.name,
     email: values.email,
     phone: values.phone,
+    type: values.type,
     pickup: values.pickup,
     dropoff: values.dropoff,
     date: serializedDate,

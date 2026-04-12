@@ -15,16 +15,23 @@ export const de: Translations = {
     featuredTitle: "Meistgebucht",
     reviewsTitle: "Kundenbewertungen",
     contactTitle: "Kontakt",
-    transferTitle: "Private Transfers",
-    transferDescription:
-      "Buchen Sie Ihren Transfer mit individuellem Abhol- und Zielort.",
-    transferServiceNote:
-      "Ein separater Service ausserhalb der Touren mit Taxi- und Private-Chauffeur-Optionen.",
-    transferPrice: "€15 / Person",
+    servicesTitle: "Services",
+    privateTaxiTitle: "Private Taxi-Dienste",
+    privateTaxiDescription:
+      "Wir bieten zuverlässige Privatfahrdienste für alle Arten von Fahr- und Fernfahrten an. Ob Sie ein schnelles Abenteuer im Stadtgebiet oder eine komfortable Fahrt zu einem anderen Ziel benötigen, garantieren wir einen sicheren, pünktlichen und professionellen Service, der auf Ihre Bedürfnisse abgestimmt ist.",
+    privateTaxiNote:
+      "Auf Anfrage mit flexiblen Zeitplänen und wettbewerbsfähigen Preisen verfügbar.",
+    airportTransferTitle: "Flughafen- & Kreuzfahrtterminal-Transfers",
+    airportTransferDescription:
+      "Wir bieten komfortable und zuverlässige Transfers zwischen Flughafen Lissabon oder Kreuzfahrtterminals und Ihrem Hotel sowie Rückfahrten in die entgegengesetzte Richtung an. Genießen Sie eine reibungslose, stressfreie An- und Abreise mit einem professionellen Fahrer, pünktlichem Service und Gepäckberatung.",
+    airportTransferNote:
+      "Auf Anfrage mit flexiblen Zeitplänen für Ihre Flüge oder Kreuzfahrten verfügbar.",
     viewMore: "Mehr Anzeigen",
     sendMessage: "Nachricht Senden",
     allReviews: "Alle Bewertungen ansehen",
     allTours: "Alle Touren anzeigen",
+    bookNow: "Jetzt Buchen",
+    messageNow: "Nachricht Senden",
   },
   tours: {
     pageTitle: "Unsere Touren",
@@ -99,6 +106,7 @@ export const de: Translations = {
     requiredMark: "(erforderlich)",
     emailInvalid: "Ungultiges E-Mail-Format",
     phoneInvalid: "Ungultiges Telefonformat",
+    timeInvalid: "Ungultiges Zeitformat (24h)",
     pickupPlaceholder: "z. B. Flughafen Lissabon",
     dropoffPlaceholder: "z. B. Ihr Hotel",
     submit: "Anfrage Senden",
@@ -106,6 +114,16 @@ export const de: Translations = {
     cancel: "Abbrechen",
     success: "Anfrage gesendet! Wir melden uns bald bei Ihnen.",
     error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    privateTaxiWhatsapp: "Ich bin an Ihren privaten Taxidiensten interessiert.",
+    airportTransferWhatsapp:
+      "Ich bin an Ihren Flughafen-/Kreuzfahrtterminal-Transferdiensten interessiert.",
+    privateTaxiModalTitle: "Privates Taxi Buchen",
+    airportTransferModalTitle: "Flughafen-/Kreuzfahrt-Transfer Buchen",
+    privateTaxiPickupPlaceholder: "z. B. Ihr Hotel in Lissabon",
+    privateTaxiDropoffPlaceholder: "z. B. Cascais oder anderes Ziel",
+    airportTransferPickupPlaceholder: "z. B. Flughafen Lissabon",
+    airportTransferDropoffPlaceholder:
+      "z. B. Ihr Hotel oder Kreuzfahrtterminal",
   },
   contact: {
     pageTitle: "Kontakt",

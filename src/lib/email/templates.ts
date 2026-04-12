@@ -47,6 +47,7 @@ Olá Nuno 🛸
 Detalhes:
 
 | Nome              | {{name}}    |
+| Tipo              | {{type}}    |
 | ----------------- | ----------- |
 | Partida           | {{pickup}}  |
 | Destino           | {{dropoff}} |
