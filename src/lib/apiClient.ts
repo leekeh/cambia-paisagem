@@ -40,11 +40,12 @@ interface TransferPayload {
   name: string;
   email: string;
   phone: string;
-  pickupLocation: string;
-  dropoffLocation: string;
+  pickup: string;
+  dropoff: string;
   date: string | null;
-  passengers: number;
-  notes: string;
+  time: string;
+  people: number;
+  note: string;
   lang: string;
 }
 
@@ -189,6 +190,41 @@ export function toTourBookingPayload(
     tour: meta.tour,
     tourSlug: meta.tourSlug,
     lang: meta.lang,
+  };
+}
+
+export function toTransferPayload(
+  values: {
+    name: string;
+    email: string;
+    phone: string;
+    pickup: string;
+    dropoff: string;
+    date: Date | string | null;
+    time: string;
+    people: number;
+    note: string;
+  },
+  lang: string,
+): TransferPayload {
+  const serializedDate =
+    values.date instanceof Date
+      ? values.date.toISOString()
+      : typeof values.date === "string"
+        ? values.date
+        : null;
+
+  return {
+    name: values.name,
+    email: values.email,
+    phone: values.phone,
+    pickup: values.pickup,
+    dropoff: values.dropoff,
+    date: serializedDate,
+    time: values.time,
+    people: values.people,
+    note: values.note,
+    lang,
   };
 }
 

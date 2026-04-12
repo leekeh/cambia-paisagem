@@ -116,7 +116,7 @@ function BookingModalInner({
             </Text>
             <Group justify="center" mt="md">
               <Button onClick={handleCloseModal} radius="xl">
-                Close
+                {tr.booking.close}
               </Button>
             </Group>
           </>
@@ -175,7 +175,7 @@ function BookingModalInner({
                   disabled={isLoading}
                   radius="xl"
                 >
-                  Cancel
+                  {tr.booking.cancel}
                 </Button>
                 <Button
                   type="submit"

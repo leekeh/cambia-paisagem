@@ -55,6 +55,7 @@ Detalhes:
 | Idioma utilizado  | {{lang}}    |
 | Número de pessoas | {{people}}  |
 | Data solicitada   | {{date}}    |
+| Hora solicitada   | {{time}}    |
 | Nota              | {{note}}    |
 `;
 
