@@ -7,3 +7,6 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - sharp
   - workerd
+
+minimumReleaseAge: 10080 # 7 days
+trustPolicy: no-downgrade # Don't switch from OIDC token to personal access token
