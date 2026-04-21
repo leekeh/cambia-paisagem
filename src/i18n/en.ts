@@ -61,7 +61,7 @@ export const en: Translations = {
     sharedConditionsExclusions:
       "Entrance fees, meals, and optional activities are not included and are paid locally.",
     sharedConditionsGuide:
-      "Optional private guide upgrade: +EUR 25 per person or +EUR 350 per group.",
+      "Optional private guide upgrade: +EUR 350 per day.",
     sharedConditionsTransfers:
       "Transfers are available separately as an additional service.",
     sharedConditionsTransfersLink: "Book transfer",

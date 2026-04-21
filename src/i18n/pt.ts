@@ -59,7 +59,7 @@ export const pt = {
     sharedConditionsExclusions:
       "Entradas, refeições e atividades opcionais não estão incluídas e são pagas localmente.",
     sharedConditionsGuide:
-      "Upgrade opcional para guia privado: +€25 por pessoa ou +€350 por grupo.",
+      "Upgrade opcional para guia privado: +€350 por dia.",
     sharedConditionsTransfers:
       "Transfers disponíveis separadamente, como serviço adicional.",
     sharedConditionsTransfersLink: "Reservar transfer",

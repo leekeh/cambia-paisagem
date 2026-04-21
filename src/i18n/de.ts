@@ -61,7 +61,7 @@ export const de: Translations = {
     sharedConditionsExclusions:
       "Eintritte, Mahlzeiten und optionale Aktivitaeten sind nicht enthalten und werden vor Ort bezahlt.",
     sharedConditionsGuide:
-      "Optionales Upgrade auf einen privaten Guide: +EUR 25 pro Person oder +EUR 350 pro Gruppe.",
+      "Optionales Upgrade auf einen privaten Guide: +EUR 350 pro Tag.",
     sharedConditionsTransfers:
       "Transfers sind als zusaetzlicher Service separat verfuegbar.",
     sharedConditionsTransfersLink: "Transfer buchen",
