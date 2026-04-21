@@ -4,13 +4,27 @@ import react from "@astrojs/react";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.cambiatours.com",
   output: "static",
   adapter: cloudflare({ imageService: "passthrough" }),
   devToolbar: { enabled: false },
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en",
+          pt: "pt-PT",
+          de: "de-DE",
+        },
+      },
+    }),
+  ],
   vite: {
     optimizeDeps: {
       include: [
