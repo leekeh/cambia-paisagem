@@ -7,6 +7,7 @@
 #
 readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
+readonly HOME_URL="https://www.cambiatours.com/en"
 readonly TOURS_URL="https://www.cambiatours.com/en/tours"
 readonly TOURS_DIRECTORY="${SCRIPT_DIRECTORY}/src/content/tours"
 readonly QR_CODES_OUTPUT_DIRECTORY="${SCRIPT_DIRECTORY}/output"
@@ -36,6 +37,7 @@ function spinner() {
 }
 
 function main() {
+  qrencode -o "${QR_CODES_OUTPUT_DIRECTORY}/home.png" -s 10 -m 2 "${HOME_URL}"
   for file in "$TOURS_DIRECTORY"/*.json; do
     tourId="$(basename "$file" .json)"
     qrencode -o "${QR_CODES_OUTPUT_DIRECTORY}/${tourId}.png" -s 10 -m 2 "${TOURS_URL}/${tourId}/"
