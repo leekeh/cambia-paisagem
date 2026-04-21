@@ -49,6 +49,7 @@ const reviews = defineCollection({
     summary: localisedString,
     content: localisedString,
     tourSlug: z.string().optional(),
+    originalLanguage: z.enum(["pt", "en", "de"]),
   }),
 });
 

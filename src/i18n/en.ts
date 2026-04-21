@@ -60,8 +60,7 @@ export const en: Translations = {
       "Prices may vary depending on the number of participants. Smaller groups and individual travellers can be accommodated on request, subject to quotation.",
     sharedConditionsExclusions:
       "Entrance fees, meals, and optional activities are not included and are paid locally.",
-    sharedConditionsGuide:
-      "Optional private guide upgrade: +EUR 350 per day.",
+    sharedConditionsGuide: "Optional private guide upgrade: +EUR 350 per day.",
     sharedConditionsTransfers:
       "Transfers are available separately as an additional service.",
     sharedConditionsTransfersLink: "Book transfer",
@@ -71,6 +70,7 @@ export const en: Translations = {
   reviews: {
     pageTitle: "Client Reviews",
     backHome: "Back to home",
+    originalLanguage: "Translated from %language%",
   },
   booking: {
     title: "Book Tour",

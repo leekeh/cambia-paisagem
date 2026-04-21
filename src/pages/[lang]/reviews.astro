@@ -31,6 +31,8 @@ function formatDate(dateStr: string): string {
   );
 }
 
+const langNameFormatter = new Intl.DisplayNames([lang], { type: "language" });
+
 // Calculate average rating
 const avgRatingNum =
   allReviews.reduce((sum, r) => sum + r.data.rating, 0) / allReviews.length;
@@ -141,6 +143,16 @@ const organizationSchema = buildOrganizationSchema({
                 <p class="review-full-card__content">
                   {t(review.data.content, lang)}
                 </p>
+                {review.data.originalLanguage &&
+                review.data.originalLanguage !== lang ? (
+                  <p class="review-full-card__original-language">
+                    {tr.reviews.originalLanguage.replace(
+                      "%language%",
+                      langNameFormatter.of(review.data.originalLanguage) ||
+                        review.data.originalLanguage.toUpperCase(),
+                    )}
+                  </p>
+                ) : null}
               </article>
             );
           })
@@ -236,6 +248,12 @@ const organizationSchema = buildOrganizationSchema({
     flex-direction: column;
     align-items: flex-end;
     gap: var(--space-1);
+  }
+
+  .review-full-card__original-language {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
   }
 
   .review-full-card__date {

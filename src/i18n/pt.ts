@@ -58,8 +58,7 @@ export const pt = {
       "Os preços podem variar consoante o número de participantes. Grupos mais pequenos e viajantes individuais podem ser acomodados mediante pedido e orçamento.",
     sharedConditionsExclusions:
       "Entradas, refeições e atividades opcionais não estão incluídas e são pagas localmente.",
-    sharedConditionsGuide:
-      "Upgrade opcional para guia privado: +€350 por dia.",
+    sharedConditionsGuide: "Upgrade opcional para guia privado: +€350 por dia.",
     sharedConditionsTransfers:
       "Transfers disponíveis separadamente, como serviço adicional.",
     sharedConditionsTransfersLink: "Reservar transfer",
@@ -69,6 +68,7 @@ export const pt = {
   reviews: {
     pageTitle: "Comentários dos Clientes",
     backHome: "Voltar ao início",
+    originalLanguage: "Traduzido de %language%",
   },
   booking: {
     title: "Reservar Tour",

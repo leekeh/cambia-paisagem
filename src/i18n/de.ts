@@ -71,6 +71,7 @@ export const de: Translations = {
   reviews: {
     pageTitle: "Kundenbewertungen",
     backHome: "Zurück zur Startseite",
+    originalLanguage: "Übersetzt aus %language%",
   },
   booking: {
     title: "Tour Buchen",

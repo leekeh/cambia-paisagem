@@ -12,6 +12,8 @@ const { review, lang } = Astro.props;
 
 const tr = useTranslations(lang);
 
+const languageFormatter = new Intl.DisplayNames([lang], { type: "language" });
+
 const { data } = review;
 const formattedDate = data.date
   ? new Date(data.date).toLocaleDateString(
@@ -45,10 +47,21 @@ const formattedDate = data.date
       ))
     }
   </div>
-  <p class="review-card__summary">"{t(data.summary, lang)}"</p>
+  <p class="review-card__content">"{t(data.content, lang)}"</p>
   <footer class="review-card__footer">
     <span class="review-card__author">{data.author}</span>
     {formattedDate && <span class="review-card__date">{formattedDate}</span>}
+    {
+      data.originalLanguage && lang !== data.originalLanguage && (
+        <span class="review-card__original-language">
+          {tr.reviews.originalLanguage.replace(
+            "%language%",
+            languageFormatter.of(data.originalLanguage) ||
+              data.originalLanguage.toUpperCase(),
+          )}
+        </span>
+      )
+    }
   </footer>
 </article>
 
@@ -68,9 +81,8 @@ const formattedDate = data.date
     font-size: var(--text-xl);
   }
 
-  .review-card__summary {
+  .review-card__content {
     font-size: var(--text-base);
-    font-style: italic;
     margin-bottom: var(--space-3);
     line-height: 1.5;
   }
@@ -79,6 +91,7 @@ const formattedDate = data.date
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: var(--space-2);
   }
 
@@ -92,5 +105,13 @@ const formattedDate = data.date
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     opacity: 0.7;
+  }
+
+  .review-card__original-language {
+    width: 100%;
+    text-align: center;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
   }
 </style>
