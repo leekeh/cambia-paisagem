@@ -196,7 +196,7 @@ const carouselData = await Promise.all(
 <style>
   .tour-detail__hero {
     width: 100%;
-    max-height: 480px;
+    max-height: min(480px, 50dvh);
     object-fit: cover;
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-8);
@@ -204,10 +204,16 @@ const carouselData = await Promise.all(
 
   .tour-detail__title {
     font-family: var(--font-serif);
-    font-size: var(--text-5xl);
+    font-size: var(--text-3xl);
     line-height: 1;
     font-weight: 400;
     margin-bottom: var(--space-6);
+  }
+
+  @media (min-width: 800px) {
+    .tour-detail__title {
+      font-size: var(--text-5xl);
+    }
   }
 
   .tour-detail__meta {
