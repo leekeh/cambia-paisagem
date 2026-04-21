@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #
 # Created by André Carvalho on 3rd April 2026
-# Last modified: 3rd April 2026
+# Last modified: 21st April 2026
 #
 # A simple script generate a QR code base on a tour.
 #
 readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
 readonly HOME_URL="https://www.cambiatours.com/en"
-readonly TOURS_URL="https://www.cambiatours.com/en/tours"
+readonly TOURS_URL="${HOME_URL}/tours"
 readonly TOURS_DIRECTORY="${SCRIPT_DIRECTORY}/src/content/tours"
 readonly QR_CODES_OUTPUT_DIRECTORY="${SCRIPT_DIRECTORY}/output"
 
@@ -24,24 +24,29 @@ if ! [[ -x "$(command -v "qrencode")" ]]; then
 fi
 
 function spinner() {
-    local pid="$1"
-    local delay=0.1
-    local characters='⣷⣯⣟⡿⢿⣻⣽⣾'
-    local index=0
+	local pid="$1"
+	local delay=0.1
+	local characters='⣷⣯⣟⡿⢿⣻⣽⣾'
+	local index=0
 
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        index=$(( (index+1) % 8 ))
-        printf "\r${characters:$index:1} Running..."
-        sleep "$delay"
-    done
+	while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+		index=$(( (index+1) % 8 ))
+		printf "\r${characters:$index:1} Running..."
+		sleep "$delay"
+	done
+}
+
+function generateQrCode() {
+	qrencode -o "$2" -s 10 -m 2 "$1"
 }
 
 function main() {
-  qrencode -o "${QR_CODES_OUTPUT_DIRECTORY}/home.png" -s 10 -m 2 "${HOME_URL}"
-  for file in "$TOURS_DIRECTORY"/*.json; do
-    tourId="$(basename "$file" .json)"
-    qrencode -o "${QR_CODES_OUTPUT_DIRECTORY}/${tourId}.png" -s 10 -m 2 "${TOURS_URL}/${tourId}/"
-  done
+	generateQrCode "${HOME_URL}" "${QR_CODES_OUTPUT_DIRECTORY}/home.png"
+
+	for file in "$TOURS_DIRECTORY"/*.json; do
+		tourId="$(basename "$file" .json)"
+		generateQrCode "${TOURS_URL}/${tourId}/" "${QR_CODES_OUTPUT_DIRECTORY}/${tourId}.png"
+	done
 }
 
 echo ""
