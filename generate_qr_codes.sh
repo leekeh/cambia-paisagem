@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Created by André Carvalho on 3rd April 2026
-# Last modified: 21st April 2026
+# Last modified: 23rd April 2026
 #
 # A simple script generate a QR code base on a tour.
 #
@@ -10,7 +10,11 @@ readonly SCRIPT_DIRECTORY="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null &&
 readonly HOME_URL="https://www.cambiatours.com/en"
 readonly TOURS_URL="${HOME_URL}/tours"
 readonly TOURS_DIRECTORY="${SCRIPT_DIRECTORY}/src/content/tours"
+
 readonly QR_CODES_OUTPUT_DIRECTORY="${SCRIPT_DIRECTORY}/output"
+readonly QR_CODE_FOREGROUND_COLOR="313131"
+readonly QR_CODE_BACKGROUND_COLOR="F4F4F4"
+
 
 readonly RED='\033[1;31m'
 readonly GREEN='\033[1;32m'
@@ -37,7 +41,7 @@ function spinner() {
 }
 
 function generateQrCode() {
-	qrencode -o "$2" -s 10 -m 2 "$1"
+	qrencode -o "$2" -s 10 -m 2 --foreground=${QR_CODE_FOREGROUND_COLOR} --background=${QR_CODE_BACKGROUND_COLOR} "$1"
 }
 
 function main() {
