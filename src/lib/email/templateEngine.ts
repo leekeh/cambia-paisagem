@@ -123,7 +123,7 @@ function formatReadableDate(rawDate: string, locale: string): string {
 
   try {
     const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(input);
-    const formatter = new Intl.DateTimeFormat(locale || "en", {
+    const formatter = new Intl.DateTimeFormat("pt", {
       day: "numeric",
       month: "long",
       year: "numeric",
