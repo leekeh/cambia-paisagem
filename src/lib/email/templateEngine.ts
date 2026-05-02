@@ -110,7 +110,7 @@ function formatLanguageLabel(rawLang: string): string {
   if (!lang) return "";
 
   try {
-    const displayNames = new Intl.DisplayNames([lang], { type: "language" });
+    const displayNames = new Intl.DisplayNames("pt", { type: "language" });
     return displayNames.of(lang) ?? lang;
   } catch {
     return lang;
