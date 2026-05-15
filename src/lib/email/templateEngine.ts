@@ -117,7 +117,7 @@ function formatLanguageLabel(rawLang: string): string {
   }
 }
 
-function formatReadableDate(rawDate: string, locale: string): string {
+function formatReadableDate(rawDate: string): string {
   const input = rawDate.trim();
   if (!input) return "";
 
@@ -162,7 +162,7 @@ function normalizeValues(
 
   if ("date" in normalized) {
     const rawDate = coerce(values.date);
-    normalized.date = rawDate ? formatReadableDate(rawDate, langCode) : "";
+    normalized.date = rawDate ? formatReadableDate(rawDate) : "";
   }
 
   // Auto-derive phone-line from phone
