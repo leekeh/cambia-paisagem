@@ -4,6 +4,7 @@ import MantineProvider from "./MantineProvider";
 import styles from "./ToursFilter.module.css";
 import type { Lang } from "../i18n";
 import { durationFormat, formatDurationRange } from "../util";
+import { useWebMcpTool } from "../hooks/useWebMcpTool";
 
 interface Tour {
   slug: string;
@@ -29,6 +30,15 @@ interface Props {
   };
 }
 
+type SortOption = "price-asc" | "price-desc" | "duration-asc" | "duration-desc";
+
+const SORT_OPTIONS: SortOption[] = [
+  "price-asc",
+  "price-desc",
+  "duration-asc",
+  "duration-desc",
+];
+
 // Helper function to get minimum duration from a tour (handles both number and array)
 function getMinDuration(duration: number | number[]): number {
   return Array.isArray(duration) ? Math.min(...duration) : duration;
@@ -37,6 +47,34 @@ function getMinDuration(duration: number | number[]): number {
 // Helper function to get maximum duration from a tour (handles both number and array)
 function getMaxDuration(duration: number | number[]): number {
   return Array.isArray(duration) ? Math.max(...duration) : duration;
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
+
+/** Filters tours whose duration overlaps [minDur, maxDur], then sorts them. */
+function applySortAndFilter(
+  tours: Tour[],
+  { minDur, maxDur, sort }: { minDur: number; maxDur: number; sort: string | null },
+): Tour[] {
+  let list = tours.filter((t) => {
+    const tourMin = getMinDuration(t.duration);
+    const tourMax = getMaxDuration(t.duration);
+    return tourMin <= maxDur && tourMax >= minDur;
+  });
+
+  if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
+  if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
+  if (sort === "duration-asc")
+    list = [...list].sort(
+      (a, b) => getMinDuration(a.duration) - getMinDuration(b.duration),
+    );
+  if (sort === "duration-desc")
+    list = [...list].sort(
+      (a, b) => getMaxDuration(b.duration) - getMaxDuration(a.duration),
+    );
+  return list;
 }
 
 export default function ToursFilter(props: Props) {
@@ -54,33 +92,81 @@ function ToursFilterInner({ tours, translations: tr, lang }: Props) {
   );
   const minDuration = Math.min(...allDurations);
   const maxDuration = Math.max(...allDurations);
-  const [sort, setSort] = useState<string | null>("duration-asc");
+  const [sort, setSort] = useState<SortOption | null>("duration-asc");
   const [minDur, setMinDur] = useState(minDuration);
   const [maxDur, setMaxDur] = useState(maxDuration);
 
-  const filtered = useMemo(() => {
-    let list = tours.filter((t) => {
-      // Check if tour's duration (or any duration in array) falls within filter range
-      const tourMin = getMinDuration(t.duration);
-      const tourMax = getMaxDuration(t.duration);
-      // Tour matches if any of its durations overlap with the filter range
-      return tourMin <= maxDur && tourMax >= minDur;
-    });
+  const filtered = useMemo(
+    () => applySortAndFilter(tours, { minDur, maxDur, sort }),
+    [tours, sort, minDur, maxDur],
+  );
 
-    if (sort === "price-asc")
-      list = [...list].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc")
-      list = [...list].sort((a, b) => b.price - a.price);
-    if (sort === "duration-asc")
-      list = [...list].sort(
-        (a, b) => getMinDuration(a.duration) - getMinDuration(b.duration),
+  useWebMcpTool({
+    name: "search_tours",
+    description:
+      "Search and filter the tours shown on this page by duration range and sort order, returning the matching tours. Also updates the visible list and filter controls to reflect the search.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        minDuration: {
+          type: "number",
+          description: `Minimum tour duration in hours (available range: ${minDuration}-${maxDuration}).`,
+        },
+        maxDuration: {
+          type: "number",
+          description: `Maximum tour duration in hours (available range: ${minDuration}-${maxDuration}).`,
+        },
+        sortBy: {
+          type: "string",
+          enum: SORT_OPTIONS,
+          description:
+            "How to sort the results: by ascending/descending price or duration.",
+        },
+      },
+    },
+    annotations: { readOnlyHint: true },
+    execute: (input) => {
+      const nextMinDur = clamp(
+        typeof input.minDuration === "number"
+          ? input.minDuration
+          : minDuration,
+        minDuration,
+        maxDuration,
       );
-    if (sort === "duration-desc")
-      list = [...list].sort(
-        (a, b) => getMaxDuration(b.duration) - getMaxDuration(a.duration),
+      const nextMaxDur = clamp(
+        typeof input.maxDuration === "number"
+          ? input.maxDuration
+          : maxDuration,
+        minDuration,
+        maxDuration,
       );
-    return list;
-  }, [tours, sort, minDur, maxDur]);
+      const nextSort: SortOption | null =
+        typeof input.sortBy === "string" &&
+        (SORT_OPTIONS as string[]).includes(input.sortBy)
+          ? (input.sortBy as SortOption)
+          : sort;
+      const resolvedMinDur = Math.min(nextMinDur, nextMaxDur);
+      const resolvedMaxDur = Math.max(nextMinDur, nextMaxDur);
+
+      setMinDur(resolvedMinDur);
+      setMaxDur(resolvedMaxDur);
+      setSort(nextSort);
+
+      const results = applySortAndFilter(tours, {
+        minDur: resolvedMinDur,
+        maxDur: resolvedMaxDur,
+        sort: nextSort,
+      }).map((tour) => ({
+        slug: tour.slug,
+        title: tour.title,
+        price: tour.price,
+        duration: tour.duration,
+        url: tour.href,
+      }));
+
+      return { count: results.length, tours: results };
+    },
+  });
 
   return (
     <>

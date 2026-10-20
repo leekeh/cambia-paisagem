@@ -56,6 +56,17 @@ brew install qrencode
 
 The generated QR codes will be named after it's tour's name and can be found at `./output`
 
+## WebMCP 🤖
+
+The site exposes its contact, tour booking, and transfer booking forms as [WebMCP](https://webmachinelearning.github.io/webmcp/) tools via `document.modelContext`, so an AI agent browsing the site on a user's behalf can send a message or submit a booking request directly. Each tool opens the relevant (visible) form, fills it in, runs the same validation as a manual submission, and submits it to the existing API routes.
+
+- `search_tours` — registered in [ToursFilter.tsx](src/components/ToursFilter.tsx) on the tours listing page. Read-only: filters/sorts by duration and price, same as the visible controls, and returns the matching tours.
+- `send_contact_message` — registered in [ContactForm.tsx](src/components/ContactForm.tsx) on the contact page.
+- `book_tour` — registered in [BookingModal.tsx](src/components/BookingModal.tsx) on each tour's detail page.
+- `request_<transfer_type>_transfer` — registered in [TransferBookingModal.tsx](src/components/TransferBookingModal.tsx) for each transfer offered on the homepage.
+
+Tool registration is handled by the shared [useWebMcpTool](src/hooks/useWebMcpTool.ts) hook, which no-ops in browsers that don't support `document.modelContext` yet. WebMCP is currently only available behind an origin trial / the `chrome://flags/#enable-webmcp-testing` flag in recent Chrome builds, so most visitors won't trigger it. Types come from the [webmcp-types](https://www.npmjs.com/package/webmcp-types) package, referenced in [src/webmcp.d.ts](src/webmcp.d.ts).
+
 ## To do list ✏️
 
 - ~~improve email template~~
@@ -65,7 +76,7 @@ The generated QR codes will be named after it's tour's name and can be found at 
 - ~~add transfer service from airport to hotel and back.~~
 - ~~add tours received in email~~
 - ~~properly configure environmental variables for production and development~~
-- Add support for web mcp to send email requests
+- ~~Add support for web mcp to send email requests~~
 - add rate limiting to the contact apis
 - redirect on the server automatically to the correct language based on the browser settings. Dependent on https://github.com/withastro/astro/pull/15686
 - ~~fix env vars in production~~

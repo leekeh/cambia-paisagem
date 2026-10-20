@@ -17,6 +17,7 @@ import {
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useWebMcpTool } from "../hooks/useWebMcpTool";
 import MantineProvider from "./MantineProvider";
 
 interface Props {
@@ -73,7 +74,7 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
   };
 
   function handleSubmit(values: typeof form.values) {
-    submitFormWithStatus({
+    return submitFormWithStatus({
       form,
       values,
       setStatus,
@@ -82,6 +83,56 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
       toPayload: (currentValues) => toContactFormPayload(currentValues, lang),
     });
   }
+
+  useWebMcpTool({
+    name: "send_contact_message",
+    description:
+      "Send a message to Cambia Paisagem through the contact form on this page, optionally about a specific tour. Fills in and submits the visible contact form.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: "Full name of the sender." },
+        email: {
+          type: "string",
+          description: "Email address the business should reply to.",
+        },
+        phone: { type: "string", description: "Optional contact phone number." },
+        tour: {
+          type: "string",
+          description:
+            "Optional tour this message relates to. Must be one of the available tour values shown on the page.",
+          enum: tours.map((tour) => tour.value),
+        },
+        message: { type: "string", description: "The message content." },
+      },
+      required: ["name", "email", "message"],
+    },
+    annotations: { consequentialHint: true },
+    execute: async (input) => {
+      const values = {
+        name: String(input.name ?? ""),
+        email: String(input.email ?? ""),
+        phone: input.phone ? String(input.phone) : "",
+        tour: input.tour ? String(input.tour) : "",
+        message: String(input.message ?? ""),
+      };
+
+      form.setValues(values);
+      const { hasErrors, errors } = form.validate();
+      if (hasErrors) {
+        return `Could not send the message, please provide valid values: ${Object.entries(
+          errors,
+        )
+          .map(([field, message]) => `${field}: ${String(message)}`)
+          .join("; ")}`;
+      }
+
+      const result = await handleSubmit(form.getValues());
+      return result.ok
+        ? "The message was sent successfully."
+        : `Failed to send the message: ${result.error}`;
+    },
+  });
 
   if (status === "success") {
     return (

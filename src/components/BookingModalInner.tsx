@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useImperativeHandle, useState, type Ref } from "react";
 import {
   Modal,
   Button,
@@ -19,6 +19,7 @@ import MantineProvider from "./MantineProvider";
 import {
   submitFormWithStatus,
   toTourBookingPayload,
+  type ApiRequestResult,
   type FormStatus,
   validateEmail,
   validatePhone,
@@ -30,16 +31,33 @@ interface Props {
   lang: string;
   openSignal?: number;
   onReady?: () => void;
+  ref?: Ref<BookingToolHandle>;
   translations: {
     booking: Translations["booking"];
     tours: { book: Translations["tours"]["book"] };
   };
 }
 
-export default function BookingModalInner(props: Props) {
+/** Input accepted by the `book_tour` WebMCP tool, see BookingModal.tsx. */
+export interface BookingToolInput {
+  name?: string;
+  email?: string;
+  phone?: string;
+  /** ISO 8601 date (YYYY-MM-DD). */
+  date?: string;
+  guests?: number;
+  notes?: string;
+}
+
+export interface BookingToolHandle {
+  /** Opens the modal (if needed), fills in the form, validates it, and submits it. */
+  fillAndSubmit(input: BookingToolInput): Promise<ApiRequestResult>;
+}
+
+export default function BookingModalInner({ ref, ...props }: Props) {
   return (
     <MantineProvider>
-      <BookingModalInnerContent {...props} />
+      <BookingModalInnerContent {...props} ref={ref} />
     </MantineProvider>
   );
 }
@@ -51,6 +69,7 @@ function BookingModalInnerContent({
   translations: tr,
   openSignal = 0,
   onReady,
+  ref,
 }: Props) {
   const [opened, setOpened] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -103,7 +122,7 @@ function BookingModalInnerContent({
   };
 
   function handleSubmit(values: typeof form.values) {
-    submitFormWithStatus({
+    return submitFormWithStatus({
       form,
       values,
       setStatus,
@@ -117,6 +136,32 @@ function BookingModalInnerContent({
         }),
     });
   }
+
+  useImperativeHandle(ref, (): BookingToolHandle => ({
+    async fillAndSubmit(input) {
+      setOpened(true);
+      form.setValues({
+        name: input.name ?? "",
+        email: input.email ?? "",
+        phone: input.phone ?? "",
+        date: input.date ? new Date(input.date) : null,
+        guests: input.guests ?? 1,
+        notes: input.notes ?? "",
+      });
+
+      const { hasErrors, errors } = form.validate();
+      if (hasErrors) {
+        return {
+          ok: false,
+          error: Object.entries(errors)
+            .map(([field, message]) => `${field}: ${String(message)}`)
+            .join("; "),
+        };
+      }
+
+      return handleSubmit(form.getValues());
+    },
+  }));
 
   function handleCloseModal() {
     setOpened(false);

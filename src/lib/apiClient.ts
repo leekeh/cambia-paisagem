@@ -118,6 +118,25 @@ function parseApiError(error: unknown): string {
   return "Unknown error";
 }
 
+export type ApiRequestResult = { ok: true } | { ok: false; error: string };
+
+/**
+ * Type-safe POST wrapper that reports success/failure instead of throwing.
+ * Useful for callers (e.g. WebMCP tools) that need a definitive outcome
+ * rather than reading it back off of React state.
+ */
+async function submitApiRequest<TEndpoint extends keyof ApiEndpointMap>(
+  endpoint: TEndpoint,
+  payload: ApiEndpointMap[TEndpoint],
+): Promise<ApiRequestResult> {
+  try {
+    await postJson(endpoint, payload);
+    return { ok: true };
+  } catch (error) {
+    return { ok: false, error: parseApiError(error) };
+  }
+}
+
 interface SubmitFormOptions<TValues, TEndpoint extends keyof ApiEndpointMap> {
   form: UseFormReturnType<TValues>;
   values: TValues;
@@ -134,23 +153,25 @@ interface SubmitFormOptions<TValues, TEndpoint extends keyof ApiEndpointMap> {
 export async function submitFormWithStatus<
   TValues,
   TEndpoint extends keyof ApiEndpointMap,
->(options: SubmitFormOptions<TValues, TEndpoint>): Promise<void> {
+>(options: SubmitFormOptions<TValues, TEndpoint>): Promise<ApiRequestResult> {
   const { form, values, setStatus, toPayload, endpoint, logLabel } = options;
 
   setStatus("loading");
 
-  try {
-    const payload = toPayload(values);
-    await postJson(endpoint, payload);
+  const payload = toPayload(values);
+  const result = await submitApiRequest(endpoint, payload);
+
+  if (result.ok) {
     setStatus("success");
     // Don't reset here—let the caller decide when to reset after showing success message
-  } catch (error) {
-    const userMessage = parseApiError(error);
-    console.error(`${logLabel} submit failed:`, error);
+  } else {
+    console.error(`${logLabel} submit failed:`, result.error);
     setStatus("error");
     // Store error message in form state if needed (optional—for now just console.error)
-    (form as any)._lastError = userMessage;
+    (form as any)._lastError = result.error;
   }
+
+  return result;
 }
 
 export function toContactFormPayload(
