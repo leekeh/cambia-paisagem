@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useImperativeHandle, useState, type Ref } from "react";
 import {
   Modal,
   Button,
@@ -19,15 +19,18 @@ import MantineProvider from "./MantineProvider";
 import {
   submitFormWithStatus,
   toTransferPayload,
+  type ApiRequestResult,
   type FormStatus,
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useTurnstile } from "../hooks/useTurnstile";
 
 interface Props {
   lang: string;
   openSignal?: number;
   onReady?: () => void;
+  ref?: Ref<TransferToolHandle>;
   transferType?: string;
   modalTitle?: string;
   pickupPlaceholder?: string;
@@ -37,10 +40,33 @@ interface Props {
   };
 }
 
-export default function TransferBookingModalInner(props: Props) {
+/** Input accepted by the transfer booking WebMCP tool, see TransferBookingModal.tsx. */
+export interface TransferToolInput {
+  name?: string;
+  email?: string;
+  phone?: string;
+  pickup?: string;
+  dropoff?: string;
+  /** ISO 8601 date (YYYY-MM-DD). */
+  date?: string;
+  /** 24h time, as HH:MM. */
+  time?: string;
+  people?: number;
+  note?: string;
+}
+
+export interface TransferToolHandle {
+  /** Opens the modal (if needed), fills in the form, validates it, and submits it. */
+  fillAndSubmit(input: TransferToolInput): Promise<ApiRequestResult>;
+}
+
+export default function TransferBookingModalInner({
+  ref,
+  ...props
+}: Props) {
   return (
     <MantineProvider>
-      <TransferBookingModalInnerContent {...props} />
+      <TransferBookingModalInnerContent {...props} ref={ref} />
     </MantineProvider>
   );
 }
@@ -54,9 +80,11 @@ function TransferBookingModalInnerContent({
   translations: tr,
   openSignal = 0,
   onReady,
+  ref,
 }: Props) {
   const [opened, setOpened] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   useEffect(() => {
     if (openSignal > 0) {
@@ -120,16 +148,56 @@ function TransferBookingModalInnerContent({
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    submitFormWithStatus({
+  async function handleSubmit(
+    values: typeof form.values,
+  ): Promise<ApiRequestResult> {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
       endpoint: "/api/transfer",
       logLabel: "Transfer booking",
-      toPayload: (currentValues) => toTransferPayload(currentValues, lang),
+      toPayload: (currentValues) =>
+        toTransferPayload(currentValues, lang, token ?? ""),
     });
+    turnstile.reset();
+    return result;
   }
+
+  useImperativeHandle(ref, (): TransferToolHandle => ({
+    async fillAndSubmit(input) {
+      setOpened(true);
+      form.setValues({
+        name: input.name ?? "",
+        email: input.email ?? "",
+        phone: input.phone ?? "",
+        pickup: input.pickup ?? "",
+        dropoff: input.dropoff ?? "",
+        date: input.date ? new Date(input.date) : null,
+        time: input.time ?? "",
+        people: input.people ?? 1,
+        note: input.note ?? "",
+      });
+
+      const { hasErrors, errors } = form.validate();
+      if (hasErrors) {
+        return {
+          ok: false,
+          error: Object.entries(errors)
+            .map(([field, message]) => `${field}: ${String(message)}`)
+            .join("; "),
+        };
+      }
+
+      return handleSubmit(form.getValues());
+    },
+  }));
 
   function handleCloseModal() {
     setOpened(false);
@@ -256,6 +324,7 @@ function TransferBookingModalInnerContent({
                   {tr.transfer.error}
                 </Text>
               )}
+              <div ref={turnstile.containerRef} />
               <Group justify="flex-end" mt="md">
                 <Button
                   type="button"
@@ -269,7 +338,7 @@ function TransferBookingModalInnerContent({
                 <Button
                   type="submit"
                   loading={isLoading}
-                  disabled={isLoading}
+                  disabled={isLoading || (turnstile.enabled && !turnstile.token)}
                   radius="xl"
                 >
                   {tr.transfer.submit}

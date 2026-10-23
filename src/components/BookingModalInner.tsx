@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useImperativeHandle, useState, type Ref } from "react";
 import {
   Modal,
   Button,
@@ -19,10 +19,12 @@ import MantineProvider from "./MantineProvider";
 import {
   submitFormWithStatus,
   toTourBookingPayload,
+  type ApiRequestResult,
   type FormStatus,
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useTurnstile } from "../hooks/useTurnstile";
 
 interface Props {
   tourTitle: string;
@@ -30,16 +32,33 @@ interface Props {
   lang: string;
   openSignal?: number;
   onReady?: () => void;
+  ref?: Ref<BookingToolHandle>;
   translations: {
     booking: Translations["booking"];
     tours: { book: Translations["tours"]["book"] };
   };
 }
 
-export default function BookingModalInner(props: Props) {
+/** Input accepted by the `book_tour` WebMCP tool, see BookingModal.tsx. */
+export interface BookingToolInput {
+  name?: string;
+  email?: string;
+  phone?: string;
+  /** ISO 8601 date (YYYY-MM-DD). */
+  date?: string;
+  guests?: number;
+  notes?: string;
+}
+
+export interface BookingToolHandle {
+  /** Opens the modal (if needed), fills in the form, validates it, and submits it. */
+  fillAndSubmit(input: BookingToolInput): Promise<ApiRequestResult>;
+}
+
+export default function BookingModalInner({ ref, ...props }: Props) {
   return (
     <MantineProvider>
-      <BookingModalInnerContent {...props} />
+      <BookingModalInnerContent {...props} ref={ref} />
     </MantineProvider>
   );
 }
@@ -51,9 +70,11 @@ function BookingModalInnerContent({
   translations: tr,
   openSignal = 0,
   onReady,
+  ref,
 }: Props) {
   const [opened, setOpened] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   useEffect(() => {
     if (openSignal > 0) {
@@ -102,8 +123,16 @@ function BookingModalInnerContent({
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    submitFormWithStatus({
+  async function handleSubmit(
+    values: typeof form.values,
+  ): Promise<ApiRequestResult> {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
@@ -114,9 +143,38 @@ function BookingModalInnerContent({
           tour: tourTitle,
           tourSlug,
           lang,
+          turnstileToken: token ?? "",
         }),
     });
+    turnstile.reset();
+    return result;
   }
+
+  useImperativeHandle(ref, (): BookingToolHandle => ({
+    async fillAndSubmit(input) {
+      setOpened(true);
+      form.setValues({
+        name: input.name ?? "",
+        email: input.email ?? "",
+        phone: input.phone ?? "",
+        date: input.date ? new Date(input.date) : null,
+        guests: input.guests ?? 1,
+        notes: input.notes ?? "",
+      });
+
+      const { hasErrors, errors } = form.validate();
+      if (hasErrors) {
+        return {
+          ok: false,
+          error: Object.entries(errors)
+            .map(([field, message]) => `${field}: ${String(message)}`)
+            .join("; "),
+        };
+      }
+
+      return handleSubmit(form.getValues());
+    },
+  }));
 
   function handleCloseModal() {
     setOpened(false);
@@ -205,6 +263,7 @@ function BookingModalInnerContent({
                   {tr.booking.error}
                 </Text>
               )}
+              <div ref={turnstile.containerRef} />
               <Group justify="flex-end" mt="md">
                 <Button
                   type="button"
@@ -218,7 +277,7 @@ function BookingModalInnerContent({
                 <Button
                   type="submit"
                   loading={isLoading}
-                  disabled={isLoading}
+                  disabled={isLoading || (turnstile.enabled && !turnstile.token)}
                   radius="xl"
                 >
                   {tr.booking.submit}

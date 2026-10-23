@@ -56,6 +56,37 @@ brew install qrencode
 
 The generated QR codes will be named after it's tour's name and can be found at `./output`
 
+## WebMCP 🤖
+
+The site exposes its contact, tour booking, and transfer booking forms as [WebMCP](https://webmachinelearning.github.io/webmcp/) tools via `document.modelContext`, so an AI agent browsing the site on a user's behalf can send a message or submit a booking request directly. Each tool opens the relevant (visible) form, fills it in, runs the same validation as a manual submission, and submits it to the existing API routes.
+
+- `search_tours` — registered in [ToursFilter.tsx](src/components/ToursFilter.tsx) on the tours listing page. Read-only: filters/sorts by duration and price, same as the visible controls, and returns the matching tours.
+- `send_contact_message` — registered in [ContactForm.tsx](src/components/ContactForm.tsx) on the contact page.
+- `book_tour` — registered in [BookingModal.tsx](src/components/BookingModal.tsx) on each tour's detail page.
+- `request_<transfer_type>_transfer` — registered in [TransferBookingModal.tsx](src/components/TransferBookingModal.tsx) for each transfer offered on the homepage.
+
+Tool registration is handled by the shared [useWebMcpTool](src/hooks/useWebMcpTool.ts) hook, which no-ops in browsers that don't support `document.modelContext` yet. WebMCP is currently only available behind an origin trial / the `chrome://flags/#enable-webmcp-testing` flag in recent Chrome builds, so most visitors won't trigger it. Types come from the [webmcp-types](https://www.npmjs.com/package/webmcp-types) package, referenced in [src/webmcp.d.ts](src/webmcp.d.ts).
+
+## Spam protection 🛡️
+
+The contact, tour booking, and transfer API routes (`/api/contact-form`, `/api/tour-booking`, `/api/transfer`) are protected two ways:
+
+- **[Turnstile](https://developers.cloudflare.com/turnstile/)** (`src/lib/turnstile.ts`, `src/hooks/useTurnstile.ts`) — a widget on each form that must resolve before submission; verified server-side via Cloudflare's `siteverify` endpoint. **Fails closed**: if `TURNSTILE_SECRET_KEY` isn't configured, submissions are rejected rather than silently allowed through.
+- **Rate limiting** (`src/lib/rateLimit.ts`) — a Workers [Rate Limiting binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/rate-limit/) keyed by IP + route. **Fails open**: if the `RATE_LIMITER` binding isn't present, requests aren't blocked — this is defense-in-depth, not the primary gate.
+
+Both are designed to coexist with the WebMCP tools above: the tools fill in and submit the same live, on-page form a human would (see [BookingModal.tsx](src/components/BookingModal.tsx)'s `waitUntilReady()`/ref pattern), so Turnstile's widget runs in that real page the same way, and `handleSubmit` waits (`waitForToken`) for a token to resolve before posting — whether the submission was triggered by a click or by an agent's tool call.
+
+**Required setup — Cloudflare dashboard:**
+
+1. **Turnstile** (needed before deploying this, or the forms will reject all submissions):
+   - Dashboard → **Turnstile** → **Add widget**. Name it, add your domain (`cambiatours.com`, and `localhost` if you want to test against the real widget instead of test keys), mode **Managed**, create.
+   - Copy the **Site Key** → set as `PUBLIC_TURNSTILE_SITE_KEY` in the Pages project's **Settings → Environment variables** (plain, not encrypted — it's public).
+   - Copy the **Secret Key** → set as `TURNSTILE_SECRET_KEY` in the same place, but as a **Secret/Encrypted** variable.
+   - Set both for both Production and Preview environments.
+2. **Rate limiting**: can't be added from the dashboard (no UI for this binding type yet) — see the to-do item below, this needs a `wrangler.jsonc` committed to the repo instead.
+
+For local development, `.dev.vars.example` and `.env.example` document Cloudflare's official ["always passes" test keys](https://developers.cloudflare.com/turnstile/troubleshooting/testing/) so you don't need a real Turnstile account to run `pnpm dev`.
+
 ## To do list ✏️
 
 - ~~improve email template~~
@@ -65,7 +96,7 @@ The generated QR codes will be named after it's tour's name and can be found at 
 - ~~add transfer service from airport to hotel and back.~~
 - ~~add tours received in email~~
 - ~~properly configure environmental variables for production and development~~
-- Add support for web mcp to send email requests
-- add rate limiting to the contact apis
+- ~~Add support for web mcp to send email requests~~
+- ~~add rate limiting to the contact apis~~ (Turnstile is live; the `RATE_LIMITER` binding still needs a `wrangler.jsonc` — see "Spam protection" above)
 - redirect on the server automatically to the correct language based on the browser settings. Dependent on https://github.com/withastro/astro/pull/15686
 - ~~fix env vars in production~~

@@ -17,6 +17,8 @@ import {
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useWebMcpTool } from "../hooks/useWebMcpTool";
+import { useTurnstile } from "../hooks/useTurnstile";
 import MantineProvider from "./MantineProvider";
 
 interface Props {
@@ -35,6 +37,7 @@ export default function ContactForm(props: Props) {
 
 function ContactFormInner({ tours, translations: tr, lang }: Props) {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   const form = useForm({
     initialValues: {
@@ -72,16 +75,75 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    submitFormWithStatus({
+  async function handleSubmit(values: typeof form.values) {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false as const, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
       endpoint: "/api/contact-form",
       logLabel: "Contact form",
-      toPayload: (currentValues) => toContactFormPayload(currentValues, lang),
+      toPayload: (currentValues) =>
+        toContactFormPayload(currentValues, lang, token ?? ""),
     });
+    turnstile.reset();
+    return result;
   }
+
+  useWebMcpTool({
+    name: "send_contact_message",
+    description:
+      "Send a message to Cambia Paisagem through the contact form on this page, optionally about a specific tour. Fills in and submits the visible contact form.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: "Full name of the sender." },
+        email: {
+          type: "string",
+          description: "Email address the business should reply to.",
+        },
+        phone: { type: "string", description: "Optional contact phone number." },
+        tour: {
+          type: "string",
+          description:
+            "Optional tour this message relates to. Must be one of the available tour values shown on the page.",
+          enum: tours.map((tour) => tour.value),
+        },
+        message: { type: "string", description: "The message content." },
+      },
+      required: ["name", "email", "message"],
+    },
+    annotations: { consequentialHint: true },
+    execute: async (input) => {
+      const values = {
+        name: String(input.name ?? ""),
+        email: String(input.email ?? ""),
+        phone: input.phone ? String(input.phone) : "",
+        tour: input.tour ? String(input.tour) : "",
+        message: String(input.message ?? ""),
+      };
+
+      form.setValues(values);
+      const { hasErrors, errors } = form.validate();
+      if (hasErrors) {
+        return `Could not send the message, please provide valid values: ${Object.entries(
+          errors,
+        )
+          .map(([field, message]) => `${field}: ${String(message)}`)
+          .join("; ")}`;
+      }
+
+      const result = await handleSubmit(form.getValues());
+      return result.ok
+        ? "The message was sent successfully."
+        : `Failed to send the message: ${result.error}`;
+    },
+  });
 
   if (status === "success") {
     return (
@@ -141,11 +203,12 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
             {tr.error}
           </Text>
         )}
+        <div ref={turnstile.containerRef} />
         <Group justify="flex-end" mt="md">
           <Button
             type="submit"
             loading={isLoading}
-            disabled={isLoading}
+            disabled={isLoading || (turnstile.enabled && !turnstile.token)}
             radius="xl"
             size="md"
           >

@@ -8,10 +8,19 @@ import {
 } from "../../lib/email/templates";
 import { sendEmails } from "../../lib/email/sender";
 import { validateEmail, validatePhone } from "../../lib/validators";
+import { checkRateLimit } from "../../lib/rateLimit";
+import { verifyTurnstileToken } from "../../lib/turnstile";
 import { env as cloudflareEnv } from "cloudflare:workers";
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    if (!(await checkRateLimit(request, "tour-booking"))) {
+      return new Response(
+        JSON.stringify({ error: "Too many requests, please try again later." }),
+        { status: 429 },
+      );
+    }
+
     const body = await request.json();
 
     const name = typeof body?.name === "string" ? body.name.trim() : "";
@@ -43,6 +52,13 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: phoneError }), {
         status: 400,
       });
+    }
+
+    if (!(await verifyTurnstileToken(body?.turnstileToken, request))) {
+      return new Response(
+        JSON.stringify({ error: "Verification failed, please try again." }),
+        { status: 400 },
+      );
     }
 
     const ownerMessage = parseTemplate(ownerBookingTemplate, body);
