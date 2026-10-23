@@ -62,8 +62,9 @@ export function buildOrganizationSchema({
   const aggregateRating = buildAggregateRating(reviews);
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness"],
+    "@type": ["TravelAgency", "LocalBusiness"],
     name: SITE_NAME,
+    alternateName: "Cambiatours",
     url: site?.href ?? "/",
     telephone: phoneNumber,
     email: emailAddress,
@@ -72,6 +73,15 @@ export function buildOrganizationSchema({
       addressCountry: "PT",
       addressLocality: "Lisbon",
     },
+    areaServed: [
+      "Lisbon",
+      "Sintra",
+      "Évora",
+      "Óbidos",
+      "Fátima",
+      "Setúbal",
+    ],
+    sameAs: ["https://maps.google.com/?cid=9070540022009535179"],
     ...(aggregateRating && { aggregateRating }),
     ...(reviews.length > 0 && { review: buildReviewSchemas(reviews, lang) }),
   };
