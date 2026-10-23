@@ -3,6 +3,10 @@ declare module "cloudflare:workers" {
     RESEND_API_KEY: string;
     FROM_EMAIL: string;
     CONTACT_EMAIL: string;
-    [key: string]: string | undefined;
+    TURNSTILE_SECRET_KEY: string;
+    /** Declared in wrangler.jsonc; not yet addable from the Cloudflare dashboard. */
+    RATE_LIMITER?: {
+      limit(options: { key: string }): Promise<{ success: boolean }>;
+    };
   };
 }

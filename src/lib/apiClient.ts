@@ -23,6 +23,7 @@ interface ContactFormPayload {
   tour: string;
   message: string;
   lang: string;
+  turnstileToken: string;
 }
 
 interface TourBookingPayload {
@@ -35,6 +36,7 @@ interface TourBookingPayload {
   tour: string;
   tourSlug: string;
   lang: string;
+  turnstileToken: string;
 }
 
 interface TransferPayload {
@@ -49,6 +51,7 @@ interface TransferPayload {
   people: number;
   note: string;
   lang: string;
+  turnstileToken: string;
 }
 
 /**
@@ -180,10 +183,12 @@ export function toContactFormPayload(
     "name" | "email" | "phone" | "tour" | "message"
   >,
   lang: string,
+  turnstileToken: string,
 ): ContactFormPayload {
   return {
     ...values,
     lang,
+    turnstileToken,
   };
 }
 
@@ -196,7 +201,7 @@ export function toTourBookingPayload(
     guests: number;
     notes: string;
   },
-  meta: { tour: string; tourSlug: string; lang: string },
+  meta: { tour: string; tourSlug: string; lang: string; turnstileToken: string },
 ): TourBookingPayload {
   const serializedDate =
     values.date instanceof Date
@@ -215,6 +220,7 @@ export function toTourBookingPayload(
     tour: meta.tour,
     tourSlug: meta.tourSlug,
     lang: meta.lang,
+    turnstileToken: meta.turnstileToken,
   };
 }
 
@@ -232,6 +238,7 @@ export function toTransferPayload(
     note: string;
   },
   lang: string,
+  turnstileToken: string,
 ): TransferPayload {
   const serializedDate =
     values.date instanceof Date
@@ -252,6 +259,7 @@ export function toTransferPayload(
     people: values.people,
     note: values.note,
     lang,
+    turnstileToken,
   };
 }
 

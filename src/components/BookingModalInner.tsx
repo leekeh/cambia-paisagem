@@ -24,6 +24,7 @@ import {
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useTurnstile } from "../hooks/useTurnstile";
 
 interface Props {
   tourTitle: string;
@@ -73,6 +74,7 @@ function BookingModalInnerContent({
 }: Props) {
   const [opened, setOpened] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   useEffect(() => {
     if (openSignal > 0) {
@@ -121,8 +123,16 @@ function BookingModalInnerContent({
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    return submitFormWithStatus({
+  async function handleSubmit(
+    values: typeof form.values,
+  ): Promise<ApiRequestResult> {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
@@ -133,8 +143,11 @@ function BookingModalInnerContent({
           tour: tourTitle,
           tourSlug,
           lang,
+          turnstileToken: token ?? "",
         }),
     });
+    turnstile.reset();
+    return result;
   }
 
   useImperativeHandle(ref, (): BookingToolHandle => ({
@@ -250,6 +263,7 @@ function BookingModalInnerContent({
                   {tr.booking.error}
                 </Text>
               )}
+              <div ref={turnstile.containerRef} />
               <Group justify="flex-end" mt="md">
                 <Button
                   type="button"
@@ -263,7 +277,7 @@ function BookingModalInnerContent({
                 <Button
                   type="submit"
                   loading={isLoading}
-                  disabled={isLoading}
+                  disabled={isLoading || (turnstile.enabled && !turnstile.token)}
                   radius="xl"
                 >
                   {tr.booking.submit}

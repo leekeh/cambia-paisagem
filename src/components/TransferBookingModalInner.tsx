@@ -24,6 +24,7 @@ import {
   validateEmail,
   validatePhone,
 } from "../lib/apiClient";
+import { useTurnstile } from "../hooks/useTurnstile";
 
 interface Props {
   lang: string;
@@ -83,6 +84,7 @@ function TransferBookingModalInnerContent({
 }: Props) {
   const [opened, setOpened] = useState(false);
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   useEffect(() => {
     if (openSignal > 0) {
@@ -146,15 +148,26 @@ function TransferBookingModalInnerContent({
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    return submitFormWithStatus({
+  async function handleSubmit(
+    values: typeof form.values,
+  ): Promise<ApiRequestResult> {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
       endpoint: "/api/transfer",
       logLabel: "Transfer booking",
-      toPayload: (currentValues) => toTransferPayload(currentValues, lang),
+      toPayload: (currentValues) =>
+        toTransferPayload(currentValues, lang, token ?? ""),
     });
+    turnstile.reset();
+    return result;
   }
 
   useImperativeHandle(ref, (): TransferToolHandle => ({
@@ -311,6 +324,7 @@ function TransferBookingModalInnerContent({
                   {tr.transfer.error}
                 </Text>
               )}
+              <div ref={turnstile.containerRef} />
               <Group justify="flex-end" mt="md">
                 <Button
                   type="button"
@@ -324,7 +338,7 @@ function TransferBookingModalInnerContent({
                 <Button
                   type="submit"
                   loading={isLoading}
-                  disabled={isLoading}
+                  disabled={isLoading || (turnstile.enabled && !turnstile.token)}
                   radius="xl"
                 >
                   {tr.transfer.submit}

@@ -18,6 +18,7 @@ import {
   validatePhone,
 } from "../lib/apiClient";
 import { useWebMcpTool } from "../hooks/useWebMcpTool";
+import { useTurnstile } from "../hooks/useTurnstile";
 import MantineProvider from "./MantineProvider";
 
 interface Props {
@@ -36,6 +37,7 @@ export default function ContactForm(props: Props) {
 
 function ContactFormInner({ tours, translations: tr, lang }: Props) {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const turnstile = useTurnstile();
 
   const form = useForm({
     initialValues: {
@@ -73,15 +75,24 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
     };
   };
 
-  function handleSubmit(values: typeof form.values) {
-    return submitFormWithStatus({
+  async function handleSubmit(values: typeof form.values) {
+    const token = turnstile.token ?? (await turnstile.waitForToken());
+    if (turnstile.enabled && !token) {
+      setStatus("error");
+      return { ok: false as const, error: "Verification not ready, please try again." };
+    }
+
+    const result = await submitFormWithStatus({
       form,
       values,
       setStatus,
       endpoint: "/api/contact-form",
       logLabel: "Contact form",
-      toPayload: (currentValues) => toContactFormPayload(currentValues, lang),
+      toPayload: (currentValues) =>
+        toContactFormPayload(currentValues, lang, token ?? ""),
     });
+    turnstile.reset();
+    return result;
   }
 
   useWebMcpTool({
@@ -192,11 +203,12 @@ function ContactFormInner({ tours, translations: tr, lang }: Props) {
             {tr.error}
           </Text>
         )}
+        <div ref={turnstile.containerRef} />
         <Group justify="flex-end" mt="md">
           <Button
             type="submit"
             loading={isLoading}
-            disabled={isLoading}
+            disabled={isLoading || (turnstile.enabled && !turnstile.token)}
             radius="xl"
             size="md"
           >
