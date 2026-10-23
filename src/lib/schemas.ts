@@ -12,6 +12,22 @@ function absUrl(path: string, site?: URL): string {
   return site ? new URL(path, site).href : path;
 }
 
+/** Tours are an in-person service with no physical shipment. */
+function buildOffer(price: number, url: string): Record<string, unknown> {
+  return {
+    "@type": "Offer",
+    price,
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url,
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingDestination: { "@type": "DefinedRegion", addressCountry: "PT" },
+      doesNotShip: true,
+    },
+  };
+}
+
 // ── Review building blocks ─────────────────────────────────────────────────
 
 function buildReviewSchemas(reviews: CollectionEntry<"reviews">[], lang: Lang) {
@@ -118,13 +134,7 @@ export function buildProductSchema({
     image: imageUrl,
     url,
     brand: BRAND,
-    offers: {
-      "@type": "Offer",
-      price,
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-      url,
-    },
+    offers: buildOffer(price, url),
     ...(aggregateRating && { aggregateRating }),
     ...(reviews.length > 0 && { review: buildReviewSchemas(reviews, lang) }),
   };
@@ -136,8 +146,10 @@ interface ItemListSchemaParams {
   tours: Array<{
     slug: string;
     title: string;
+    description: string;
     price: number;
     imageUrl: string;
+    reviews: CollectionEntry<"reviews">[];
   }>;
   site?: URL;
 }
@@ -154,21 +166,26 @@ export function buildItemListSchema({
     name: label,
     url: absUrl(`/${lang}/tours`, site),
     numberOfItems: tours.length,
-    itemListElement: tours.map((tour, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: tour.title,
-        url: absUrl(`/${lang}/tours/${tour.slug}`, site),
-        image: absUrl(tour.imageUrl, site),
-        offers: {
-          "@type": "Offer",
-          price: tour.price,
-          priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
+    itemListElement: tours.map((tour, index) => {
+      const url = absUrl(`/${lang}/tours/${tour.slug}`, site);
+      const aggregateRating = buildAggregateRating(tour.reviews);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: tour.title,
+          description: tour.description,
+          url,
+          image: absUrl(tour.imageUrl, site),
+          brand: BRAND,
+          offers: buildOffer(tour.price, url),
+          ...(aggregateRating && { aggregateRating }),
+          ...(tour.reviews.length > 0 && {
+            review: buildReviewSchemas(tour.reviews, lang),
+          }),
         },
-      },
-    })),
+      };
+    }),
   };
 }

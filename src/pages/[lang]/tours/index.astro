@@ -15,6 +15,7 @@ const { lang } = Astro.params as { lang: Lang };
 const tr = useTranslations(lang);
 
 const allTours = await getCollection("tours");
+const allReviews = await getCollection("reviews");
 
 // Pre-optimise images so we can pass URLs to the client-side component
 const toursData = await Promise.all(
@@ -27,12 +28,14 @@ const toursData = await Promise.all(
     return {
       slug: tour.data.slug,
       title: t(tour.data.title, lang),
+      description: t(tour.data.description, lang),
       price: tour.data.price,
       duration: tour.data.duration,
       imageUrl: img.src,
       href: `/${lang}/tours/${tour.data.slug}`,
       viewMoreLabel: tr.home.viewMore,
       fromLabel: tr.tours.from,
+      reviews: allReviews.filter((r) => r.data.tourSlug === tour.data.slug),
     };
   }),
 );
